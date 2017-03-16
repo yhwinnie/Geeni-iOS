@@ -1,0 +1,6 @@
+framework module Pods_Geeni_iOS {
+  umbrella header "Pods-Geeni-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

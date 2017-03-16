@@ -12,6 +12,7 @@
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
 		4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */; };
+		5A03F38F49C52473E1BA2467 /* Pods_Geeni_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		4CF45AED1E7B0DF000768999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CF45AF01E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF45AF21E7B0DF000768999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geeni_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A03F38F49C52473E1BA2467 /* Pods_Geeni_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02D5748AA4DDFDAAC7AE7618 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4CF45ADA1E7B0DF000768999 = {
 			isa = PBXGroup;
 			children = (
 				4CF45AE51E7B0DF000768999 /* Geeni-iOS */,
 				4CF45AE41E7B0DF000768999 /* Products */,
+				EFEF87F36CEEB3DE0DAE9FF9 /* Pods */,
+				02D5748AA4DDFDAAC7AE7618 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = "Geeni-iOS";
 			sourceTree = "<group>";
 		};
+		EFEF87F36CEEB3DE0DAE9FF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */,
+				E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4CF45AF51E7B0DF000768999 /* Build configuration list for PBXNativeTarget "Geeni-iOS" */;
 			buildPhases = (
+				0D7AAD91D43A2DB4EEE601BB /* [CP] Check Pods Manifest.lock */,
 				4CF45ADF1E7B0DF000768999 /* Sources */,
 				4CF45AE01E7B0DF000768999 /* Frameworks */,
 				4CF45AE11E7B0DF000768999 /* Resources */,
+				E8F6E5E870013DEDA1C44EE3 /* [CP] Embed Pods Frameworks */,
+				E399152B5E27CBD2FFAAFB1A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D7AAD91D43A2DB4EEE601BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E399152B5E27CBD2FFAAFB1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8F6E5E870013DEDA1C44EE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4CF45ADF1E7B0DF000768999 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		4CF45AF61E7B0DF000768999 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UE72JTA7FC;
@@ -270,6 +346,7 @@
 		};
 		4CF45AF71E7B0DF000768999 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = UE72JTA7FC;
