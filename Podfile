@@ -6,8 +6,8 @@ target 'Geeni-iOS' do
   use_frameworks!
 
   # Pods for Geeni-iOS
-	pod 'SWRevealViewController'
 	pod 'Firebase'
 	pod 'FirebaseDatabase'
+	pod 'SWRevealViewController'
 
 end

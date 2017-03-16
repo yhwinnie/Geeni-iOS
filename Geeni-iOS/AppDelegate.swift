@@ -25,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: controller)
         window?.rootViewController = navigationController
         
+        // Calling the loginViewController
+        let loginViewController = LoginViewController()
+        //let navigationController = UINavigationController(rootViewController: loginViewController)
+        window?.rootViewController = loginViewController
+        
         return true
     }
 
