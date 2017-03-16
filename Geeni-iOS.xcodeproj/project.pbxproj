@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
+		4CF45AE91E7B0DF000768999 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE81E7B0DF000768999 /* ViewController.swift */; };
+		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
+		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
+		4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4CF45AE81E7B0DF000768999 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4CF45AED1E7B0DF000768999 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4CF45AF01E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4CF45AF21E7B0DF000768999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4CF45AE01E7B0DF000768999 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4CF45ADA1E7B0DF000768999 = {
+			isa = PBXGroup;
+			children = (
+				4CF45AE51E7B0DF000768999 /* Geeni-iOS */,
+				4CF45AE41E7B0DF000768999 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4CF45AE41E7B0DF000768999 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4CF45AE51E7B0DF000768999 /* Geeni-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
+				4CF45AE81E7B0DF000768999 /* ViewController.swift */,
+				4CF45AEA1E7B0DF000768999 /* Main.storyboard */,
+				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
+				4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */,
+				4CF45AF21E7B0DF000768999 /* Info.plist */,
+			);
+			path = "Geeni-iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CF45AE21E7B0DF000768999 /* Geeni-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CF45AF51E7B0DF000768999 /* Build configuration list for PBXNativeTarget "Geeni-iOS" */;
+			buildPhases = (
+				4CF45ADF1E7B0DF000768999 /* Sources */,
+				4CF45AE01E7B0DF000768999 /* Frameworks */,
+				4CF45AE11E7B0DF000768999 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Geeni-iOS";
+			productName = "Geeni-iOS";
+			productReference = 4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4CF45ADB1E7B0DF000768999 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = wiwen;
+				TargetAttributes = {
+					4CF45AE21E7B0DF000768999 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = UE72JTA7FC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 4CF45ADE1E7B0DF000768999 /* Build configuration list for PBXProject "Geeni-iOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4CF45ADA1E7B0DF000768999;
+			productRefGroup = 4CF45AE41E7B0DF000768999 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4CF45AE21E7B0DF000768999 /* Geeni-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4CF45AE11E7B0DF000768999 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */,
+				4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */,
+				4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4CF45ADF1E7B0DF000768999 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CF45AE91E7B0DF000768999 /* ViewController.swift in Sources */,
+				4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4CF45AEA1E7B0DF000768999 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CF45AEB1E7B0DF000768999 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4CF45AF01E7B0DF000768999 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4CF45AF31E7B0DF000768999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4CF45AF41E7B0DF000768999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4CF45AF61E7B0DF000768999 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UE72JTA7FC;
+				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4CF45AF71E7B0DF000768999 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = UE72JTA7FC;
+				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4CF45ADE1E7B0DF000768999 /* Build configuration list for PBXProject "Geeni-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CF45AF31E7B0DF000768999 /* Debug */,
+				4CF45AF41E7B0DF000768999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4CF45AF51E7B0DF000768999 /* Build configuration list for PBXNativeTarget "Geeni-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4CF45AF61E7B0DF000768999 /* Debug */,
+				4CF45AF71E7B0DF000768999 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4CF45ADB1E7B0DF000768999 /* Project object */;
+}
