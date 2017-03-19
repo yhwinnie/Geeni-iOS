@@ -21,14 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // Can change for later purposes
-        let controller = NewsFeedViewController()
-        let navigationController = UINavigationController(rootViewController: controller)
+//        let controller = NewsFeedViewController()
+//        let navigationController = UINavigationController(rootViewController: controller)
+//        window?.rootViewController = navigationController
+        
+        // Calling postViewController
+        let postViewController = AddCardViewController()
+        let navigationController = UINavigationController(rootViewController: postViewController)
         window?.rootViewController = navigationController
+
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         // Calling the loginViewController
-        let loginViewController = LoginViewController()
-        //let navigationController = UINavigationController(rootViewController: loginViewController)
-        window?.rootViewController = loginViewController
+//        let loginViewController = LoginViewController()
+//        //let navigationController = UINavigationController(rootViewController: loginViewController)
+//        window?.rootViewController = loginViewController
         
         return true
     }
