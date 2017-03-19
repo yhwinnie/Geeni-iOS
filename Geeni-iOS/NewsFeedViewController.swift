@@ -122,7 +122,6 @@ class StudentCell: UITableViewCell {
 //        addConstrainsWithFormat(format: "V:|[v0]|", views: studentName)
         
         // Top Constraints
-        addConstrainsWithFormat(format: <#T##String#>, views: <#T##UIView...##UIView#>)
     }
     
     func handleAction() {

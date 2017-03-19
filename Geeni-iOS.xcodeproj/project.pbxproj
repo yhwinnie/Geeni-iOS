@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C90142D1E7B1236005AC2FA /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */; };
 		2CAF613C1E7B229B00876C4D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF613B1E7B229B00876C4D /* Utils.swift */; };
+		4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */; };
+		4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */; };
 		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		2CAF613B1E7B229B00876C4D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,22 +82,17 @@
 			isa = PBXGroup;
 			children = (
 				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
-<<<<<<< HEAD
+				4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */,
 				2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */,
-				4CF45AE81E7B0DF000768999 /* ViewController.swift */,
-=======
->>>>>>> 93a8e0b16f89442d9c53b246b0621921dd7d1138
 				4CF45AEA1E7B0DF000768999 /* Main.storyboard */,
 				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
 				4CF45AFE1E7B291900768999 /* add-photo.png */,
 				4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */,
 				4CF45AF21E7B0DF000768999 /* Info.plist */,
-<<<<<<< HEAD
 				2CAF613B1E7B229B00876C4D /* Utils.swift */,
-=======
 				4CF45AF81E7B115F00768999 /* LoginViewController.swift */,
 				4CF45AFC1E7B19B500768999 /* PostViewController.swift */,
->>>>>>> 93a8e0b16f89442d9c53b246b0621921dd7d1138
+				4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */,
 			);
 			path = "Geeni-iOS";
 			sourceTree = "<group>";
@@ -142,7 +141,7 @@
 				TargetAttributes = {
 					4CF45AE21E7B0DF000768999 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = K9TWPND6VP;
+						DevelopmentTeam = UE72JTA7FC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -232,6 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */,
+				4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */,
 				4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */,
 				4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */,
 				4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */,
@@ -358,7 +359,7 @@
 			baseConfigurationReference = 6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K9TWPND6VP;
+				DEVELOPMENT_TEAM = UE72JTA7FC;
 				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -373,7 +374,7 @@
 			baseConfigurationReference = E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = K9TWPND6VP;
+				DEVELOPMENT_TEAM = UE72JTA7FC;
 				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
