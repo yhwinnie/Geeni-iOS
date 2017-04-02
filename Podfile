@@ -10,6 +10,11 @@ target 'Geeni-iOS' do
 	pod 'FirebaseDatabase'
 	pod 'SWRevealViewController'
 	pod 'CLTimer'
+	pod 'KeychainAccess'
+	pod 'Gloss'
+	pod 'Alamofire'
+	pod 'Firebase/Auth'
+	pod 'GoogleSignIn'
 
 
 
