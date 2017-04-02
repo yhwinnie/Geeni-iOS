@@ -7,21 +7,19 @@
 //
 
 import UIKit
+import SWRevealViewController
+
 class SideMenuTableViewController: UITableViewController {
     
-    let sections: [String] = ["NAME", "NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
+    let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
 
-    var mainViewController: UIViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = UIColor.black
         tableView.separatorColor = UIColor.darkGray
         
-        mainViewController = PostViewController()
         
     }
 
@@ -33,7 +31,7 @@ class SideMenuTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 9
+        return 8
     }
 
     
@@ -53,21 +51,50 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch indexPath.row {
-//        case 0:
-//            let newsFeedController = NewsFeedViewController()
-//            let navigationController = UINavigationController(rootViewController: newsFeedController)
-//            
-//            present(navigationController, animated: true, completion: nil)
-//            
-//        default: let postViewController = PresentedViewController()
-//        
-//        let navigationController = UINavigationController(rootViewController: postViewController)
-//       
-//        present(navigationController, animated: true, completion: nil)
-//            
-//
-//        }
+        switch indexPath.row {
+        case 1:
+            
+            let newPost: UIViewController = UIStoryboard(name: "NewPost", bundle: nil).instantiateViewController(withIdentifier: "NewPost") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(newPost, animated: true)
+            
+        case 2:
+            
+            let schedule: UIViewController = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "Schedule") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(schedule, animated: true)
+            
+        case 3:
+            let messages: UIViewController = UIStoryboard(name: "Messages", bundle: nil).instantiateViewController(withIdentifier: "Messages") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(messages, animated: true)
+        case 4:
+            let wallet: UIViewController = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "Wallet") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(wallet, animated: true)
+        case 5:
+            let cards: UIViewController = UIStoryboard(name: "ListCard", bundle: nil).instantiateViewController(withIdentifier: "ListCard") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(cards, animated: true)
+            
+        case 6:
+            let becomeTutor: UIViewController = UIStoryboard(name: "BecomeTutor", bundle: nil).instantiateViewController(withIdentifier: "BecomeTutor") as! UINavigationController
+            
+            
+            self.revealViewController().pushFrontViewController(becomeTutor, animated: true)
+            
+        
+
+        default: break
+            
+            
+
+        }
     }
  
 }

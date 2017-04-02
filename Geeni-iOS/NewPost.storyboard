@@ -1,7 +1,231 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2WT-IJ-Spb">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="nWs-md-4aV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSf-FN-9vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="NewPost" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2WT-IJ-Spb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hej-BI-lZj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hZS-yF-lKv" kind="relationship" relationship="rootViewController" id="n2v-E9-lmH"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-782" y="-24"/>
+        </scene>
+        <!--New Post-->
+        <scene sceneID="Aen-3a-g6p">
+            <objects>
+                <viewController id="hZS-yF-lKv" customClass="PostViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U1P-iY-MkY"/>
+                        <viewControllerLayoutGuide type="bottom" id="fh0-fU-DF6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sZU-NM-BJH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1h-sd-YVe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGE-CC-QdY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COURSE NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTO-33-78C">
+                                                <rect key="frame" x="10" y="5" width="120" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IF-iq-CNl" customClass="CustomTextField" customModule="Geeni_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="41" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hd-5g-lj5">
+                                                <rect key="frame" x="10" y="86" width="83" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHz-I5-rhp">
+                                                <rect key="frame" x="10" y="167" width="101" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyp-BV-5B8" customClass="CustomTextField" customModule="Geeni_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="122" width="300" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9f-9a-N4l">
+                                                <rect key="frame" x="10" y="248" width="109" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5dh-er-wX7" customClass="CustomTextField" customModule="Geeni_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="203" width="260" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ydj-j1-Dsk"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wY2-mP-n1Q">
+                                                <rect key="frame" x="10" y="284" width="295" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="7V7-6g-UmF"/>
+                                                </constraints>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Om-V5-Lhj" customClass="CustomRoundButton" customModule="Geeni_iOS" customModuleProvider="target">
+                                                <rect key="frame" x="102" y="532" width="116" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="42" id="00h-Z3-3DQ"/>
+                                                    <constraint firstAttribute="width" constant="116" id="VDO-Oc-PXj"/>
+                                                </constraints>
+                                                <state key="normal" title="SUBMIT POST"/>
+                                                <connections>
+                                                    <action selector="submitPostAction:" destination="hZS-yF-lKv" eventType="touchUpInside" id="YUU-kU-Wfz"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGD-rM-M6e">
+                                                <rect key="frame" x="260" y="427" width="50" height="46"/>
+                                                <state key="normal" image="add-photo"/>
+                                                <connections>
+                                                    <action selector="addPictureAction:" destination="hZS-yF-lKv" eventType="touchUpInside" id="JEC-YS-XX8"/>
+                                                </connections>
+                                            </button>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="loZ-Rp-IPq">
+                                                <rect key="frame" x="10" y="427" width="208" height="55"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="55" id="1dT-Se-QSe"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Twy-dJ-JFs">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="4zi-id-Ld4" customClass="PicturesCollectionViewCell" customModule="Geeni_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hwm-0f-zeM">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="fDI-St-Rlo"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="yjh-eD-FQY"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="Hwm-0f-zeM" firstAttribute="centerX" secondItem="4zi-id-Ld4" secondAttribute="centerX" id="998-38-Cio"/>
+                                                            <constraint firstItem="Hwm-0f-zeM" firstAttribute="centerY" secondItem="4zi-id-Ld4" secondAttribute="centerY" id="D7G-2w-FCa"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="problemPicture" destination="Hwm-0f-zeM" id="I9N-If-NRO"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="jGD-rM-M6e" firstAttribute="leading" secondItem="loZ-Rp-IPq" secondAttribute="trailing" constant="42" id="18n-UG-T6e"/>
+                                            <constraint firstItem="wY2-mP-n1Q" firstAttribute="top" secondItem="r9f-9a-N4l" secondAttribute="bottom" constant="15" id="1oA-fx-iuU"/>
+                                            <constraint firstItem="loZ-Rp-IPq" firstAttribute="top" secondItem="wY2-mP-n1Q" secondAttribute="bottom" constant="15" id="2X7-fe-3Tw"/>
+                                            <constraint firstItem="5dh-er-wX7" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="5Ek-j1-5H7"/>
+                                            <constraint firstItem="jGD-rM-M6e" firstAttribute="top" secondItem="wY2-mP-n1Q" secondAttribute="bottom" constant="15" id="8pV-tv-2NO"/>
+                                            <constraint firstAttribute="trailing" secondItem="wY2-mP-n1Q" secondAttribute="trailing" constant="15" id="MCt-Is-Xgm"/>
+                                            <constraint firstItem="yyp-BV-5B8" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="Sgz-m9-OFY"/>
+                                            <constraint firstItem="r9f-9a-N4l" firstAttribute="top" secondItem="5dh-er-wX7" secondAttribute="bottom" constant="15" id="Xo9-6W-Yxc"/>
+                                            <constraint firstItem="4Hd-5g-lj5" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="YxN-rY-wAS"/>
+                                            <constraint firstItem="r9f-9a-N4l" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="a6Y-qh-rgU"/>
+                                            <constraint firstItem="HHz-I5-rhp" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="bGq-am-OiZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="3IF-iq-CNl" secondAttribute="trailing" constant="10" id="dQN-ej-msV"/>
+                                            <constraint firstAttribute="trailing" secondItem="yyp-BV-5B8" secondAttribute="trailing" constant="10" id="fzj-Zs-XjD"/>
+                                            <constraint firstItem="3IF-iq-CNl" firstAttribute="top" secondItem="MTO-33-78C" secondAttribute="bottom" constant="15" id="g1A-VX-NNh"/>
+                                            <constraint firstItem="HHz-I5-rhp" firstAttribute="top" secondItem="yyp-BV-5B8" secondAttribute="bottom" constant="15" id="kVe-Kd-81F"/>
+                                            <constraint firstItem="loZ-Rp-IPq" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="kep-pH-IwM"/>
+                                            <constraint firstItem="5Om-V5-Lhj" firstAttribute="top" secondItem="loZ-Rp-IPq" secondAttribute="bottom" constant="50" id="l3P-go-lWE"/>
+                                            <constraint firstItem="5Om-V5-Lhj" firstAttribute="centerX" secondItem="mGE-CC-QdY" secondAttribute="centerX" id="lPm-CY-rWn"/>
+                                            <constraint firstItem="yyp-BV-5B8" firstAttribute="top" secondItem="4Hd-5g-lj5" secondAttribute="bottom" constant="15" id="nhc-xr-4ru"/>
+                                            <constraint firstAttribute="trailing" secondItem="jGD-rM-M6e" secondAttribute="trailing" constant="10" id="olx-iX-B0Q"/>
+                                            <constraint firstItem="MTO-33-78C" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="p4Q-0u-Jyi"/>
+                                            <constraint firstItem="3IF-iq-CNl" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="piF-nJ-U7T"/>
+                                            <constraint firstItem="wY2-mP-n1Q" firstAttribute="leading" secondItem="mGE-CC-QdY" secondAttribute="leading" constant="10" id="qQr-DF-BJq"/>
+                                            <constraint firstAttribute="trailing" secondItem="5dh-er-wX7" secondAttribute="trailing" constant="50" id="sAD-rE-mX2"/>
+                                            <constraint firstItem="4Hd-5g-lj5" firstAttribute="top" secondItem="3IF-iq-CNl" secondAttribute="bottom" constant="15" id="xYQ-Qt-FfN"/>
+                                            <constraint firstItem="MTO-33-78C" firstAttribute="top" secondItem="mGE-CC-QdY" secondAttribute="top" constant="5" id="ydF-L5-yJZ"/>
+                                            <constraint firstItem="5dh-er-wX7" firstAttribute="top" secondItem="HHz-I5-rhp" secondAttribute="bottom" constant="15" id="zD4-4C-fFe"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mGE-CC-QdY" firstAttribute="top" secondItem="O1h-sd-YVe" secondAttribute="top" id="3do-p4-83H"/>
+                                    <constraint firstAttribute="bottom" secondItem="mGE-CC-QdY" secondAttribute="bottom" id="EeW-kz-i3s"/>
+                                    <constraint firstItem="mGE-CC-QdY" firstAttribute="leading" secondItem="O1h-sd-YVe" secondAttribute="leading" id="R7l-D1-uYw"/>
+                                    <constraint firstAttribute="trailing" secondItem="mGE-CC-QdY" secondAttribute="trailing" id="dIf-ee-g8s"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="O1h-sd-YVe" secondAttribute="trailing" id="74g-qm-fHU"/>
+                            <constraint firstItem="fh0-fU-DF6" firstAttribute="top" secondItem="O1h-sd-YVe" secondAttribute="bottom" id="BMi-Oy-TBg"/>
+                            <constraint firstItem="mGE-CC-QdY" firstAttribute="width" secondItem="sZU-NM-BJH" secondAttribute="width" id="N52-yd-BXd"/>
+                            <constraint firstItem="mGE-CC-QdY" firstAttribute="height" secondItem="sZU-NM-BJH" secondAttribute="height" id="Pdt-TO-R8e"/>
+                            <constraint firstItem="O1h-sd-YVe" firstAttribute="top" secondItem="sZU-NM-BJH" secondAttribute="top" id="s7H-n8-GDP"/>
+                            <constraint firstItem="O1h-sd-YVe" firstAttribute="leading" secondItem="sZU-NM-BJH" secondAttribute="leading" id="yTD-lK-Inj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Post" id="od7-jA-cWC">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="IEb-dm-Uoy" customClass="CustomMenuBarButton" customModule="Geeni_iOS" customModuleProvider="target"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="700"/>
+                    <connections>
+                        <outlet property="courseTextField" destination="3IF-iq-CNl" id="Rgr-Lf-POK"/>
+                        <outlet property="dateTextField" destination="5dh-er-wX7" id="IPf-e7-pfG"/>
+                        <outlet property="descriptionTextView" destination="wY2-mP-n1Q" id="Mab-O8-OYS"/>
+                        <outlet property="locationTextField" destination="yyp-BV-5B8" id="jIB-JO-VKe"/>
+                        <outlet property="menuButton" destination="IEb-dm-Uoy" id="fkS-ma-EDX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEZ-QM-0QJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71.25" y="-20"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add-photo" width="50" height="46"/>
+        <image name="hamburger" width="15" height="10"/>
+    </resources>
 </document>

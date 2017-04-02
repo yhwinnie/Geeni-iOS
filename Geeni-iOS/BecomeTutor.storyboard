@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="jEe-1B-fay">
             <objects>
-                <navigationController id="DmK-Oo-FkE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BecomeTutor" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DmK-Oo-FkE" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kps-uK-BGj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -163,9 +163,16 @@
                             <constraint firstItem="x6S-Jf-AQQ" firstAttribute="leading" secondItem="Kyb-2G-S9N" secondAttribute="leading" id="xeG-Wv-QYL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Become a Tutor" id="0Cd-Ef-roY"/>
+                    <navigationItem key="navigationItem" title="Become a Tutor" id="0Cd-Ef-roY">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="jhl-ZE-7ve" customClass="CustomMenuBarButton" customModule="Geeni_iOS" customModuleProvider="target">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="600"/>
+                    <connections>
+                        <outlet property="menuButton" destination="jhl-ZE-7ve" id="vJP-KJ-Idw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="95m-F4-hSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,5 +271,6 @@
     </scenes>
     <resources>
         <image name="add-photo" width="50" height="46"/>
+        <image name="hamburger" width="15" height="10"/>
     </resources>
 </document>
