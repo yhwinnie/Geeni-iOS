@@ -12,7 +12,7 @@
         <!--Wallet-->
         <scene sceneID="OUf-ep-93O">
             <objects>
-                <tableViewController id="YyV-PC-yFZ" sceneMemberID="viewController">
+                <tableViewController id="YyV-PC-yFZ" customClass="WalletTableViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="E4i-nB-lsW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Wallet" id="Mbs-M1-yeA">
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="alx-JU-RZP"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="alx-JU-RZP" id="r1B-8P-FTQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1H-Rl-6D3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

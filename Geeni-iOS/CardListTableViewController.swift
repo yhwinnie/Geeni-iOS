@@ -1,5 +1,5 @@
 //
-//  MessagesListTableViewController.swift
+//  CardListTableViewController.swift
 //  Geeni-iOS
 //
 //  Created by Winnie Wen on 4/2/17.
@@ -9,7 +9,7 @@
 import UIKit
 import SWRevealViewController
 
-class MessagesListTableViewController: UITableViewController {
+class CardListTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {

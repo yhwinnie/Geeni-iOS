@@ -12,7 +12,7 @@
         <!--Messages-->
         <scene sceneID="pKc-2b-MbA">
             <objects>
-                <tableViewController id="igy-lU-zpV" sceneMemberID="viewController">
+                <tableViewController id="igy-lU-zpV" customClass="MessagesListTableViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9o7-Iy-eG4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
                     <navigationItem key="navigationItem" title="Messages" id="wkO-cT-V30">
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="oeu-js-y34"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="oeu-js-y34" id="fjK-Nq-DTU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIl-tL-Mvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

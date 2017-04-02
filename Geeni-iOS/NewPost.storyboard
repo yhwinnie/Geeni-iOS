@@ -12,7 +12,6 @@
         <!--Navigation Controller-->
         <scene sceneID="nWs-md-4aV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HSf-FN-9vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NewPost" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2WT-IJ-Spb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hej-BI-lZj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -22,13 +21,14 @@
                         <segue destination="hZS-yF-lKv" kind="relationship" relationship="rootViewController" id="n2v-E9-lmH"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSf-FN-9vx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-782" y="-24"/>
         </scene>
         <!--New Post-->
         <scene sceneID="Aen-3a-g6p">
             <objects>
-                <viewController id="hZS-yF-lKv" customClass="PostViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsFeedView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hZS-yF-lKv" customClass="PostViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U1P-iY-MkY"/>
                         <viewControllerLayoutGuide type="bottom" id="fh0-fU-DF6"/>
