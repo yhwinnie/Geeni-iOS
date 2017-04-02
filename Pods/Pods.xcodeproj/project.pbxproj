@@ -8,95 +8,122 @@
 
 /* Begin PBXBuildFile section */
 		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		4FC15BEC0AB2DD08DDCC6D34D7B25274 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A4642A5C345A252601D87B9297B15B /* SWRevealViewController.m */; };
-		52CDD5B012342F88518AA9880DD39D52 /* Pods-Geeni-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B482C2E3FE79A38BE2CF47186B181302 /* Pods-Geeni-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 40A5C0591834A61F047BE61F6EC0F67E /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		652EC202896DADD2529A3D186B51CEB5 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EBCE93D08AE0BC69ACFEC8D0960FFCD /* SWRevealViewController-dummy.m */; };
-		65A77997FC11D60DA0F9905229667F83 /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 84FA0006AECEBD8B374476E70F10A6E0 /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		745219B9D29E054AEE1A6928ECC40F97 /* Pods-Geeni-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F5258A094645C905DC7D076C9525F /* Pods-Geeni-iOS-dummy.m */; };
-		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 995C973248093E29F1BECBF5AD8937D0 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		98917B10E1941E01847A0945B4EA7C23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		A23C6FC48FCD8902B5B83C2FBE38DA02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = E38089BBB9785688255025DAEDB77B18 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB217C01E270E8A4F1ED30F5EDFA9BBD /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 872A5F654656D0863D0EE5E6BE6157EE /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F54D41A282E20433F2DA96E8CD0239 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A94A7B48E53B40AC455AF28EA2E0D /* GoogleToolboxForMac-dummy.m */; };
-		FACBAC997CB7E4B375A0EF58751CD244 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
+		482A4DF57B32860B3FA9A1E63AF6A7BC /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E8FAD27823D114CA486FD2A74BE2FF0 /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4946E863B30F14DB7D98C5D5445111BB /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E13A0CE24A1A19D4EE15969ACE8F0B0D /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = E054D01D0692826DAB1A639230734A56 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		54B692E800B7E7EEC267BD461CFE80A5 /* CLTimer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 183D564309B6AD2D2F9EFFCCB97055C7 /* CLTimer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C2E9FA39B346AE90E0BD437CD9E16DB /* CLTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB16046A9B5EFA8BC662459CE2ED522 /* CLTimer.swift */; };
+		6FABEA83DD94DF6AA45F9D5C3FFADC23 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C69BA52CC9DE8BBA70A30C6223DC78 /* SWRevealViewController.m */; };
+		724B5BA3B87D77409A9C162D851A122C /* Pods-Geeni-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B482C2E3FE79A38BE2CF47186B181302 /* Pods-Geeni-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7F4C0246A407BA4792D3BE3F7CDD9070 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57EA8D5191C534BAFFADB7F30CF7040E /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84E8D80254F5D81807F48C2B563C1A47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		8D6DCD3A61C8A1C7367A4BEF7E4ED562 /* Pods-Geeni-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F5258A094645C905DC7D076C9525F /* Pods-Geeni-iOS-dummy.m */; };
+		9538088487A1C1B02B1F1419B8F6C834 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
+		B2FEF23F3ED8A1A1F1CCE490FFC66DDE /* CLTimer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F949A8764BD43A104670E4DF38C419 /* CLTimer-dummy.m */; };
+		D84977DE09CC3F765A8C9A79794D22EA /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07744D0D62E5CB75984E778C853401B6 /* SWRevealViewController-dummy.m */; };
+		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 3645D5C269743BE68B7B9454D7D128CB /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC88597009E6D67F7E6B310852A72971 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B769063C216DA41174196DEEA3AD876 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6101A5C8322BA62C805F5E6B90EB32C /* GoogleToolboxForMac-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		09E8F35D1BA60C0E2DA20516A92A31DC /* PBXContainerItemProxy */ = {
+		4D1595EB32D70EDCFD4C9515BC72E35E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
 			remoteInfo = GoogleToolboxForMac;
 		};
-		741DB53B8E15502C2B30C27CA5D1F4EE /* PBXContainerItemProxy */ = {
+		538C8453B5B973DF56E8D74AE2B73FDB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7A9605A9C68D1BEBB747EEAABB69DD9D;
+			remoteGlobalIDString = 4E55E2AEA07D7E3CA91693AE5E3B770F;
+			remoteInfo = CLTimer;
+		};
+		7C5852D802CAEC11A83BF07EC0F4ABE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB41417A3EABE159FFD5FEA46D21CEEE;
 			remoteInfo = SWRevealViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06F71DC768EE248539578851ECA74F74 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		04AD105B498D2E83B7C719D8C3D2485B /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07744D0D62E5CB75984E778C853401B6 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
 		0A6C06F6535574DB1FEC1673B6E6742C /* Pods-Geeni-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Geeni-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		0EBCE93D08AE0BC69ACFEC8D0960FFCD /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
-		11B2CA33A7EC95CB313F240823727FC0 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		15FC51459B8A98CF47D5F98E03C7CA3D /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
-		3AA2EDAE05ED3A618377A2280694F4FC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		0C3EB34D90A4E65B03EC3F514B2D60E6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		158F6C54FF2800B3BA9ACCB45C655D55 /* CLTimer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CLTimer.modulemap; sourceTree = "<group>"; };
+		17C6177A38A4C12D7B929D091BA2DEAF /* Pods_Geeni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Geeni_iOS.framework; path = "Pods-Geeni-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		183D564309B6AD2D2F9EFFCCB97055C7 /* CLTimer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLTimer-umbrella.h"; sourceTree = "<group>"; };
+		1A60DDFC7A4EDBDF3AABA0F2B626DA79 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
+		2D2F5018A9161039E3342D39342ED84B /* CLTimer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CLTimer-prefix.pch"; sourceTree = "<group>"; };
+		3106C2B5CA54439731ACA3B2D3066C5B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3645D5C269743BE68B7B9454D7D128CB /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
+		3B769063C216DA41174196DEEA3AD876 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
 		3D259DFB408002A4F7EC0895A3737A34 /* Pods-Geeni-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Geeni-iOS.modulemap"; sourceTree = "<group>"; };
-		40A5C0591834A61F047BE61F6EC0F67E /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		43C42BDBC138FA1556A3EC0D1E128BDD /* Pods-Geeni-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Geeni-iOS-frameworks.sh"; sourceTree = "<group>"; };
+		46F949A8764BD43A104670E4DF38C419 /* CLTimer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CLTimer-dummy.m"; sourceTree = "<group>"; };
 		4F274D253474172678D20D5541D5B132 /* Pods-Geeni-iOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Geeni-iOS-resources.sh"; sourceTree = "<group>"; };
-		5CF80BF711476D6EE88C310671259409 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
-		60E3D1720EA15E6153FBEC90E01E2238 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		57EA8D5191C534BAFFADB7F30CF7040E /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
+		5BB7B2DD92B64E4443E7D07FA46CFF5F /* CLTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CLTimer.framework; path = CLTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E8FAD27823D114CA486FD2A74BE2FF0 /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		648FF6B4615EDCD9D4D48C6319591DA5 /* Pods-Geeni-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Geeni-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		6B3B9D604553F3B8E4A73338B7A25759 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C582B0BE29CA1A5FF21F75BD0CB2829 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		67EF3B4FE8AA80898FB0ED7E19AC29D5 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		6F68D3C39B63D3C271323EEA9049E742 /* Pods-Geeni-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Geeni-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		732A94A7B48E53B40AC455AF28EA2E0D /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
-		8100DC538DC30C04C40042F516B33816 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
-		83A4642A5C345A252601D87B9297B15B /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
-		84FA0006AECEBD8B374476E70F10A6E0 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
-		872A5F654656D0863D0EE5E6BE6157EE /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		73B5748AFD41049C355DA307C20EEA62 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		76CADA462F6E42E22F76C4A6C3F87D11 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		96100B8A084DEB7234BE0D227C9B5336 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		995C973248093E29F1BECBF5AD8937D0 /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
+		9FEE644B065D449ED7D5196122D33051 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
 		A4C3AE1C0E115E5D4F40971AB5A70FC9 /* Pods-Geeni-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Geeni-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A8AFF84263615A11135D3722721EB6A1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3406869CEDD56E5FB72C5C842452778 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
 		B482C2E3FE79A38BE2CF47186B181302 /* Pods-Geeni-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Geeni-iOS-umbrella.h"; sourceTree = "<group>"; };
-		BE5A1F2A36F60F59CBD08A4BF2593905 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
-		C8F54D41A282E20433F2DA96E8CD0239 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
-		DA8EA11FF2A23EA07E55D72D8F8CE846 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		B6101A5C8322BA62C805F5E6B90EB32C /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		BA687F5C2A4AFA61A8A7850B5CA71EE7 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		BC3BBB8DB1D71D172A340C6BB1E9B961 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD1D39DBF4396EB7CEF9B7F7CB535035 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		D4C3FB22F9687CE830784CAE2D5BA95E /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
+		DE8D41C1F82EB7E3B64F1CA1799225E3 /* CLTimer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CLTimer.xcconfig; sourceTree = "<group>"; };
+		E054D01D0692826DAB1A639230734A56 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		E08C946549B62BD2EB432E69CC088BE3 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
+		E13A0CE24A1A19D4EE15969ACE8F0B0D /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
 		E18F5258A094645C905DC7D076C9525F /* Pods-Geeni-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Geeni-iOS-dummy.m"; sourceTree = "<group>"; };
-		E38089BBB9785688255025DAEDB77B18 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
-		E706BE2C93F0DB31FCEA26D8286C8445 /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3FD87F7ECC2C1FCF3788E102721F6F0 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		EDDF04856A2D354E176F343BDE9C4DF5 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4396FC0B710A4C62134DE5B85173B06 /* Pods_Geeni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Geeni_iOS.framework; path = "Pods-Geeni-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9395FC8FEE9C8E1D086DFD67B9A6DCC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7061FD10DB8FA683E46CB27BE947EC /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C69BA52CC9DE8BBA70A30C6223DC78 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		FDB16046A9B5EFA8BC662459CE2ED522 /* CLTimer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CLTimer.swift; path = CLTimer/Classes/CLTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8BE50BA7B771067A391BDC095EAEC87C /* Frameworks */ = {
+		155AB538D7639AAFB53A80EF20452CBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98917B10E1941E01847A0945B4EA7C23 /* Foundation.framework in Frameworks */,
+				7F4C0246A407BA4792D3BE3F7CDD9070 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B60494E04B7EDAF1B0AE2721B9B4E12F /* Frameworks */ = {
+		6C2BF9A9107BC7D8023E1E194B74BD64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FACBAC997CB7E4B375A0EF58751CD244 /* CoreGraphics.framework in Frameworks */,
-				A23C6FC48FCD8902B5B83C2FBE38DA02 /* Foundation.framework in Frameworks */,
+				EC88597009E6D67F7E6B310852A72971 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		712E489550B7B4CCD0E435222F1D205D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9538088487A1C1B02B1F1419B8F6C834 /* CoreGraphics.framework in Frameworks */,
+				84E8D80254F5D81807F48C2B563C1A47 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,14 +138,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EF055AC8B1478DC97E7B5A701BF71B1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3AA2EDAE05ED3A618377A2280694F4FC /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		0F064D04E379CE8E07B6BDB97C593316 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,53 +147,39 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		1B94AC1DC1B8DE0FD3250CE3B2CD2D79 /* Frameworks */ = {
+		218FCF9D784EB442486E3B3CCF1885CC /* GoogleToolboxForMac */ = {
 			isa = PBXGroup;
 			children = (
-				60E3D1720EA15E6153FBEC90E01E2238 /* FirebaseCore.framework */,
+				6B10369AB13A725EBB50AA67929CA408 /* Defines */,
+				C4A9E7ADF4D42A0548737E32662CEE5E /* NSData+zlib */,
+				7ABBA77C2F6545F53337A4A9B83F8FEB /* Support Files */,
 			);
-			name = Frameworks;
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
 			sourceTree = "<group>";
 		};
-		1D01A523FAAC89ED25F5E365E6306715 /* FirebaseAnalytics */ = {
+		2A1C5DDB5A77AEA8E8EE5D9BA4FB4D7D /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				39900E5DCF685148293390A2C7BBDD15 /* Frameworks */,
+				98920E75CED08EDF3CFD5E81DDA3FB42 /* Frameworks */,
 			);
 			name = FirebaseAnalytics;
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
-		1F26947185F2F4DBB36CFA934A4243F4 /* Defines */ = {
+		3BF7823BB706545A3C8EF4C0545DA9B0 /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
-				40A5C0591834A61F047BE61F6EC0F67E /* GTMDefines.h */,
+				F4445209BD5FCB0368925304D29736BB /* Frameworks */,
 			);
-			name = Defines;
+			name = FirebaseInstanceID;
+			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
-		328D5809F686F0390368578D4769D131 /* FirebaseDatabase */ = {
+		40BD0EADA617C662562593ABB520BC44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F94BDE6E285EE2247FA1E9501914230A /* Frameworks */,
-			);
-			name = FirebaseDatabase;
-			path = FirebaseDatabase;
-			sourceTree = "<group>";
-		};
-		362F7781DC931E76F80E6E5239A87FFA /* FirebaseCore */ = {
-			isa = PBXGroup;
-			children = (
-				1B94AC1DC1B8DE0FD3250CE3B2CD2D79 /* Frameworks */,
-			);
-			name = FirebaseCore;
-			path = FirebaseCore;
-			sourceTree = "<group>";
-		};
-		39900E5DCF685148293390A2C7BBDD15 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				11B2CA33A7EC95CB313F240823727FC0 /* FirebaseAnalytics.framework */,
+				D4C3FB22F9687CE830784CAE2D5BA95E /* FirebaseCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -187,29 +192,55 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		65381450FFDD830136D22304CA78E2D8 /* Support Files */ = {
+		5ACC7B0ED0FA156648EA5259400D9362 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6B3B9D604553F3B8E4A73338B7A25759 /* Info.plist */,
-				6C582B0BE29CA1A5FF21F75BD0CB2829 /* SWRevealViewController.modulemap */,
-				BE5A1F2A36F60F59CBD08A4BF2593905 /* SWRevealViewController.xcconfig */,
-				0EBCE93D08AE0BC69ACFEC8D0960FFCD /* SWRevealViewController-dummy.m */,
-				5CF80BF711476D6EE88C310671259409 /* SWRevealViewController-prefix.pch */,
-				84FA0006AECEBD8B374476E70F10A6E0 /* SWRevealViewController-umbrella.h */,
+				0C3EB34D90A4E65B03EC3F514B2D60E6 /* Info.plist */,
+				BA687F5C2A4AFA61A8A7850B5CA71EE7 /* SWRevealViewController.modulemap */,
+				E08C946549B62BD2EB432E69CC088BE3 /* SWRevealViewController.xcconfig */,
+				07744D0D62E5CB75984E778C853401B6 /* SWRevealViewController-dummy.m */,
+				B3406869CEDD56E5FB72C5C842452778 /* SWRevealViewController-prefix.pch */,
+				E13A0CE24A1A19D4EE15969ACE8F0B0D /* SWRevealViewController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SWRevealViewController";
 			sourceTree = "<group>";
 		};
-		67877E5C9C95583E223CC12CA5FA669E /* Support Files */ = {
+		5CCC734B1DE6BB7BE6F348B65B63AE30 /* FirebaseCore */ = {
 			isa = PBXGroup;
 			children = (
-				06F71DC768EE248539578851ECA74F74 /* GoogleToolboxForMac.modulemap */,
-				15FC51459B8A98CF47D5F98E03C7CA3D /* GoogleToolboxForMac.xcconfig */,
-				732A94A7B48E53B40AC455AF28EA2E0D /* GoogleToolboxForMac-dummy.m */,
-				DA8EA11FF2A23EA07E55D72D8F8CE846 /* GoogleToolboxForMac-prefix.pch */,
-				995C973248093E29F1BECBF5AD8937D0 /* GoogleToolboxForMac-umbrella.h */,
-				F9395FC8FEE9C8E1D086DFD67B9A6DCC /* Info.plist */,
+				40BD0EADA617C662562593ABB520BC44 /* Frameworks */,
+			);
+			name = FirebaseCore;
+			path = FirebaseCore;
+			sourceTree = "<group>";
+		};
+		5CE2093075A01015ACF9BF46E3848CC4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				8071C1A69053090A00923D792AC5D680 /* Core */,
+			);
+			name = Firebase;
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		6B10369AB13A725EBB50AA67929CA408 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				E054D01D0692826DAB1A639230734A56 /* GTMDefines.h */,
+			);
+			name = Defines;
+			sourceTree = "<group>";
+		};
+		7ABBA77C2F6545F53337A4A9B83F8FEB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BD1D39DBF4396EB7CEF9B7F7CB535035 /* GoogleToolboxForMac.modulemap */,
+				9FEE644B065D449ED7D5196122D33051 /* GoogleToolboxForMac.xcconfig */,
+				B6101A5C8322BA62C805F5E6B90EB32C /* GoogleToolboxForMac-dummy.m */,
+				73B5748AFD41049C355DA307C20EEA62 /* GoogleToolboxForMac-prefix.pch */,
+				57EA8D5191C534BAFFADB7F30CF7040E /* GoogleToolboxForMac-umbrella.h */,
+				BC3BBB8DB1D71D172A340C6BB1E9B961 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/GoogleToolboxForMac";
@@ -220,71 +251,51 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				AD571B1C1A9F5CB1122CB826D5CD38E6 /* Pods */,
-				969A0EA0CCCF9AFF2887C8BCB939BEB2 /* Products */,
+				F183F957DC1EF5692228EDCB0A52DB8F /* Pods */,
+				E454B15F2713AD08C3706ADE74C23B0E /* Products */,
 				BFC8C6C2B0483F1C7F8ECCDADD457174 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8B59936C48BE2B2035A96684125D9814 /* Core */ = {
+		7DEC3A48903F3E55771589F4D138E32D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				8100DC538DC30C04C40042F516B33816 /* Firebase.h */,
+				158F6C54FF2800B3BA9ACCB45C655D55 /* CLTimer.modulemap */,
+				DE8D41C1F82EB7E3B64F1CA1799225E3 /* CLTimer.xcconfig */,
+				46F949A8764BD43A104670E4DF38C419 /* CLTimer-dummy.m */,
+				2D2F5018A9161039E3342D39342ED84B /* CLTimer-prefix.pch */,
+				183D564309B6AD2D2F9EFFCCB97055C7 /* CLTimer-umbrella.h */,
+				3106C2B5CA54439731ACA3B2D3066C5B /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CLTimer";
+			sourceTree = "<group>";
+		};
+		8071C1A69053090A00923D792AC5D680 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1A60DDFC7A4EDBDF3AABA0F2B626DA79 /* Firebase.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
 		};
-		969A0EA0CCCF9AFF2887C8BCB939BEB2 /* Products */ = {
+		98920E75CED08EDF3CFD5E81DDA3FB42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EDDF04856A2D354E176F343BDE9C4DF5 /* GoogleToolboxForMac.framework */,
-				F4396FC0B710A4C62134DE5B85173B06 /* Pods_Geeni_iOS.framework */,
-				E706BE2C93F0DB31FCEA26D8286C8445 /* SWRevealViewController.framework */,
+				67EF3B4FE8AA80898FB0ED7E19AC29D5 /* FirebaseAnalytics.framework */,
 			);
-			name = Products;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A501D1C1BC69CCE72F204D7108947F0B /* SWRevealViewController */ = {
+		B127913DCE6EC4E387E0B1B6D9C7FB50 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				872A5F654656D0863D0EE5E6BE6157EE /* SWRevealViewController.h */,
-				83A4642A5C345A252601D87B9297B15B /* SWRevealViewController.m */,
-				65381450FFDD830136D22304CA78E2D8 /* Support Files */,
+				5E8FAD27823D114CA486FD2A74BE2FF0 /* SWRevealViewController.h */,
+				F1C69BA52CC9DE8BBA70A30C6223DC78 /* SWRevealViewController.m */,
+				5ACC7B0ED0FA156648EA5259400D9362 /* Support Files */,
 			);
 			name = SWRevealViewController;
 			path = SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		AD571B1C1A9F5CB1122CB826D5CD38E6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BE51D79E6BF52A6191AD916950EEF8BA /* Firebase */,
-				1D01A523FAAC89ED25F5E365E6306715 /* FirebaseAnalytics */,
-				362F7781DC931E76F80E6E5239A87FFA /* FirebaseCore */,
-				328D5809F686F0390368578D4769D131 /* FirebaseDatabase */,
-				B5AA9DB8280FE03426F12B64B5691945 /* FirebaseInstanceID */,
-				F8260FBA13ECCF5455552E43F022C8F9 /* GoogleToolboxForMac */,
-				A501D1C1BC69CCE72F204D7108947F0B /* SWRevealViewController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B5AA9DB8280FE03426F12B64B5691945 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				0EF055AC8B1478DC97E7B5A701BF71B1 /* Frameworks */,
-			);
-			name = FirebaseInstanceID;
-			path = FirebaseInstanceID;
-			sourceTree = "<group>";
-		};
-		BE51D79E6BF52A6191AD916950EEF8BA /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				8B59936C48BE2B2035A96684125D9814 /* Core */,
-			);
-			name = Firebase;
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		BFC8C6C2B0483F1C7F8ECCDADD457174 /* Targets Support Files */ = {
@@ -293,6 +304,44 @@
 				E7C8B013E485E636CF7717679BB07D13 /* Pods-Geeni-iOS */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C2D8C48F09B093B57E78A7D7248515D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76CADA462F6E42E22F76C4A6C3F87D11 /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4A9E7ADF4D42A0548737E32662CEE5E /* NSData+zlib */ = {
+			isa = PBXGroup;
+			children = (
+				3645D5C269743BE68B7B9454D7D128CB /* GTMNSData+zlib.h */,
+				3B769063C216DA41174196DEEA3AD876 /* GTMNSData+zlib.m */,
+			);
+			name = "NSData+zlib";
+			sourceTree = "<group>";
+		};
+		D535C6D1539A57DF896D9BF01BFE2723 /* CLTimer */ = {
+			isa = PBXGroup;
+			children = (
+				FDB16046A9B5EFA8BC662459CE2ED522 /* CLTimer.swift */,
+				7DEC3A48903F3E55771589F4D138E32D /* Support Files */,
+			);
+			name = CLTimer;
+			path = CLTimer;
+			sourceTree = "<group>";
+		};
+		E454B15F2713AD08C3706ADE74C23B0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BB7B2DD92B64E4443E7D07FA46CFF5F /* CLTimer.framework */,
+				EC7061FD10DB8FA683E46CB27BE947EC /* GoogleToolboxForMac.framework */,
+				17C6177A38A4C12D7B929D091BA2DEAF /* Pods_Geeni_iOS.framework */,
+				04AD105B498D2E83B7C719D8C3D2485B /* SWRevealViewController.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E7C8B013E485E636CF7717679BB07D13 /* Pods-Geeni-iOS */ = {
@@ -313,51 +362,63 @@
 			path = "Target Support Files/Pods-Geeni-iOS";
 			sourceTree = "<group>";
 		};
-		EF358CDE193D29B8544A09E16A5A137A /* NSData+zlib */ = {
+		F183F957DC1EF5692228EDCB0A52DB8F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E38089BBB9785688255025DAEDB77B18 /* GTMNSData+zlib.h */,
-				C8F54D41A282E20433F2DA96E8CD0239 /* GTMNSData+zlib.m */,
+				D535C6D1539A57DF896D9BF01BFE2723 /* CLTimer */,
+				5CE2093075A01015ACF9BF46E3848CC4 /* Firebase */,
+				2A1C5DDB5A77AEA8E8EE5D9BA4FB4D7D /* FirebaseAnalytics */,
+				5CCC734B1DE6BB7BE6F348B65B63AE30 /* FirebaseCore */,
+				F6AE7CD6FF919FD1E495B101A4613611 /* FirebaseDatabase */,
+				3BF7823BB706545A3C8EF4C0545DA9B0 /* FirebaseInstanceID */,
+				218FCF9D784EB442486E3B3CCF1885CC /* GoogleToolboxForMac */,
+				B127913DCE6EC4E387E0B1B6D9C7FB50 /* SWRevealViewController */,
 			);
-			name = "NSData+zlib";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		F8260FBA13ECCF5455552E43F022C8F9 /* GoogleToolboxForMac */ = {
+		F4445209BD5FCB0368925304D29736BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F26947185F2F4DBB36CFA934A4243F4 /* Defines */,
-				EF358CDE193D29B8544A09E16A5A137A /* NSData+zlib */,
-				67877E5C9C95583E223CC12CA5FA669E /* Support Files */,
-			);
-			name = GoogleToolboxForMac;
-			path = GoogleToolboxForMac;
-			sourceTree = "<group>";
-		};
-		F94BDE6E285EE2247FA1E9501914230A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				96100B8A084DEB7234BE0D227C9B5336 /* FirebaseDatabase.framework */,
+				E3FD87F7ECC2C1FCF3788E102721F6F0 /* FirebaseInstanceID.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6AE7CD6FF919FD1E495B101A4613611 /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				C2D8C48F09B093B57E78A7D7248515D9 /* Frameworks */,
+			);
+			name = FirebaseDatabase;
+			path = FirebaseDatabase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		019BCEB5365D5B0811558F5919009B23 /* Headers */ = {
+		075F2CAC9EB855B9765E8AA35CFE3E55 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65A77997FC11D60DA0F9905229667F83 /* SWRevealViewController-umbrella.h in Headers */,
-				EB217C01E270E8A4F1ED30F5EDFA9BBD /* SWRevealViewController.h in Headers */,
+				724B5BA3B87D77409A9C162D851A122C /* Pods-Geeni-iOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1E43720C466D3A380C6A1BFF79458CD /* Headers */ = {
+		0848B4E0B9F7829D2330586F6ACBC5E4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CDD5B012342F88518AA9880DD39D52 /* Pods-Geeni-iOS-umbrella.h in Headers */,
+				54B692E800B7E7EEC267BD461CFE80A5 /* CLTimer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58FB6C7479ADA844954D426246A29846 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4946E863B30F14DB7D98C5D5445111BB /* SWRevealViewController-umbrella.h in Headers */,
+				482A4DF57B32860B3FA9A1E63AF6A7BC /* SWRevealViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,16 +449,33 @@
 			);
 			name = GoogleToolboxForMac;
 			productName = GoogleToolboxForMac;
-			productReference = EDDF04856A2D354E176F343BDE9C4DF5 /* GoogleToolboxForMac.framework */;
+			productReference = EC7061FD10DB8FA683E46CB27BE947EC /* GoogleToolboxForMac.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		7A9605A9C68D1BEBB747EEAABB69DD9D /* SWRevealViewController */ = {
+		4E55E2AEA07D7E3CA91693AE5E3B770F /* CLTimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DC518D4AFDA3423A4AFA46FF5A4362A /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
+			buildConfigurationList = 642564A3EA29B69204CF9C85D9C47164 /* Build configuration list for PBXNativeTarget "CLTimer" */;
 			buildPhases = (
-				5CD905AE7A573DCB8DFFE32472147C3D /* Sources */,
-				B60494E04B7EDAF1B0AE2721B9B4E12F /* Frameworks */,
-				019BCEB5365D5B0811558F5919009B23 /* Headers */,
+				02B40DEFD2B6282C99BFB5C11DF61D7F /* Sources */,
+				6C2BF9A9107BC7D8023E1E194B74BD64 /* Frameworks */,
+				0848B4E0B9F7829D2330586F6ACBC5E4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLTimer;
+			productName = CLTimer;
+			productReference = 5BB7B2DD92B64E4443E7D07FA46CFF5F /* CLTimer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EB41417A3EABE159FFD5FEA46D21CEEE /* SWRevealViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F8968D7FE51FC47DF6A0384746FF729 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
+			buildPhases = (
+				02FBDA5863D57067C0DE97FCCAFE97C2 /* Sources */,
+				712E489550B7B4CCD0E435222F1D205D /* Frameworks */,
+				58FB6C7479ADA844954D426246A29846 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -405,26 +483,27 @@
 			);
 			name = SWRevealViewController;
 			productName = SWRevealViewController;
-			productReference = E706BE2C93F0DB31FCEA26D8286C8445 /* SWRevealViewController.framework */;
+			productReference = 04AD105B498D2E83B7C719D8C3D2485B /* SWRevealViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E261ADE3952B91086B880D5A4253C287 /* Pods-Geeni-iOS */ = {
+		F31DA6642CA95F4EF55ACF9703DF169A /* Pods-Geeni-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A79CBE7EE141ADE131490A78BE964861 /* Build configuration list for PBXNativeTarget "Pods-Geeni-iOS" */;
+			buildConfigurationList = 7E24936325451095432758FA0B2A30A6 /* Build configuration list for PBXNativeTarget "Pods-Geeni-iOS" */;
 			buildPhases = (
-				5A45A5145CE3BF6C7538D90EE57274E3 /* Sources */,
-				8BE50BA7B771067A391BDC095EAEC87C /* Frameworks */,
-				A1E43720C466D3A380C6A1BFF79458CD /* Headers */,
+				542ACC76BBF6F6EEB1524BDBADDE213C /* Sources */,
+				155AB538D7639AAFB53A80EF20452CBD /* Frameworks */,
+				075F2CAC9EB855B9765E8AA35CFE3E55 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				46DE02326D26E65A8FFD574F9E50975A /* PBXTargetDependency */,
-				95B564F771979FE2281E057A73CD524E /* PBXTargetDependency */,
+				E38616782A6F06C57849F468D8744227 /* PBXTargetDependency */,
+				00FCAD82A81FF296532E9FF5CDD57AEE /* PBXTargetDependency */,
+				BA3E283C2FD2E242EE401F9A36024592 /* PBXTargetDependency */,
 			);
 			name = "Pods-Geeni-iOS";
 			productName = "Pods-Geeni-iOS";
-			productReference = F4396FC0B710A4C62134DE5B85173B06 /* Pods_Geeni_iOS.framework */;
+			productReference = 17C6177A38A4C12D7B929D091BA2DEAF /* Pods_Geeni_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -444,32 +523,42 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 969A0EA0CCCF9AFF2887C8BCB939BEB2 /* Products */;
+			productRefGroup = E454B15F2713AD08C3706ADE74C23B0E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				4E55E2AEA07D7E3CA91693AE5E3B770F /* CLTimer */,
 				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
-				E261ADE3952B91086B880D5A4253C287 /* Pods-Geeni-iOS */,
-				7A9605A9C68D1BEBB747EEAABB69DD9D /* SWRevealViewController */,
+				F31DA6642CA95F4EF55ACF9703DF169A /* Pods-Geeni-iOS */,
+				EB41417A3EABE159FFD5FEA46D21CEEE /* SWRevealViewController */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5A45A5145CE3BF6C7538D90EE57274E3 /* Sources */ = {
+		02B40DEFD2B6282C99BFB5C11DF61D7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				745219B9D29E054AEE1A6928ECC40F97 /* Pods-Geeni-iOS-dummy.m in Sources */,
+				B2FEF23F3ED8A1A1F1CCE490FFC66DDE /* CLTimer-dummy.m in Sources */,
+				5C2E9FA39B346AE90E0BD437CD9E16DB /* CLTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CD905AE7A573DCB8DFFE32472147C3D /* Sources */ = {
+		02FBDA5863D57067C0DE97FCCAFE97C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				652EC202896DADD2529A3D186B51CEB5 /* SWRevealViewController-dummy.m in Sources */,
-				4FC15BEC0AB2DD08DDCC6D34D7B25274 /* SWRevealViewController.m in Sources */,
+				D84977DE09CC3F765A8C9A79794D22EA /* SWRevealViewController-dummy.m in Sources */,
+				6FABEA83DD94DF6AA45F9D5C3FFADC23 /* SWRevealViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		542ACC76BBF6F6EEB1524BDBADDE213C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D6DCD3A61C8A1C7367A4BEF7E4ED562 /* Pods-Geeni-iOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,21 +574,128 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		46DE02326D26E65A8FFD574F9E50975A /* PBXTargetDependency */ = {
+		00FCAD82A81FF296532E9FF5CDD57AEE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleToolboxForMac;
 			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
-			targetProxy = 09E8F35D1BA60C0E2DA20516A92A31DC /* PBXContainerItemProxy */;
+			targetProxy = 4D1595EB32D70EDCFD4C9515BC72E35E /* PBXContainerItemProxy */;
 		};
-		95B564F771979FE2281E057A73CD524E /* PBXTargetDependency */ = {
+		BA3E283C2FD2E242EE401F9A36024592 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SWRevealViewController;
-			target = 7A9605A9C68D1BEBB747EEAABB69DD9D /* SWRevealViewController */;
-			targetProxy = 741DB53B8E15502C2B30C27CA5D1F4EE /* PBXContainerItemProxy */;
+			target = EB41417A3EABE159FFD5FEA46D21CEEE /* SWRevealViewController */;
+			targetProxy = 7C5852D802CAEC11A83BF07EC0F4ABE3 /* PBXContainerItemProxy */;
+		};
+		E38616782A6F06C57849F468D8744227 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CLTimer;
+			target = 4E55E2AEA07D7E3CA91693AE5E3B770F /* CLTimer */;
+			targetProxy = 538C8453B5B973DF56E8D74AE2B73FDB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3944A7C6771E89E5B686D663F284066F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8D41C1F82EB7E3B64F1CA1799225E3 /* CLTimer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CLTimer/CLTimer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CLTimer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CLTimer/CLTimer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = CLTimer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3FF797E3C6860FB4F1973352A76427BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8D41C1F82EB7E3B64F1CA1799225E3 /* CLTimer.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/CLTimer/CLTimer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/CLTimer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/CLTimer/CLTimer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = CLTimer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4BCA3B9FB7C0FE3C80911643AE862F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A6C06F6535574DB1FEC1673B6E6742C /* Pods-Geeni-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Geeni-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Geeni_iOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		673254EEAF0B5BF4596080C749645884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -540,138 +736,7 @@
 			};
 			name = Release;
 		};
-		7945A9458CE48160ACDBEFF36E7DB223 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE5A1F2A36F60F59CBD08A4BF2593905 /* SWRevealViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SWRevealViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		87774DC049EF66E8AFFBF2D862AA33A3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A6C06F6535574DB1FEC1673B6E6742C /* Pods-Geeni-iOS.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Geeni-iOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Geeni_iOS;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		D60CD877A708870E2BE96B83BA32F883 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15FC51459B8A98CF47D5F98E03C7CA3D /* GoogleToolboxForMac.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = GoogleToolboxForMac;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		DB3752FAD9D77B5489DF82C0AFDCE6E3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BE5A1F2A36F60F59CBD08A4BF2593905 /* SWRevealViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SWRevealViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DC73AAA727CA6D58BB3B75C27C2596D2 /* Release */ = {
+		80C61227DA3BD6ABEB5EA12644FE2187 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A4C3AE1C0E115E5D4F40971AB5A70FC9 /* Pods-Geeni-iOS.release.xcconfig */;
 			buildSettings = {
@@ -705,6 +770,102 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		90D8098992E3B2EE5C6EB02180B7019B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08C946549B62BD2EB432E69CC088BE3 /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BC3F7E3ED2747D43EF742761C969DDA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E08C946549B62BD2EB432E69CC088BE3 /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D60CD877A708870E2BE96B83BA32F883 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FEE644B065D449ED7D5196122D33051 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = GoogleToolboxForMac;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		E4F26E6EB105713A6A7E7E2E283AC2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -752,7 +913,7 @@
 		};
 		F066921CBDBDB5F45795E50FBC5AC972 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15FC51459B8A98CF47D5F98E03C7CA3D /* GoogleToolboxForMac.xcconfig */;
+			baseConfigurationReference = 9FEE644B065D449ED7D5196122D33051 /* GoogleToolboxForMac.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -785,11 +946,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DC518D4AFDA3423A4AFA46FF5A4362A /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
+		0F8968D7FE51FC47DF6A0384746FF729 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7945A9458CE48160ACDBEFF36E7DB223 /* Debug */,
-				DB3752FAD9D77B5489DF82C0AFDCE6E3 /* Release */,
+				BC3F7E3ED2747D43EF742761C969DDA5 /* Debug */,
+				90D8098992E3B2EE5C6EB02180B7019B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -803,11 +964,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A79CBE7EE141ADE131490A78BE964861 /* Build configuration list for PBXNativeTarget "Pods-Geeni-iOS" */ = {
+		642564A3EA29B69204CF9C85D9C47164 /* Build configuration list for PBXNativeTarget "CLTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				87774DC049EF66E8AFFBF2D862AA33A3 /* Debug */,
-				DC73AAA727CA6D58BB3B75C27C2596D2 /* Release */,
+				3FF797E3C6860FB4F1973352A76427BB /* Debug */,
+				3944A7C6771E89E5B686D663F284066F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E24936325451095432758FA0B2A30A6 /* Build configuration list for PBXNativeTarget "Pods-Geeni-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BCA3B9FB7C0FE3C80911643AE862F69 /* Debug */,
+				80C61227DA3BD6ABEB5EA12644FE2187 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
