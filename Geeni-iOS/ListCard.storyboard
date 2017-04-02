@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="F3L-NX-qqH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="F3L-NX-qqH" customClass="CardListTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F3L-NX-qqH" id="DGm-Q3-W0S">
@@ -46,6 +46,10 @@
                                         <constraint firstItem="wfe-cf-7g3" firstAttribute="centerY" secondItem="DGm-Q3-W0S" secondAttribute="centerY" id="CE8-hh-sln"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardNumber" destination="YLf-ae-glP" id="5u4-UX-1uj"/>
+                                    <outlet property="cardPicture" destination="CE8-hh-sln" id="bGu-Vp-tO9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
