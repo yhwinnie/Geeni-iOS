@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
 import Firebase
 import GoogleSignIn
 import KeychainAccess
@@ -33,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let token = try keychain.get("token")
             if let token = token {
                 print(token)
+                
+                // TODO: Check if user is already under "users" on firebase, if yes present Main View. If no, go to sign up page which is still in progress
+                
+                
                 // Move to Main Page
                 presentMainView()
                 
@@ -96,10 +99,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             else {
                 
+        
             
                 do {
                     // Store authentication to keychain
                     try self.keychain.set(authentication.accessToken, key: "token")
+                    
+                    // TODO: Check if it is the first time user logs in, if yes, do not presentMainView 
+
+                    
                     
                     // If success, move to main view
                     self.presentMainView()
