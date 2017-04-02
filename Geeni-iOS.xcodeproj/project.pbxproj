@@ -29,7 +29,6 @@
 		4C682A941E90E6B100DEA494 /* NewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A931E90E6B100DEA494 /* NewPost.storyboard */; };
 		4C682A971E90E6CA00DEA494 /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */; };
 		4C682AA11E90EBE200DEA494 /* CustomMenuBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C682AA01E90EBE200DEA494 /* CustomMenuBarButton.swift */; };
-		4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */; };
 		4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */; };
 		4CCD80C51E7E506C000644B1 /* BecomeTutorPartOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C41E7E506C000644B1 /* BecomeTutorPartOneViewController.swift */; };
 		4CECE5D21E91043F0019D640 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5D11E91043F0019D640 /* Wallet.storyboard */; };
@@ -44,6 +43,11 @@
 		4CECE5E61E91139B0019D640 /* CardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5E51E91139B0019D640 /* CardListTableViewCell.swift */; };
 		4CECE5E91E9114FE0019D640 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5E81E9114FE0019D640 /* Timer.storyboard */; };
 		4CECE5EB1E9115170019D640 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5EA1E9115170019D640 /* TimerViewController.swift */; };
+		4CECE5ED1E9188E90019D640 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5EC1E9188E90019D640 /* ProfileViewController.swift */; };
+		4CECE5EF1E918BF20019D640 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5EE1E918BF20019D640 /* ReviewTableViewCell.swift */; };
+		4CECE5F11E918C0F0019D640 /* SeekingTutorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5F01E918C0F0019D640 /* SeekingTutorTableViewCell.swift */; };
+		4CECE5F31E918FCB0019D640 /* MessagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5F21E918FCB0019D640 /* MessagesTableViewCell.swift */; };
+		4CECE5F51E9192B00019D640 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5F41E9192B00019D640 /* GoogleService-Info.plist */; };
 		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
@@ -76,7 +80,6 @@
 		4C682A931E90E6B100DEA494 /* NewPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPost.storyboard; sourceTree = "<group>"; };
 		4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
 		4C682AA01E90EBE200DEA494 /* CustomMenuBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenuBarButton.swift; sourceTree = "<group>"; };
-		4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 		4CCD80C41E7E506C000644B1 /* BecomeTutorPartOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BecomeTutorPartOneViewController.swift; sourceTree = "<group>"; };
 		4CECE5D11E91043F0019D640 /* Wallet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		4CECE5E51E91139B0019D640 /* CardListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewCell.swift; sourceTree = "<group>"; };
 		4CECE5E81E9114FE0019D640 /* Timer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 		4CECE5EA1E9115170019D640 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		4CECE5EC1E9188E90019D640 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4CECE5EE1E918BF20019D640 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		4CECE5F01E918C0F0019D640 /* SeekingTutorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeekingTutorTableViewCell.swift; sourceTree = "<group>"; };
+		4CECE5F21E918FCB0019D640 /* MessagesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesTableViewCell.swift; sourceTree = "<group>"; };
+		4CECE5F41E9192B00019D640 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,7 +189,9 @@
 			isa = PBXGroup;
 			children = (
 				4C682A891E90E65400DEA494 /* Profile.storyboard */,
-				4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */,
+				4CECE5F01E918C0F0019D640 /* SeekingTutorTableViewCell.swift */,
+				4CECE5EE1E918BF20019D640 /* ReviewTableViewCell.swift */,
+				4CECE5EC1E9188E90019D640 /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -237,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				4CECE5D81E9104950019D640 /* Messages.storyboard */,
+				4CECE5F21E918FCB0019D640 /* MessagesTableViewCell.swift */,
 				4CECE5DA1E9104A90019D640 /* MessagesListTableViewController.swift */,
 				4CECE5D61E9104850019D640 /* MessagesViewController.swift */,
 			);
@@ -301,6 +312,7 @@
 				4CECE5E71E9114E90019D640 /* Timer */,
 				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
 				4CF45AF21E7B0DF000768999 /* Info.plist */,
+				4CECE5F41E9192B00019D640 /* GoogleService-Info.plist */,
 			);
 			path = "Geeni-iOS";
 			sourceTree = "<group>";
@@ -389,6 +401,7 @@
 				4CECE5E01E9104FD0019D640 /* Schedule.storyboard in Resources */,
 				4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */,
 				4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */,
+				4CECE5F51E9192B00019D640 /* GoogleService-Info.plist in Resources */,
 				4C682A901E90E69100DEA494 /* AddCard.storyboard in Resources */,
 				4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */,
 				4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */,
@@ -456,19 +469,22 @@
 				4C682A831E90E08600DEA494 /* CustomTextView.swift in Sources */,
 				4C0D710B1E90FC4A00E7A108 /* CustomRoundImageView.swift in Sources */,
 				4C0D710D1E91021B00E7A108 /* PicturesCollectionViewCell.swift in Sources */,
+				4CECE5EF1E918BF20019D640 /* ReviewTableViewCell.swift in Sources */,
 				4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */,
-				4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */,
+				4CECE5F31E918FCB0019D640 /* MessagesTableViewCell.swift in Sources */,
 				4C682AA11E90EBE200DEA494 /* CustomMenuBarButton.swift in Sources */,
 				4CCD80C51E7E506C000644B1 /* BecomeTutorPartOneViewController.swift in Sources */,
 				4C0D71091E90FBE300E7A108 /* PrivateTableViewCell.swift in Sources */,
 				4CECE5EB1E9115170019D640 /* TimerViewController.swift in Sources */,
 				4CECE5D41E91044F0019D640 /* WalletTableViewController.swift in Sources */,
 				4C0D71051E90F5CF00E7A108 /* PrivateFeedTableViewController.swift in Sources */,
+				4CECE5F11E918C0F0019D640 /* SeekingTutorTableViewCell.swift in Sources */,
 				4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */,
 				4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */,
 				4C682A851E90E24E00DEA494 /* CustomRoundButton.swift in Sources */,
 				4CECE5E41E9111EF0019D640 /* CardListTableViewController.swift in Sources */,
 				4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */,
+				4CECE5ED1E9188E90019D640 /* ProfileViewController.swift in Sources */,
 				4CECE5E61E91139B0019D640 /* CardListTableViewCell.swift in Sources */,
 				4C0D71031E90F5C200E7A108 /* PublicFeedTableViewController.swift in Sources */,
 				4C682A811E90DD0D00DEA494 /* CustomTextField.swift in Sources */,

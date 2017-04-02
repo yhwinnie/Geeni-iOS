@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="znF-gw-YPg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="znF-gw-YPg" customClass="MessagesTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="znF-gw-YPg" id="vfo-Eg-yKJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="69K-G0-fnq" customClass="CustomRoundImageView" customModule="Geeni_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="4" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="7RD-S2-a8D"/>
+                                                <constraint firstAttribute="width" constant="70" id="IDY-du-VFp"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5X-p6-c6c">
+                                            <rect key="frame" x="98" y="4" width="73" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EECS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3K-SI-Prl">
+                                            <rect key="frame" x="179" y="8" width="33" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02/11/2017 3:00pm - 5:00pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Om-vQ-kDz">
+                                            <rect key="frame" x="98" y="22" width="189" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the description to this post. I need" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lm3-cg-EwB">
+                                            <rect key="frame" x="98" y="47" width="277" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V5X-p6-c6c" firstAttribute="top" secondItem="vfo-Eg-yKJ" secondAttribute="top" constant="4" id="9mS-Sh-I3Q"/>
+                                        <constraint firstItem="Lm3-cg-EwB" firstAttribute="top" secondItem="8Om-vQ-kDz" secondAttribute="bottom" constant="8" id="BNS-K2-rM9"/>
+                                        <constraint firstItem="Lm3-cg-EwB" firstAttribute="leading" secondItem="69K-G0-fnq" secondAttribute="trailing" constant="8" id="Fnv-S7-MqH"/>
+                                        <constraint firstItem="8Om-vQ-kDz" firstAttribute="top" secondItem="V5X-p6-c6c" secondAttribute="bottom" constant="-3" id="Gqb-Re-U5O"/>
+                                        <constraint firstAttribute="topMargin" secondItem="W3K-SI-Prl" secondAttribute="top" id="O1T-lw-eB4"/>
+                                        <constraint firstItem="W3K-SI-Prl" firstAttribute="leading" secondItem="V5X-p6-c6c" secondAttribute="trailing" constant="8" id="REJ-cs-rn6"/>
+                                        <constraint firstItem="V5X-p6-c6c" firstAttribute="leading" secondItem="69K-G0-fnq" secondAttribute="trailing" constant="8" id="aRG-gw-dNz"/>
+                                        <constraint firstItem="69K-G0-fnq" firstAttribute="leading" secondItem="vfo-Eg-yKJ" secondAttribute="leading" constant="20" id="f0d-UH-Qf0"/>
+                                        <constraint firstItem="Lm3-cg-EwB" firstAttribute="trailing" secondItem="vfo-Eg-yKJ" secondAttribute="trailingMargin" constant="8" id="jv7-j6-h2m"/>
+                                        <constraint firstItem="69K-G0-fnq" firstAttribute="centerY" secondItem="vfo-Eg-yKJ" secondAttribute="centerY" id="kJ6-G1-zQ2"/>
+                                        <constraint firstItem="8Om-vQ-kDz" firstAttribute="leading" secondItem="69K-G0-fnq" secondAttribute="trailing" constant="8" id="u8T-Hc-DrS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="8Om-vQ-kDz" id="EeF-HT-npy"/>
+                                    <outlet property="descriptionLabel" destination="Lm3-cg-EwB" id="qy5-jK-D9c"/>
+                                    <outlet property="majorLabel" destination="W3K-SI-Prl" id="k0q-ms-ft0"/>
+                                    <outlet property="userImageView" destination="69K-G0-fnq" id="n41-IL-QyW"/>
+                                    <outlet property="userName" destination="V5X-p6-c6c" id="Nct-ac-24L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -41,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIl-tL-Mvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="9"/>
+            <point key="canvasLocation" x="388" y="8.5457271364317844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nRn-uv-Ubc">
@@ -62,5 +116,6 @@
     </scenes>
     <resources>
         <image name="hamburger" width="15" height="10"/>
+        <image name="puppy" width="680" height="606"/>
     </resources>
 </document>

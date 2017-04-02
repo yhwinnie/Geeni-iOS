@@ -8,6 +8,7 @@
 
 import UIKit
 import SWRevealViewController
+import Firebase
 
 class SideMenuTableViewController: UITableViewController {
     
@@ -88,7 +89,22 @@ class SideMenuTableViewController: UITableViewController {
             
             self.revealViewController().pushFrontViewController(becomeTutor, animated: true)
             
-        
+        case 7:
+            let firebaseAuth = FIRAuth.auth()
+            do {
+                try firebaseAuth?.signOut()
+                let appDelegate = UIApplication.shared.delegate! as! AppDelegate
+                
+                let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
+                appDelegate.window?.rootViewController = initialViewController
+                appDelegate.window?.makeKeyAndVisible()
+                
+    
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+            
 
         default: break
             

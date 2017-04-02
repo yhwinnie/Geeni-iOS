@@ -17,13 +17,85 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="QdD-Th-FDr">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-xF-FZB" customClass="CustomRoundImageView" customModule="Geeni_iOS" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="8" width="60" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="Fwu-4Z-m9R"/>
+                                        <constraint firstAttribute="width" constant="60" id="pUs-co-gtw"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bruce Wayne" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NJ-vs-VT3">
+                                    <rect key="frame" x="80" y="8" width="101" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have $0.00 in Geeni Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsh-vv-o8m">
+                                    <rect key="frame" x="80" y="28" width="188" height="16"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money will be transferred at the end of the week" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqb-Wg-hZR">
+                                    <rect key="frame" x="80" y="47" width="283" height="13.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="vsh-vv-o8m" firstAttribute="top" secondItem="6NJ-vs-VT3" secondAttribute="bottom" constant="-1" id="JZQ-mv-4BB"/>
+                                <constraint firstAttribute="trailing" secondItem="Gqb-Wg-hZR" secondAttribute="trailing" constant="12" id="QLg-HF-Qr0"/>
+                                <constraint firstItem="MKa-xF-FZB" firstAttribute="leading" secondItem="QdD-Th-FDr" secondAttribute="leading" constant="10" id="S6U-cf-Ta7"/>
+                                <constraint firstItem="MKa-xF-FZB" firstAttribute="centerY" secondItem="QdD-Th-FDr" secondAttribute="centerY" id="Vjz-B2-ANe"/>
+                                <constraint firstItem="6NJ-vs-VT3" firstAttribute="leading" secondItem="MKa-xF-FZB" secondAttribute="trailing" constant="10" id="ij8-C9-hlN"/>
+                                <constraint firstItem="6NJ-vs-VT3" firstAttribute="top" secondItem="QdD-Th-FDr" secondAttribute="top" constant="8" id="lrC-pe-N9a"/>
+                                <constraint firstItem="Gqb-Wg-hZR" firstAttribute="top" secondItem="vsh-vv-o8m" secondAttribute="bottom" constant="3" id="ltS-bu-skB"/>
+                                <constraint firstItem="vsh-vv-o8m" firstAttribute="leading" secondItem="MKa-xF-FZB" secondAttribute="trailing" constant="10" id="rHB-ZB-CL8"/>
+                                <constraint firstItem="Gqb-Wg-hZR" firstAttribute="leading" secondItem="MKa-xF-FZB" secondAttribute="trailing" constant="10" id="tm0-A6-7uP"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ZOa-Fi-KMR">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="ZOa-Fi-KMR">
+                                <rect key="frame" x="0.0" y="105" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZOa-Fi-KMR" id="OV0-Dy-Qvz">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="2N2-8O-pyM" customClass="CustomRoundImageView" customModule="Geeni_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="18" y="4.5" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="e6j-PN-21n"/>
+                                                <constraint firstAttribute="width" constant="50" id="zqi-BZ-VGi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February 12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3b-Sa-spt">
+                                            <rect key="frame" x="295" y="1" width="72" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kathy Kayne paid you $10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbV-ld-aet">
+                                            <rect key="frame" x="83" y="21" width="167" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2N2-8O-pyM" firstAttribute="centerY" secondItem="OV0-Dy-Qvz" secondAttribute="centerY" id="A56-PH-TgM"/>
+                                        <constraint firstItem="e3b-Sa-spt" firstAttribute="top" secondItem="OV0-Dy-Qvz" secondAttribute="top" constant="1" id="Fqt-uG-7Vl"/>
+                                        <constraint firstItem="bbV-ld-aet" firstAttribute="leading" secondItem="2N2-8O-pyM" secondAttribute="trailing" constant="15" id="dLB-oO-onk"/>
+                                        <constraint firstAttribute="trailing" secondItem="e3b-Sa-spt" secondAttribute="trailing" constant="8" id="e4v-gm-B74"/>
+                                        <constraint firstItem="2N2-8O-pyM" firstAttribute="leading" secondItem="OV0-Dy-Qvz" secondAttribute="leading" constant="18" id="oEJ-If-a2d"/>
+                                        <constraint firstItem="bbV-ld-aet" firstAttribute="centerY" secondItem="OV0-Dy-Qvz" secondAttribute="centerY" id="zAF-a0-8NC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -41,7 +113,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1H-Rl-6D3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382" y="134"/>
+            <point key="canvasLocation" x="381.60000000000002" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vif-ze-2PC">
@@ -62,5 +134,6 @@
     </scenes>
     <resources>
         <image name="hamburger" width="15" height="10"/>
+        <image name="puppy" width="680" height="606"/>
     </resources>
 </document>
