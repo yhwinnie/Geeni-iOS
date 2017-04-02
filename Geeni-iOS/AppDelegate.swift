@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,26 +18,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
         
         // Can change for later purposes
 //        let controller = NewsFeedViewController()
 //        let navigationController = UINavigationController(rootViewController: controller)
 //        window?.rootViewController = navigationController
+//        
+//        let newsFeedViewController = PostViewController()
+//        let navigationController = UINavigationController(rootViewController: newsFeedViewController)
+//        
+//        newsFeedViewController.addLeftBarButtonWithImage(UIImage(named: "add-photo")!)
+//
+//
+//        let leftViewController = SideMenuTableViewController()
+    
+        
+//        let slideMenuController = SlideMenuController(mainViewController: navigationController, leftMenuViewController: leftViewController, rightMenuViewController: leftViewController)
+//        self.window?.rootViewController = slideMenuController
+//        self.window?.makeKeyAndVisible()
+//        
+//        SlideMenuOptions.leftViewWidth = 50
+//        SlideMenuOptions.contentViewScale = 0.50
         
         // Calling postViewController
-        let postViewController = AddCardViewController()
-        let navigationController = UINavigationController(rootViewController: postViewController)
-        window?.rootViewController = navigationController
-
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+//        let postViewController = PostViewController()
+//        let navigationController = UINavigationController(rootViewController: postViewController)
+//        window?.rootViewController = navigationController
+//
+//        UINavigationBar.appearance().tintColor = UIColor.white
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         // Calling the loginViewController
 //        let loginViewController = LoginViewController()
 //        //let navigationController = UINavigationController(rootViewController: loginViewController)
 //        window?.rootViewController = loginViewController
+        
+        
+        // create viewController code...
+        
+//        let mainViewController = PostViewController()
+//        let leftViewController = SideMenuTableViewController()
+//        let rightViewController = SideMenuTableViewController()
+//        
+//        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+//        
+//        UINavigationBar.appearance().tintColor = UIColor.black
+//        
+//        leftViewController.mainViewController = nvc
+//        
+//        
+//        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
+//        slideMenuController.automaticallyAdjustsScrollViewInsets = true
+//        slideMenuController.delegate = mainViewController
+//        self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
+//        self.window?.rootViewController = slideMenuController
+//        self.window?.makeKeyAndVisible()
         
         return true
     }

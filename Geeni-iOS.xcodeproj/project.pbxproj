@@ -7,25 +7,82 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C90142D1E7B1236005AC2FA /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */; };
 		2CAF613C1E7B229B00876C4D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAF613B1E7B229B00876C4D /* Utils.swift */; };
+		4C082A881E7E531A00EFD483 /* BecomeTutorPartTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C082A871E7E531A00EFD483 /* BecomeTutorPartTwoViewController.swift */; };
+		4C082A8A1E7E5D1E00EFD483 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C082A891E7E5D1E00EFD483 /* SideMenuTableViewController.swift */; };
+		4C0D71011E90F59E00E7A108 /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D71001E90F59E00E7A108 /* NewsFeedViewController.swift */; };
+		4C0D71031E90F5C200E7A108 /* PublicFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D71021E90F5C200E7A108 /* PublicFeedTableViewController.swift */; };
+		4C0D71051E90F5CF00E7A108 /* PrivateFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D71041E90F5CF00E7A108 /* PrivateFeedTableViewController.swift */; };
+		4C0D71071E90FBD900E7A108 /* PublicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D71061E90FBD900E7A108 /* PublicTableViewCell.swift */; };
+		4C0D71091E90FBE300E7A108 /* PrivateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D71081E90FBE300E7A108 /* PrivateTableViewCell.swift */; };
+		4C0D710B1E90FC4A00E7A108 /* CustomRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D710A1E90FC4A00E7A108 /* CustomRoundImageView.swift */; };
+		4C0D710D1E91021B00E7A108 /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D710C1E91021B00E7A108 /* PicturesCollectionViewCell.swift */; };
+		4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A7C1E90D6BF00DEA494 /* SideMenu.storyboard */; };
+		4C682A7F1E90D7B300DEA494 /* BecomeTutor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A7E1E90D7B300DEA494 /* BecomeTutor.storyboard */; };
+		4C682A811E90DD0D00DEA494 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C682A801E90DD0D00DEA494 /* CustomTextField.swift */; };
+		4C682A831E90E08600DEA494 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C682A821E90E08600DEA494 /* CustomTextView.swift */; };
+		4C682A851E90E24E00DEA494 /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C682A841E90E24E00DEA494 /* CustomRoundButton.swift */; };
+		4C682A8A1E90E65400DEA494 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A891E90E65400DEA494 /* Profile.storyboard */; };
+		4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A8C1E90E66900DEA494 /* Login.storyboard */; };
+		4C682A901E90E69100DEA494 /* AddCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A8F1E90E69100DEA494 /* AddCard.storyboard */; };
+		4C682A921E90E69A00DEA494 /* ListCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A911E90E69A00DEA494 /* ListCard.storyboard */; };
+		4C682A941E90E6B100DEA494 /* NewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A931E90E6B100DEA494 /* NewPost.storyboard */; };
+		4C682A971E90E6CA00DEA494 /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */; };
+		4C682AA11E90EBE200DEA494 /* CustomMenuBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C682AA01E90EBE200DEA494 /* CustomMenuBarButton.swift */; };
 		4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */; };
 		4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */; };
+		4CCD80C51E7E506C000644B1 /* BecomeTutorPartOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCD80C41E7E506C000644B1 /* BecomeTutorPartOneViewController.swift */; };
+		4CECE5D21E91043F0019D640 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5D11E91043F0019D640 /* Wallet.storyboard */; };
+		4CECE5D41E91044F0019D640 /* WalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5D31E91044F0019D640 /* WalletTableViewController.swift */; };
+		4CECE5D71E9104850019D640 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5D61E9104850019D640 /* MessagesViewController.swift */; };
+		4CECE5D91E9104950019D640 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5D81E9104950019D640 /* Messages.storyboard */; };
+		4CECE5DB1E9104A90019D640 /* MessagesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5DA1E9104A90019D640 /* MessagesListTableViewController.swift */; };
+		4CECE5DE1E9104F20019D640 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5DD1E9104F20019D640 /* ScheduleTableViewController.swift */; };
+		4CECE5E01E9104FD0019D640 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5DF1E9104FD0019D640 /* Schedule.storyboard */; };
+		4CECE5E21E910B800019D640 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5E11E910B800019D640 /* PostDetail.storyboard */; };
 		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
 		4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */; };
 		4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AF81E7B115F00768999 /* LoginViewController.swift */; };
 		4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AFC1E7B19B500768999 /* PostViewController.swift */; };
-		4CF45AFF1E7B291900768999 /* add-photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AFE1E7B291900768999 /* add-photo.png */; };
 		5A03F38F49C52473E1BA2467 /* Pods_Geeni_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
 		2CAF613B1E7B229B00876C4D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		4C082A871E7E531A00EFD483 /* BecomeTutorPartTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BecomeTutorPartTwoViewController.swift; sourceTree = "<group>"; };
+		4C082A891E7E5D1E00EFD483 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		4C0D71001E90F59E00E7A108 /* NewsFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		4C0D71021E90F5C200E7A108 /* PublicFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicFeedTableViewController.swift; sourceTree = "<group>"; };
+		4C0D71041E90F5CF00E7A108 /* PrivateFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateFeedTableViewController.swift; sourceTree = "<group>"; };
+		4C0D71061E90FBD900E7A108 /* PublicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicTableViewCell.swift; sourceTree = "<group>"; };
+		4C0D71081E90FBE300E7A108 /* PrivateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateTableViewCell.swift; sourceTree = "<group>"; };
+		4C0D710A1E90FC4A00E7A108 /* CustomRoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRoundImageView.swift; sourceTree = "<group>"; };
+		4C0D710C1E91021B00E7A108 /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
+		4C682A7C1E90D6BF00DEA494 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		4C682A7E1E90D7B300DEA494 /* BecomeTutor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BecomeTutor.storyboard; sourceTree = "<group>"; };
+		4C682A801E90DD0D00DEA494 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4C682A821E90E08600DEA494 /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		4C682A841E90E24E00DEA494 /* CustomRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
+		4C682A891E90E65400DEA494 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		4C682A8C1E90E66900DEA494 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		4C682A8F1E90E69100DEA494 /* AddCard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCard.storyboard; sourceTree = "<group>"; };
+		4C682A911E90E69A00DEA494 /* ListCard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListCard.storyboard; sourceTree = "<group>"; };
+		4C682A931E90E6B100DEA494 /* NewPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPost.storyboard; sourceTree = "<group>"; };
+		4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
+		4C682AA01E90EBE200DEA494 /* CustomMenuBarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMenuBarButton.swift; sourceTree = "<group>"; };
 		4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
+		4CCD80C41E7E506C000644B1 /* BecomeTutorPartOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BecomeTutorPartOneViewController.swift; sourceTree = "<group>"; };
+		4CECE5D11E91043F0019D640 /* Wallet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		4CECE5D31E91044F0019D640 /* WalletTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletTableViewController.swift; sourceTree = "<group>"; };
+		4CECE5D61E9104850019D640 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		4CECE5D81E9104950019D640 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		4CECE5DA1E9104A90019D640 /* MessagesListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListTableViewController.swift; sourceTree = "<group>"; };
+		4CECE5DD1E9104F20019D640 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		4CECE5DF1E9104FD0019D640 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		4CECE5E11E910B800019D640 /* PostDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
 		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,7 +91,6 @@
 		4CF45AF21E7B0DF000768999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF45AF81E7B115F00768999 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CF45AFC1E7B19B500768999 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		4CF45AFE1E7B291900768999 /* add-photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-photo.png"; path = "Assets.xcassets/add-photo.png"; sourceTree = "<group>"; };
 		6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geeni_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +116,132 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C682A861E90E55100DEA494 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A801E90DD0D00DEA494 /* CustomTextField.swift */,
+				4C682A821E90E08600DEA494 /* CustomTextView.swift */,
+				4C682A841E90E24E00DEA494 /* CustomRoundButton.swift */,
+				4C682AA01E90EBE200DEA494 /* CustomMenuBarButton.swift */,
+				4C0D710A1E90FC4A00E7A108 /* CustomRoundImageView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		4C682A871E90E5D600DEA494 /* Become a Tutor */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A7E1E90D7B300DEA494 /* BecomeTutor.storyboard */,
+				4CCD80C41E7E506C000644B1 /* BecomeTutorPartOneViewController.swift */,
+				4C082A871E7E531A00EFD483 /* BecomeTutorPartTwoViewController.swift */,
+			);
+			name = "Become a Tutor";
+			sourceTree = "<group>";
+		};
+		4C682A881E90E64300DEA494 /* New Post */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A931E90E6B100DEA494 /* NewPost.storyboard */,
+				4CF45AFC1E7B19B500768999 /* PostViewController.swift */,
+				4C0D710C1E91021B00E7A108 /* PicturesCollectionViewCell.swift */,
+			);
+			name = "New Post";
+			sourceTree = "<group>";
+		};
+		4C682A8B1E90E65E00DEA494 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A8C1E90E66900DEA494 /* Login.storyboard */,
+				4CF45AF81E7B115F00768999 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4C682A8E1E90E67B00DEA494 /* Payment Options */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A8F1E90E69100DEA494 /* AddCard.storyboard */,
+				4C682A911E90E69A00DEA494 /* ListCard.storyboard */,
+				4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */,
+			);
+			name = "Payment Options";
+			sourceTree = "<group>";
+		};
+		4C682A951E90E6B700DEA494 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A891E90E65400DEA494 /* Profile.storyboard */,
+				4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		4C682A981E90E6D000DEA494 /* News Feed */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */,
+				4CECE5E11E910B800019D640 /* PostDetail.storyboard */,
+				4C0D71001E90F59E00E7A108 /* NewsFeedViewController.swift */,
+				4C0D71021E90F5C200E7A108 /* PublicFeedTableViewController.swift */,
+				4C0D71041E90F5CF00E7A108 /* PrivateFeedTableViewController.swift */,
+				4C0D71061E90FBD900E7A108 /* PublicTableViewCell.swift */,
+				4C0D71081E90FBE300E7A108 /* PrivateTableViewCell.swift */,
+			);
+			name = "News Feed";
+			sourceTree = "<group>";
+		};
+		4C682A991E90E6E400DEA494 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		4C682A9A1E90E6F300DEA494 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4C682A7C1E90D6BF00DEA494 /* SideMenu.storyboard */,
+				4C082A891E7E5D1E00EFD483 /* SideMenuTableViewController.swift */,
+			);
+			name = "Side Menu";
+			sourceTree = "<group>";
+		};
+		4C682A9B1E90E74F00DEA494 /* Reusable Code */ = {
+			isa = PBXGroup;
+			children = (
+				2CAF613B1E7B229B00876C4D /* Utils.swift */,
+			);
+			name = "Reusable Code";
+			sourceTree = "<group>";
+		};
+		4CECE5D01E9104290019D640 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				4CECE5D11E91043F0019D640 /* Wallet.storyboard */,
+				4CECE5D31E91044F0019D640 /* WalletTableViewController.swift */,
+			);
+			name = Wallet;
+			sourceTree = "<group>";
+		};
+		4CECE5D51E91046B0019D640 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				4CECE5D81E9104950019D640 /* Messages.storyboard */,
+				4CECE5DA1E9104A90019D640 /* MessagesListTableViewController.swift */,
+				4CECE5D61E9104850019D640 /* MessagesViewController.swift */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		4CECE5DC1E9104E30019D640 /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				4CECE5DD1E9104F20019D640 /* ScheduleTableViewController.swift */,
+				4CECE5DF1E9104FD0019D640 /* Schedule.storyboard */,
+			);
+			name = Schedule;
+			sourceTree = "<group>";
+		};
 		4CF45ADA1E7B0DF000768999 = {
 			isa = PBXGroup;
 			children = (
@@ -81,18 +263,24 @@
 		4CF45AE51E7B0DF000768999 /* Geeni-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
-				4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */,
-				2C90142C1E7B1236005AC2FA /* NewsFeedViewController.swift */,
 				4CF45AEA1E7B0DF000768999 /* Main.storyboard */,
-				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
-				4CF45AFE1E7B291900768999 /* add-photo.png */,
 				4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */,
+				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
+				4C682A9B1E90E74F00DEA494 /* Reusable Code */,
+				4C682A991E90E6E400DEA494 /* Networking */,
+				4C682A8B1E90E65E00DEA494 /* Login */,
+				4C682A9A1E90E6F300DEA494 /* Side Menu */,
+				4C682A981E90E6D000DEA494 /* News Feed */,
+				4C682A951E90E6B700DEA494 /* Profile */,
+				4C682A8E1E90E67B00DEA494 /* Payment Options */,
+				4CECE5D01E9104290019D640 /* Wallet */,
+				4C682A881E90E64300DEA494 /* New Post */,
+				4CECE5DC1E9104E30019D640 /* Schedule */,
+				4CECE5D51E91046B0019D640 /* Messages */,
+				4C682A871E90E5D600DEA494 /* Become a Tutor */,
+				4C682A861E90E55100DEA494 /* Custom Views */,
+				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
 				4CF45AF21E7B0DF000768999 /* Info.plist */,
-				2CAF613B1E7B229B00876C4D /* Utils.swift */,
-				4CF45AF81E7B115F00768999 /* LoginViewController.swift */,
-				4CF45AFC1E7B19B500768999 /* PostViewController.swift */,
-				4CCD80C01E7E456B000644B1 /* ProfileTableViewController.swift */,
 			);
 			path = "Geeni-iOS";
 			sourceTree = "<group>";
@@ -169,7 +357,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF45AFF1E7B291900768999 /* add-photo.png in Resources */,
+				4C682A7F1E90D7B300DEA494 /* BecomeTutor.storyboard in Resources */,
+				4C682A971E90E6CA00DEA494 /* NewsFeed.storyboard in Resources */,
+				4C682A8A1E90E65400DEA494 /* Profile.storyboard in Resources */,
+				4C682A941E90E6B100DEA494 /* NewPost.storyboard in Resources */,
+				4CECE5E21E910B800019D640 /* PostDetail.storyboard in Resources */,
+				4C682A921E90E69A00DEA494 /* ListCard.storyboard in Resources */,
+				4CECE5D91E9104950019D640 /* Messages.storyboard in Resources */,
+				4CECE5D21E91043F0019D640 /* Wallet.storyboard in Resources */,
+				4CECE5E01E9104FD0019D640 /* Schedule.storyboard in Resources */,
+				4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */,
+				4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */,
+				4C682A901E90E69100DEA494 /* AddCard.storyboard in Resources */,
 				4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */,
 				4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */,
 				4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */,
@@ -231,13 +430,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CECE5DE1E9104F20019D640 /* ScheduleTableViewController.swift in Sources */,
+				4CECE5DB1E9104A90019D640 /* MessagesListTableViewController.swift in Sources */,
+				4C682A831E90E08600DEA494 /* CustomTextView.swift in Sources */,
+				4C0D710B1E90FC4A00E7A108 /* CustomRoundImageView.swift in Sources */,
+				4C0D710D1E91021B00E7A108 /* PicturesCollectionViewCell.swift in Sources */,
 				4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */,
 				4CCD80C11E7E456B000644B1 /* ProfileTableViewController.swift in Sources */,
+				4C682AA11E90EBE200DEA494 /* CustomMenuBarButton.swift in Sources */,
+				4CCD80C51E7E506C000644B1 /* BecomeTutorPartOneViewController.swift in Sources */,
+				4C0D71091E90FBE300E7A108 /* PrivateTableViewCell.swift in Sources */,
+				4CECE5D41E91044F0019D640 /* WalletTableViewController.swift in Sources */,
+				4C0D71051E90F5CF00E7A108 /* PrivateFeedTableViewController.swift in Sources */,
 				4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */,
 				4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */,
+				4C682A851E90E24E00DEA494 /* CustomRoundButton.swift in Sources */,
 				4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */,
-				2C90142D1E7B1236005AC2FA /* NewsFeedViewController.swift in Sources */,
+				4C0D71031E90F5C200E7A108 /* PublicFeedTableViewController.swift in Sources */,
+				4C682A811E90DD0D00DEA494 /* CustomTextField.swift in Sources */,
 				2CAF613C1E7B229B00876C4D /* Utils.swift in Sources */,
+				4C082A881E7E531A00EFD483 /* BecomeTutorPartTwoViewController.swift in Sources */,
+				4C082A8A1E7E5D1E00EFD483 /* SideMenuTableViewController.swift in Sources */,
+				4C0D71071E90FBD900E7A108 /* PublicTableViewCell.swift in Sources */,
+				4CECE5D71E9104850019D640 /* MessagesViewController.swift in Sources */,
+				4C0D71011E90F59E00E7A108 /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
