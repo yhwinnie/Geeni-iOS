@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fxz-BV-OKE">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="i6P-0i-RCj">
+            <objects>
+                <navigationController id="fxz-BV-OKE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="E2P-jf-X0G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6OV-qR-Qz2" kind="relationship" relationship="rootViewController" id="3vv-D6-2PN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Js1-Su-KwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="183"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="4VU-gk-M7E">
+            <objects>
+                <viewController id="6OV-qR-Qz2" customClass="TimerViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wbW-Ak-MBX"/>
+                        <viewControllerLayoutGuide type="bottom" id="1HX-JF-Fvt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hhd-HE-Zed">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziq-Au-WDp" customClass="CLTimer" customModule="CLTimer">
+                                <rect key="frame" x="26" y="82" width="268" height="259"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="259" id="ID4-qe-RcW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="timerBackgroundColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="countDownColor">
+                                        <color key="value" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNZ-lD-DXr" customClass="CustomRoundButton" customModule="Geeni_iOS" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="359" width="116" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="B2G-jh-KPk"/>
+                                    <constraint firstAttribute="height" constant="42" id="PZV-Rn-4W1"/>
+                                </constraints>
+                                <state key="normal" title="START"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="6OV-qR-Qz2" eventType="touchUpInside" id="h2H-3z-jB6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFw-M8-B5y" customClass="CustomRoundButton" customModule="Geeni_iOS" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="409" width="116" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="1uV-HB-zrh"/>
+                                    <constraint firstAttribute="width" constant="116" id="gUk-vt-9DA"/>
+                                </constraints>
+                                <state key="normal" title="STOP"/>
+                                <connections>
+                                    <action selector="stopTimer:" destination="6OV-qR-Qz2" eventType="touchUpInside" id="j2o-ZG-tct"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nNZ-lD-DXr" firstAttribute="top" secondItem="ziq-Au-WDp" secondAttribute="bottom" constant="18" id="A79-1e-7dD"/>
+                            <constraint firstItem="ziq-Au-WDp" firstAttribute="leading" secondItem="hhd-HE-Zed" secondAttribute="leadingMargin" constant="10" id="CWc-RP-Gq9"/>
+                            <constraint firstItem="IFw-M8-B5y" firstAttribute="top" secondItem="nNZ-lD-DXr" secondAttribute="bottom" constant="8" id="IuM-fb-Jl1"/>
+                            <constraint firstItem="nNZ-lD-DXr" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="TYB-mG-u7I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ziq-Au-WDp" secondAttribute="trailing" constant="10" id="W8b-tX-yYx"/>
+                            <constraint firstItem="IFw-M8-B5y" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="lHr-Xt-ZbP"/>
+                            <constraint firstItem="ziq-Au-WDp" firstAttribute="top" secondItem="wbW-Ak-MBX" secondAttribute="bottom" constant="18" id="tKq-M2-VRk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Timer" id="j6i-Eo-ZCW"/>
+                    <connections>
+                        <outlet property="timer" destination="ziq-Au-WDp" id="rgm-Hi-FNL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYW-W6-8mM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74.400000000000006" y="183.95802098950526"/>
+        </scene>
+    </scenes>
+</document>

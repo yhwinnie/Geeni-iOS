@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CLTimer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A9605A9C68D1BEBB747EEAABB69DD9D</key>
+		<key>4E55E2AEA07D7E3CA91693AE5E3B770F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E261ADE3952B91086B880D5A4253C287</key>
+		<key>EB41417A3EABE159FFD5FEA46D21CEEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F31DA6642CA95F4EF55ACF9703DF169A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

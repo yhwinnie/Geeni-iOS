@@ -9,6 +9,8 @@ target 'Geeni-iOS' do
 	pod 'Firebase'
 	pod 'FirebaseDatabase'
 	pod 'SWRevealViewController'
+	pod 'CLTimer'
+
 
 
 

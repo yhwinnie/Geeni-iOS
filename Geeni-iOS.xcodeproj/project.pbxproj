@@ -42,6 +42,8 @@
 		4CECE5E21E910B800019D640 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5E11E910B800019D640 /* PostDetail.storyboard */; };
 		4CECE5E41E9111EF0019D640 /* CardListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */; };
 		4CECE5E61E91139B0019D640 /* CardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5E51E91139B0019D640 /* CardListTableViewCell.swift */; };
+		4CECE5E91E9114FE0019D640 /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5E81E9114FE0019D640 /* Timer.storyboard */; };
+		4CECE5EB1E9115170019D640 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5EA1E9115170019D640 /* TimerViewController.swift */; };
 		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
@@ -87,6 +89,8 @@
 		4CECE5E11E910B800019D640 /* PostDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
 		4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewController.swift; sourceTree = "<group>"; };
 		4CECE5E51E91139B0019D640 /* CardListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewCell.swift; sourceTree = "<group>"; };
+		4CECE5E81E9114FE0019D640 /* Timer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		4CECE5EA1E9115170019D640 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,6 +252,15 @@
 			name = Schedule;
 			sourceTree = "<group>";
 		};
+		4CECE5E71E9114E90019D640 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				4CECE5E81E9114FE0019D640 /* Timer.storyboard */,
+				4CECE5EA1E9115170019D640 /* TimerViewController.swift */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
 		4CF45ADA1E7B0DF000768999 = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +298,7 @@
 				4CECE5D51E91046B0019D640 /* Messages */,
 				4C682A871E90E5D600DEA494 /* Become a Tutor */,
 				4C682A861E90E55100DEA494 /* Custom Views */,
+				4CECE5E71E9114E90019D640 /* Timer */,
 				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
 				4CF45AF21E7B0DF000768999 /* Info.plist */,
 			);
@@ -371,6 +385,7 @@
 				4C682A921E90E69A00DEA494 /* ListCard.storyboard in Resources */,
 				4CECE5D91E9104950019D640 /* Messages.storyboard in Resources */,
 				4CECE5D21E91043F0019D640 /* Wallet.storyboard in Resources */,
+				4CECE5E91E9114FE0019D640 /* Timer.storyboard in Resources */,
 				4CECE5E01E9104FD0019D640 /* Schedule.storyboard in Resources */,
 				4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */,
 				4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */,
@@ -446,6 +461,7 @@
 				4C682AA11E90EBE200DEA494 /* CustomMenuBarButton.swift in Sources */,
 				4CCD80C51E7E506C000644B1 /* BecomeTutorPartOneViewController.swift in Sources */,
 				4C0D71091E90FBE300E7A108 /* PrivateTableViewCell.swift in Sources */,
+				4CECE5EB1E9115170019D640 /* TimerViewController.swift in Sources */,
 				4CECE5D41E91044F0019D640 /* WalletTableViewController.swift in Sources */,
 				4C0D71051E90F5CF00E7A108 /* PrivateFeedTableViewController.swift in Sources */,
 				4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */,
