@@ -27,10 +27,43 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
     var collectionView: UICollectionView!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set navigation bar title and color
+        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.60, blue:1.00, alpha:1.0)
+        self.navigationController?.navigationBar.topItem?.title = "New Post"
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        self.navigationController?.navigationItem.leftBarButtonItem?.title = "Menu"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(addTapped))
+        
 
+        
         setup()
+
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //self.setNavigationBarItem()
+    }
+    
+    
+    func addTapped() {
+        print("A")
+//        if let slideMenuController = self.slideMenuController() {
+//            // some code
+//            self.slideMenuController()?.openLeft()
+//        }
+        
 
     }
     
@@ -45,6 +78,8 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
     func setup() {
         self.view.backgroundColor = UIColor.white
         
+        
+        
         // Setup scrollview delegate
         self.scrollView = UIScrollView()
         self.scrollView.delegate = self
@@ -55,11 +90,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(containerView)
         view.addSubview(scrollView)
         
-        // Set navigation bar title and color
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.60, blue:1.00, alpha:1.0)
-        self.navigationController?.navigationBar.topItem?.title = "New Post"
 
-        self.navigationController?.navigationBar.tintColor = UIColor.white
 
         
         var yPosition: CGFloat = 10
@@ -130,7 +161,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         lineView.backgroundColor = UIColor.lightGray
         containerView.addSubview(lineView)
         
-        yPosition += 5
+        yPosition += 20
         // Camera button
         cameraButton = UIButton(frame: CGRect(x: self.view.frame.width - 70, y: yPosition, width: 50, height: 50))
         
@@ -158,7 +189,7 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         containerView.addSubview(cameraButton)
         
         // Submit button
-        yPosition += cameraButton.frame.height + 20
+        yPosition += cameraButton.frame.height + 40
         submitButton = UIButton(frame: CGRect(x: self.view.frame.width/2 - 100, y: yPosition, width: 200, height: 50))
         submitButton.setTitle("SUBMIT POST", for: .normal)
         submitButton.backgroundColor = UIColor(red:0.20, green:0.60, blue:1.00, alpha:1.0)
@@ -178,6 +209,8 @@ class PostViewController: UIViewController, UIScrollViewDelegate {
         super.didReceiveMemoryWarning()
     }
 }
+
+
 
 
 extension PostViewController: UICollectionViewDelegate, UICollectionViewDataSource {
