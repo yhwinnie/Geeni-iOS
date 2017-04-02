@@ -40,6 +40,7 @@
 		4CECE5DE1E9104F20019D640 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5DD1E9104F20019D640 /* ScheduleTableViewController.swift */; };
 		4CECE5E01E9104FD0019D640 /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5DF1E9104FD0019D640 /* Schedule.storyboard */; };
 		4CECE5E21E910B800019D640 /* PostDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CECE5E11E910B800019D640 /* PostDetail.storyboard */; };
+		4CECE5E41E9111EF0019D640 /* CardListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */; };
 		4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AE61E7B0DF000768999 /* AppDelegate.swift */; };
 		4CF45AEC1E7B0DF000768999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEA1E7B0DF000768999 /* Main.storyboard */; };
 		4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AED1E7B0DF000768999 /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		4CECE5DD1E9104F20019D640 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		4CECE5DF1E9104FD0019D640 /* Schedule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		4CECE5E11E910B800019D640 /* PostDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostDetail.storyboard; sourceTree = "<group>"; };
+		4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListTableViewController.swift; sourceTree = "<group>"; };
 		4CF45AE31E7B0DF000768999 /* Geeni-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geeni-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF45AE61E7B0DF000768999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CF45AEB1E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				4C682A8F1E90E69100DEA494 /* AddCard.storyboard */,
 				4C682A911E90E69A00DEA494 /* ListCard.storyboard */,
 				4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */,
+				4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */,
 			);
 			name = "Payment Options";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				4CF45AFD1E7B19B500768999 /* PostViewController.swift in Sources */,
 				4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */,
 				4C682A851E90E24E00DEA494 /* CustomRoundButton.swift in Sources */,
+				4CECE5E41E9111EF0019D640 /* CardListTableViewController.swift in Sources */,
 				4CF45AE71E7B0DF000768999 /* AppDelegate.swift in Sources */,
 				4C0D71031E90F5C200E7A108 /* PublicFeedTableViewController.swift in Sources */,
 				4C682A811E90DD0D00DEA494 /* CustomTextField.swift in Sources */,

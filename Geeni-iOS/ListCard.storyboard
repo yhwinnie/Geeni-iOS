@@ -12,7 +12,7 @@
         <!--Cards-->
         <scene sceneID="Hzx-Zv-dZf">
             <objects>
-                <tableViewController id="7ac-Z3-F0r" sceneMemberID="viewController">
+                <tableViewController id="7ac-Z3-F0r" customClass="CardListTableViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1rd-gT-IMK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,12 +54,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cards" id="xps-AU-Gr9">
+                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="bxJ-FE-cgv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yHc-PY-jVo">
                             <connections>
                                 <segue destination="8Qz-zc-ttw" kind="show" id="X2y-Nk-UgY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="bxJ-FE-cgv" id="o5C-ph-G9j"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aya-WR-c1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,4 +94,7 @@
             <point key="canvasLocation" x="-1151" y="148"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hamburger" width="15" height="10"/>
+    </resources>
 </document>
