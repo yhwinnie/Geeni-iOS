@@ -29,9 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Check if user is already logged in
         do {
+            // Getting access token if user is already loggen in.
             let token = try keychain.get("token")
             if let token = token {
                 print(token)
+                
+                
                 
                 // TODO: Check if user is already under "users" on firebase, if yes present Main View. If no, go to sign up page which is still in progress
                 
@@ -103,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
                 do {
                     // Store authentication to keychain
+                    // TODO: Also store the firebase id as well.
                     try self.keychain.set(authentication.accessToken, key: "token")
                     
                     // TODO: Check if it is the first time user logs in, if yes, do not presentMainView 

@@ -57,37 +57,36 @@ class SideMenuTableViewController: UITableViewController {
             
             let newPost: UIViewController = UIStoryboard(name: "NewPost", bundle: nil).instantiateViewController(withIdentifier: "NewPost") as! UINavigationController
             
-            
-            self.revealViewController().pushFrontViewController(newPost, animated: true)
-            
+            self.revealViewController().setFront(newPost, animated: true)
+        
         case 2:
             
             let schedule: UIViewController = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "Schedule") as! UINavigationController
             
             
-            self.revealViewController().pushFrontViewController(schedule, animated: true)
+            self.revealViewController().setFront(schedule, animated: true)
             
         case 3:
             let messages: UIViewController = UIStoryboard(name: "Messages", bundle: nil).instantiateViewController(withIdentifier: "Messages") as! UINavigationController
             
             
-            self.revealViewController().pushFrontViewController(messages, animated: true)
+            self.revealViewController().setFront(messages, animated: true)
         case 4:
             let wallet: UIViewController = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "Wallet") as! UINavigationController
             
             
-            self.revealViewController().pushFrontViewController(wallet, animated: true)
+            self.revealViewController().setFront(wallet, animated: true)
         case 5:
             let cards: UIViewController = UIStoryboard(name: "ListCard", bundle: nil).instantiateViewController(withIdentifier: "ListCard") as! UINavigationController
             
             
-            self.revealViewController().pushFrontViewController(cards, animated: true)
+            self.revealViewController().setFront(cards, animated: true)
             
         case 6:
             let becomeTutor: UIViewController = UIStoryboard(name: "BecomeTutor", bundle: nil).instantiateViewController(withIdentifier: "BecomeTutor") as! UINavigationController
             
             
-            self.revealViewController().pushFrontViewController(becomeTutor, animated: true)
+            self.revealViewController().setFront(becomeTutor, animated: true)
             
         case 7:
             let firebaseAuth = FIRAuth.auth()
