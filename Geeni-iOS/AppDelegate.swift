@@ -34,20 +34,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             if let token = token {
                 print(token)
                 
-                
-                
-                // TODO: Check if user is already under "users" on firebase, if yes present Main View. If no, go to sign up page which is still in progress
-                
-                
-                // Move to Main Page
-                presentMainView()
-                
+                // Check if user is already under "users" on firebase, if yes present Main View. If no, go to sign up page which is still in progress
+                let ref = FIRDatabase.database().reference()
+                ref.child("users").observe(FIRDataEventType.value, with: {
+                    (snapshot) in
+                    for u in snapshot.children {
+                        let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
+                        if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
+                            // Move to Main Page
+                            self.presentMainView()
+                        }
+                    }
+                    
+                })
                 
             }
             
         } catch {
-            // TODO: Handle read failure
-            
+            // Handle read failure
+            if FIRAuthErrorCode(rawValue: error._code) != nil {
+                print("User Error: \(error)")
+            }
         }
         
         
@@ -79,16 +86,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
-        if let error = error {
+        if error != nil {
             // ...
             return
         }
         
         guard let authentication = user.authentication else { return }
-        
-        
-        
-        
         
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
@@ -96,26 +99,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
             // ...
-            if let error = error {
+            if error != nil {
                 // ...
                 return
             }
             else {
-                
-        
             
                 do {
                     // Store authentication to keychain
-                    // TODO: Also store the firebase id as well.
+                    // Also store the firebase id as well.
                     try self.keychain.set(authentication.accessToken, key: "token")
                     
-                    // TODO: Check if it is the first time user logs in, if yes, do not presentMainView 
-
+                    // Check if it is the first time user logs in, if yes, do not presentMainView
+                    let ref = FIRDatabase.database().reference()
+                    ref.child("users").observe(FIRDataEventType.value, with: {
+                        (snapshot) in
+                        var firstTime = true
+                        for u in snapshot.children {
+                            let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
+                            if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
+                                firstTime = false
+                                break;
+                            }
+                        }
+                        // If success, move to main view
+                        if (!firstTime) {
+                            self.presentMainView()
+                        } else {
+                            
+                            // Store new user
+                            let userDict: [String : AnyObject] = ["_id": FIRAuth.auth()?.currentUser?.uid as AnyObject,
+                                                                  "balance_available": 0 as AnyObject,
+                                                                  "balance_pending": 0 as AnyObject,
+                                                                  "email": user?.email as AnyObject,
+                                                                  "limit": 0 as AnyObject,
+                                                                  "major": "Computer Science" as AnyObject,
+                                                                  "nor_student": 0 as AnyObject,
+                                                                  "overall_ratings_student": 0 as AnyObject,
+                                                                  "overall_ratings_tutor": 0 as AnyObject,
+                                                                  "photo_gs": user?.photoURL?.absoluteString as AnyObject,
+                                                                  "tutor_bool": false as AnyObject,
+                                                                  "username": user?.displayName as AnyObject,
+                                                                  "year": "2017" as AnyObject]
+                            ref.child("users").childByAutoId().setValue(userDict)
+                        }
+                        
+                    })
                     
-                    
-                    // If success, move to main view
-                    self.presentMainView()
-                    
+                   
                     
                 } catch let error {
                     print("error: \(error)")
