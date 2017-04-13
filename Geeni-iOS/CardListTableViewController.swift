@@ -12,17 +12,35 @@ import SWRevealViewController
 class CardListTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    
+    var cards = [Card]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         revealSideMenu()
+        getCards()
+        
+    }
+    
+    func getCards() {
+        guard let uid = uid else { return }
         
         
+        ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let card = Card(dictionary: dictionary)
+                self.cards.append(card)
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }
+            
+            
+        }, withCancel: nil)
     }
     
     func revealSideMenu() {
@@ -48,62 +66,81 @@ class CardListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return self.cards.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardListTableViewCell
 
-        // Configure the cell...
+        cell.card = self.cards[indexPath.row]
 
         return cell
     }
- 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+
+// Card Model 
+class Card: NSObject {
+    var _id: String?
+    var card_token: String?
+    var last_four: String?
+    var provider: String?
+    var type: String?
+    var user_id: String?
+
+    
+    
+    init(dictionary: [String: Any]) {
+        self._id = dictionary["_id"] as? String ?? ""
+        self.card_token = dictionary["card_token"] as? String ?? ""
+        self.last_four = dictionary["last_four"] as? String ?? ""
+        self.provider = dictionary["provider"] as? String ?? ""
+        
+        self.type = dictionary["type"] as? String ?? ""
+
+        self.user_id = dictionary["user_id"] as? String ?? ""
+        
+    }
+}
+
+
+
+class CardListTableViewCell: UITableViewCell {
+    @IBOutlet weak var cardNumber: UILabel!
+    @IBOutlet weak var cardImageView: UIImageView!
+    
+    
+    var card: Card? {
+        
+        didSet {
+            guard let card = card else { return }
+            
+            cardNumber.text = card.last_four
+
+            // Set Images
+            
+            guard let provider = card.provider else { return }
+            cardImageView.image = UIImage(named: provider)
+
+        }
+    }
+    
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
+}
+
+
+

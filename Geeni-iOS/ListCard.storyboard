@@ -47,8 +47,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="cardNumber" destination="YLf-ae-glP" id="5u4-UX-1uj"/>
-                                    <outlet property="cardPicture" destination="CE8-hh-sln" id="bGu-Vp-tO9"/>
+                                    <outlet property="cardImageView" destination="wfe-cf-7g3" id="gYE-tx-z2O"/>
+                                    <outlet property="cardNumber" destination="YLf-ae-glP" id="sUf-4A-36A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -85,7 +85,7 @@
         <scene sceneID="tnm-2r-Cn8">
             <objects>
                 <navigationController storyboardIdentifier="ListCard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MMn-t4-rIC" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xDr-aR-fnO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xDr-aR-fnO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

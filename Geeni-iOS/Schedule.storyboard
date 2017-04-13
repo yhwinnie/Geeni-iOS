@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3we-SZ-eet">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="3we-SZ-eet" customClass="SessionTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3we-SZ-eet" id="2Sc-pK-HGb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CS61A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fso-r3-SrN">
+                                            <rect key="frame" x="8" y="0.0" width="52" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03/12/2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrT-wl-cXF">
+                                            <rect key="frame" x="8" y="22" width="88" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I need help please help." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrv-cv-KVq">
+                                            <rect key="frame" x="8" y="44" width="181" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rKf-OZ-yBD" customClass="CustomRoundImageView" customModule="Geeni_iOS" customModuleProvider="target">
+                                            <rect key="frame" x="299" y="0.0" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="AGF-VG-yfB"/>
+                                                <constraint firstAttribute="width" constant="50" id="yEr-36-HcL"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Rrv-cv-KVq" secondAttribute="trailing" constant="5" id="5Rx-hz-PqY"/>
+                                        <constraint firstItem="Rrv-cv-KVq" firstAttribute="leading" secondItem="2Sc-pK-HGb" secondAttribute="leadingMargin" id="E2P-sm-Pa8"/>
+                                        <constraint firstItem="Rrv-cv-KVq" firstAttribute="top" secondItem="qrT-wl-cXF" secondAttribute="bottom" constant="1" id="Ky9-HL-T6f"/>
+                                        <constraint firstItem="fso-r3-SrN" firstAttribute="top" secondItem="2Sc-pK-HGb" secondAttribute="top" id="WGg-Wr-vWE"/>
+                                        <constraint firstAttribute="trailing" secondItem="rKf-OZ-yBD" secondAttribute="trailing" constant="26" id="aqN-cA-Smu"/>
+                                        <constraint firstItem="fso-r3-SrN" firstAttribute="leading" secondItem="2Sc-pK-HGb" secondAttribute="leading" constant="8" id="edY-YS-w0V"/>
+                                        <constraint firstItem="qrT-wl-cXF" firstAttribute="leading" secondItem="2Sc-pK-HGb" secondAttribute="leadingMargin" id="evG-Oq-evE"/>
+                                        <constraint firstItem="qrT-wl-cXF" firstAttribute="top" secondItem="fso-r3-SrN" secondAttribute="bottom" constant="1" id="klX-7A-woU"/>
+                                        <constraint firstItem="rKf-OZ-yBD" firstAttribute="top" secondItem="2Sc-pK-HGb" secondAttribute="top" id="u9Z-rv-sOF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseNameLabel" destination="fso-r3-SrN" id="XlT-d1-3sE"/>
+                                    <outlet property="dateLabel" destination="qrT-wl-cXF" id="bwA-Ci-Lbf"/>
+                                    <outlet property="shortDescriptionLabel" destination="Rrv-cv-KVq" id="4c4-7k-uOr"/>
+                                    <outlet property="userPicture" destination="rKf-OZ-yBD" id="xof-HI-f6d"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -47,7 +92,7 @@
         <scene sceneID="7L7-Mt-cdn">
             <objects>
                 <navigationController storyboardIdentifier="Schedule" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V3B-KK-Qxt" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HFx-0g-CHL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HFx-0g-CHL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

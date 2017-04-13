@@ -22,6 +22,9 @@ PODS:
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.9)
+  - FirebaseStorage (1.1.0):
+    - FirebaseAnalytics (~> 3.7)
+    - GTMSessionFetcher/Core (~> 1.1)
   - Gloss (1.2.1)
   - GoogleSignIn (4.0.2):
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
@@ -46,6 +49,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.8):
     - GTMSessionFetcher/Core (= 1.1.8)
   - KeychainAccess (3.0.1)
+  - Kingfisher (3.5.0)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
@@ -54,9 +58,11 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Auth
   - FirebaseDatabase
+  - FirebaseStorage
   - Gloss
   - GoogleSignIn
   - KeychainAccess
+  - Kingfisher
   - SWRevealViewController
 
 SPEC CHECKSUMS:
@@ -68,14 +74,16 @@ SPEC CHECKSUMS:
   FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   Gloss: 9ab33b8ede01e4232571d43a6bf9259b85d1de69
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 14b09c2e4eaf3a57ecbb31871dc97ad2e4444297
+PODFILE CHECKSUM: 9aae14f0eddd799a9dda9d7881dabfa78fd87e5a
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

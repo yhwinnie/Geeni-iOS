@@ -8,8 +8,12 @@
 
 import UIKit
 import SWRevealViewController
+import Firebase
 
 class NewsFeedViewController: UIViewController {
+    
+
+
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var privateContainerView: UIView!
@@ -24,9 +28,9 @@ class NewsFeedViewController: UIViewController {
         privateContainerView.alpha = 0
         
         revealSideMenu()
-        
-        
+
     }
+
 
     func revealSideMenu() {
         if self.revealViewController() != nil {
@@ -57,16 +61,5 @@ class NewsFeedViewController: UIViewController {
         
     }
 
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

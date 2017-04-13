@@ -8,22 +8,63 @@
 
 import UIKit
 import SWRevealViewController
+import Firebase
 
 class ScheduleTableViewController: UITableViewController {
 
+    var sessions = [Session]()
+    
+    let sessionRef = ref.child("sessions")
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         revealSideMenu()
         
+        getSessionIfTutor()
+        getSessionIfStudent()
         
     }
+    
+    
+    // Query sessions by user
+    func getSessionIfTutor() {
+        
+        guard let uid = uid else { return }
+        
+        
+        sessionRef.queryOrdered(byChild: "tutor").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let session = Session(dictionary: dictionary)
+                self.sessions.append(session)
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }
+        
+        
+        }, withCancel: nil)
+    }
+    
+    func getSessionIfStudent() {
+        sessionRef.queryOrdered(byChild: "student").queryEqual(toValue: uid).observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let session = Session(dictionary: dictionary)
+                self.sessions.append(session)
+                
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }
+            
+            
+        }, withCancel: nil)
+    }
+    
     
     func revealSideMenu() {
         if self.revealViewController() != nil {
@@ -44,67 +85,124 @@ class ScheduleTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.sessions.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SessionTableViewCell
+        
+        cell.session = self.sessions[indexPath.row]
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+// Session TableViewCell
+class SessionTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var shortDescriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var courseNameLabel: UILabel!
+    @IBOutlet weak var userPicture: CustomRoundImageView!
+    
+    var session: Session? {
+        
+        didSet {
+            guard let session = session else { return }
+            
+            shortDescriptionLabel.text = session.desc
+            
+            // Set Images
+            
+            if let imageURL = session.user_photo_gs {
+                
+                let url = URL(fileURLWithPath: imageURL)
+                // userPicture.kf.setImage(with: storageRef.child(imageURL))
+            }
+            
+            let dateformatter = DateFormatter()
+            
+            dateformatter.dateFormat = "MM/dd/yy h:mm a Z"
+            
+            let now = dateformatter.string(from: Date(timeIntervalSince1970: session.start_time!/1000))
+            
+            dateLabel.text = now
+            
+            courseNameLabel.text = session.subject
+            
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
     }
-    */
+    
+}
 
-    /*
-    // MARK: - Navigation
+// Session Model
+class Session: NSObject {
+    var _id: String?
+    var desc: String?
+    var duration: Double?
+    var location: String?
+    
+    var processed: Int?
+    var start_time: Double?
+    var student: String?
+    var student_review_submitted: Bool?
+    var subject: String?
+    var timestamp: Double?
+    
+    var tutor: String?
+    var tutor_name: String?
+    var tutor_photo_gs: String?
+    var tutor_review_submitted: Bool?
+    
+    var user_id: String?
+    var user_photo_gs: String?
+    var username: String?
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    init(dictionary: [String: Any]) {
+        self._id = dictionary["_id"] as? String ?? ""
+        self.desc = dictionary["desc"] as? String ?? ""
+        self.duration = dictionary["duration"] as? Double ?? 0.0
+        self.location = dictionary["location"] as? String ?? ""
+       
+        self.processed = dictionary["processed"] as? Int ?? 0
+        self.start_time = dictionary["start_time"] as? Double ?? 0.0
+        
+        self.student = dictionary["student"] as? String ?? ""
+        self.student_review_submitted = dictionary["student_review_submitted"] as? Bool ?? false
+        
+        self.subject = dictionary["subject"] as? String ?? ""
+        self.timestamp = dictionary["timestamp"] as? Double ?? 0.0
+        
+        self.tutor = dictionary["tutor"] as? String ?? ""
+        self.tutor_name = dictionary["tutor_name"] as? String ?? ""
+        self.tutor_photo_gs = dictionary["tutor_photo_gs"] as? String ?? ""
+        self.tutor_review_submitted = dictionary["tutor_review_submitted"] as? Bool ?? false
+        
+        self.user_id = dictionary["user_id"] as? String ?? ""
+        self.user_photo_gs = dictionary["user_photo_gs"] as? String ?? ""
+        self.username = dictionary["username"] as? String ?? ""
+        
+        
     }
-    */
-
 }
