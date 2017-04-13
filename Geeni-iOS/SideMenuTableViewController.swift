@@ -9,9 +9,14 @@
 import UIKit
 import SWRevealViewController
 import Firebase
+import FirebaseStorage
+import Kingfisher
 
 class SideMenuTableViewController: UITableViewController {
     
+    @IBOutlet weak var profileImageView: CustomRoundImageView!
+    @IBOutlet weak var majorLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
 
 
@@ -21,7 +26,40 @@ class SideMenuTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.black
         tableView.separatorColor = UIColor.darkGray
         
+        getUserInfo()
         
+        
+    }
+    
+    func getUserInfo() {
+        guard let uid = uid else { return }
+        
+        
+        
+        
+        ref.child("users").child(uid).observe(.value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let user = User(dictionary: dictionary)
+                
+                DispatchQueue.main.async(execute: {
+                    self.majorLabel.text = user.major
+                    self.nameLabel.text = user.username
+                    
+                    storageRef = storage.reference(forURL: user.photo_gs!)
+                
+                    
+                    storageRef.downloadURL { (url, error) in
+                        self.profileImageView.kf.setImage(with: url)
+                    }
+
+                    
+                    self.tableView.reloadData()
+                })
+            }
+            
+            
+        }, withCancel: nil)
     }
 
 

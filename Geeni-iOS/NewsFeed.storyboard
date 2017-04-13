@@ -155,7 +155,6 @@
                                     <outlet property="dateLabel" destination="4Wf-qq-lo2" id="H9g-qY-VeB"/>
                                     <outlet property="shortDescriptionLabel" destination="wWr-p1-W9H" id="JT8-5P-PIN"/>
                                     <outlet property="userPicture" destination="rqF-rh-wLz" id="hbR-pi-KY2"/>
-                                    <segue destination="H2M-Hn-hWF" kind="presentation" id="rMI-PA-BW9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -168,14 +167,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81w-CD-OYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="706.875" y="133.125"/>
-        </scene>
-        <!--PostDetail-->
-        <scene sceneID="uJ5-bc-EwR">
-            <objects>
-                <viewControllerPlaceholder storyboardName="PostDetail" id="H2M-Hn-hWF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JoF-ur-idc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="943" y="722"/>
         </scene>
         <!--Public Feed Table View Controller-->
         <scene sceneID="9hA-gf-x5P">
@@ -236,7 +227,6 @@
                                     <outlet property="dateLabel" destination="BJf-b6-L0C" id="6b3-4G-C73"/>
                                     <outlet property="shortDescription" destination="HbZ-Ca-0r0" id="C94-Hq-g5K"/>
                                     <outlet property="userPicture" destination="mr2-E1-J9w" id="Rf8-Zp-2CU"/>
-                                    <segue destination="H2M-Hn-hWF" kind="presentation" id="dcJ-Pn-c3n"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -255,7 +245,4 @@
         <image name="hamburger" width="15" height="10"/>
         <image name="puppy" width="680" height="606"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="rMI-PA-BW9"/>
-    </inferredMetricsTieBreakers>
 </document>

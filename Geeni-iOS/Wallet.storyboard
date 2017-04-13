@@ -61,7 +61,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="ZOa-Fi-KMR">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="ZOa-Fi-KMR" customClass="WalletTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="105" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZOa-Fi-KMR" id="OV0-Dy-Qvz">
@@ -97,6 +97,11 @@
                                         <constraint firstItem="bbV-ld-aet" firstAttribute="centerY" secondItem="OV0-Dy-Qvz" secondAttribute="centerY" id="zAF-a0-8NC"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="receiptLabel" destination="bbV-ld-aet" id="PzZ-tC-l8Z"/>
+                                    <outlet property="timestamp" destination="e3b-Sa-spt" id="rB6-DC-zMl"/>
+                                    <outlet property="userImageView" destination="2N2-8O-pyM" id="Bgt-UX-TQs"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -108,7 +113,10 @@
                         <barButtonItem key="leftBarButtonItem" image="hamburger" id="alx-JU-RZP"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="balanceLabel" destination="vsh-vv-o8m" id="SAw-Nh-XrE"/>
                         <outlet property="menuButton" destination="alx-JU-RZP" id="r1B-8P-FTQ"/>
+                        <outlet property="userImageView" destination="MKa-xF-FZB" id="FcP-ir-KN6"/>
+                        <outlet property="userNameLabel" destination="6NJ-vs-VT3" id="cQ6-V5-qiz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1H-Rl-6D3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,7 +127,7 @@
         <scene sceneID="vif-ze-2PC">
             <objects>
                 <navigationController storyboardIdentifier="Wallet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="J80-eZ-r0m" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WMh-ef-5Sl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="WMh-ef-5Sl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

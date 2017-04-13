@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Geeni-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>40E7477AD67135868F5FB08136602674</key>
+		<key>36A3889DEC40CAD193A3121FAC662A78</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43A1821C3F549F45524C646C67D2FC74</key>
+		<key>3BFFD59F9C14E0D3C6CC35F2DA62E1D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>40E7477AD67135868F5FB08136602674</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5DBD75F01C6D89DF54A6093F77B725C</key>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

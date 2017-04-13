@@ -15,6 +15,8 @@ target 'Geeni-iOS' do
 	pod 'Alamofire'
 	pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
+	pod 'Kingfisher'
+	pod 'FirebaseStorage'
 
 
 
