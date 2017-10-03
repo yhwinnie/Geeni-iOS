@@ -15,21 +15,14 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timer: CLTimer!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
+        setupNavigationBar(title: "Timer")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     func resetTimer() {
         timer.resetTimer()
 
     }
+    
     @IBAction func stopTimer(_ sender: Any) {
         timer.stopTimer()
 
@@ -38,14 +31,4 @@ class TimerViewController: UIViewController {
         timer.startTimer(withSeconds: 3600, format:.Minutes , mode: .Reverse)
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

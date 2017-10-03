@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feedback View Controller-->
+        <scene sceneID="XPP-Ou-M5r">
+            <objects>
+                <viewController id="3aM-ue-Jfy" customClass="FeedbackViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MPU-Hp-1jJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBu-Wa-0Az">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="SJk-Y0-9l3"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="iIp-Ia-ufZ">
+                                <rect key="frame" x="15" y="260" width="345" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="us0-LE-KlO">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Student/Tutor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-oW-bAr">
+                                        <rect key="frame" x="0.0" y="27.5" width="345" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqk-uL-bMd">
+                                        <rect key="frame" x="0.0" y="55" width="345" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="PNa-UJ-gp8"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rS7-dt-uBy" customClass="CosmosView">
+                                <rect key="frame" x="30" y="350" width="315" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xDX-ae-2EH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fU0-3x-BRc" firstAttribute="trailing" secondItem="iIp-Ia-ufZ" secondAttribute="trailing" constant="15" id="0xs-Qr-Qa2"/>
+                            <constraint firstItem="iIp-Ia-ufZ" firstAttribute="leading" secondItem="fU0-3x-BRc" secondAttribute="leading" constant="15" id="5cj-zi-I5C"/>
+                            <constraint firstItem="ZBu-Wa-0Az" firstAttribute="trailing" secondItem="fU0-3x-BRc" secondAttribute="trailing" id="8m8-Rz-Onz"/>
+                            <constraint firstItem="ZBu-Wa-0Az" firstAttribute="top" secondItem="MPU-Hp-1jJ" secondAttribute="top" id="Ijr-BE-Yta"/>
+                            <constraint firstItem="ZBu-Wa-0Az" firstAttribute="leading" secondItem="fU0-3x-BRc" secondAttribute="leading" id="MXw-M9-cPv"/>
+                            <constraint firstItem="rS7-dt-uBy" firstAttribute="top" secondItem="iIp-Ia-ufZ" secondAttribute="bottom" constant="10" id="R2m-hf-CMF"/>
+                            <constraint firstItem="rS7-dt-uBy" firstAttribute="leading" secondItem="fU0-3x-BRc" secondAttribute="leading" constant="30" id="Zf7-el-NEj"/>
+                            <constraint firstItem="iIp-Ia-ufZ" firstAttribute="top" secondItem="ZBu-Wa-0Az" secondAttribute="bottom" constant="10" id="nso-4m-57w"/>
+                            <constraint firstItem="fU0-3x-BRc" firstAttribute="trailing" secondItem="rS7-dt-uBy" secondAttribute="trailing" constant="30" id="pE0-UW-vgA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fU0-3x-BRc"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileView" destination="ZBu-Wa-0Az" id="Dn5-bf-yfJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07G-3b-L1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1786.4000000000001" y="-92.203898050974516"/>
+        </scene>
+    </scenes>
+</document>

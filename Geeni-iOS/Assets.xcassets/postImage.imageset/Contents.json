@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "back-arrow.png",
+      "filename" : "postImage.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "back-arrow_@2Xy.png",
       "scale" : "2x"
     },
     {
