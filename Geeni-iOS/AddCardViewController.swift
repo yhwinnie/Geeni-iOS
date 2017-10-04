@@ -13,7 +13,6 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
     
     var scrollView: UIScrollView!
     var containerView = UIView()
-    
     var cardNumberLabel: UILabel!
     var cardNumberTextField: UITextField!
     var cvvLabel: UILabel!
@@ -29,7 +28,7 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNavigationBar(title: "New Card")
         setup()
 
     }
@@ -42,13 +41,6 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         containerView.frame = CGRect(x: 0, y: 0, width: scrollView.contentSize.width, height: scrollView.contentSize.height)
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     func setup() {
         self.view.backgroundColor = UIColor.white
         
@@ -61,13 +53,6 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         containerView = UIView()
         scrollView.addSubview(containerView)
         view.addSubview(scrollView)
-        
-        // Set navigation bar title and color
-        self.navigationController?.navigationBar.barTintColor = UIColor(red:0.20, green:0.60, blue:1.00, alpha:1.0)
-        self.navigationController?.navigationBar.topItem?.title = "New Card"
-        
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        
         
         var yPosition: CGFloat = 10
         // course label
@@ -171,6 +156,10 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         
         //self.scrollView.contentSize.height = yPosition + 10
         
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 

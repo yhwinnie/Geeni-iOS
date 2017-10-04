@@ -17,17 +17,13 @@ class CardListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        revealSideMenu()
+        revealSideMenu(menuButton)
         getCards()
-        
+        setupNavigationBar(title: "Cards")
     }
     
     func getCards() {
         guard let uid = uid else { return }
-        
-        
         ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -43,20 +39,6 @@ class CardListTableViewController: UITableViewController {
         }, withCancel: nil)
     }
     
-    func revealSideMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -79,7 +61,6 @@ class CardListTableViewController: UITableViewController {
     }
 
 }
-
 
 // Card Model 
 class Card: NSObject {
@@ -126,18 +107,8 @@ class CardListTableViewCell: UITableViewCell {
 
         }
     }
-    
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

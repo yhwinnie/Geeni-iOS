@@ -21,7 +21,7 @@ class EachPostViewController : UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupProfileImageView()
-//        addTutorButton(true)
+        addTutorButton(true)
     }
     
     func setupTableView(){
@@ -34,6 +34,7 @@ class EachPostViewController : UIViewController {
         let profileImageView = Bundle.main.loadNibNamed("ProfileImageXib", owner: self, options: nil)![0] as? ProfileImageXib
         profileImageView?.frame = CGRect(x: 0, y: -statusBarHeight, width: self.view.frame.width, height: 250)
         profileImageView?.center.x = self.view.center.x
+        profileView.frame.origin.y = -statusBarHeight
         profileView.frame = (profileImageView?.frame)!
         profileView.addSubview(profileImageView!)
         profileImageView?.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
@@ -122,5 +123,20 @@ extension EachPostViewController : UITableViewDataSource {
         } else {
             return 0.0
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if indexPath.section == 1 {
+            let messageButton = UITableViewRowAction(style: .normal, title: "") { (rowAction, indexPath) in
+            }
+            messageButton.backgroundColor = UIColor.init(patternImage: UIImage(named : "messageAction")!)
+            return [messageButton]
+        }else {
+            return []
+        }
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
     }
 }

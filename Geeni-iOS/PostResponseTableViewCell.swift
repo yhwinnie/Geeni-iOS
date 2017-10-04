@@ -18,5 +18,6 @@ class PostResponseTableViewCell : UITableViewCell{
     
     override func awakeFromNib() {
         userImage.makeRound()
+        userImage.contentMode = .scaleAspectFill
     }
 }

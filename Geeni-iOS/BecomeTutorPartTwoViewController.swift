@@ -9,46 +9,21 @@
 import UIKit
 import SWRevealViewController
 
-class BecomeTutorPartTwoViewController: UIViewController, UIScrollViewDelegate {
+class BecomeTutorPartTwoViewController: UIViewController {
     
-
-    @IBOutlet weak var menuButton: UIBarButtonItem!
-    
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        revealSideMenu()
-        
+        setupNavigationBar(title: "Become a Tutor")
+        setupSubmitButton()
     }
     
-    func revealSideMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-            
-        } }
-}
-
-
-
-extension BecomeTutorPartTwoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        
-        cell.backgroundColor = UIColor.blue
-        return cell
+    func setupSubmitButton(){
+        submitButton.createSubmitButton()
+        submitButton.center.x = self.view.center.x
+        submitButton.frame.origin.y = self.view.frame.height - 100 - (self.navigationController?.navigationBar.frame.height)!
     }
 }
+
+

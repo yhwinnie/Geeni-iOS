@@ -16,10 +16,9 @@ class MessagesListTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        revealSideMenu()
+        setupNavigationBar(title: "Messages")
+        revealSideMenu(menuButton)
         getChatrooms()
-        
         
     }
     
@@ -50,20 +49,6 @@ class MessagesListTableViewController: UITableViewController {
             }
         }, withCancel: nil)
         
-    }
-    
-    func revealSideMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -99,7 +84,7 @@ class ChatroomTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userImageView: CustomRoundImageView!
+    @IBOutlet weak var userImageView: UIImageView!
     
     
     

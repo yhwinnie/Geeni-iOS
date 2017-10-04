@@ -17,9 +17,7 @@ import SWRevealViewController
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    
     let keychain = Keychain(service: "com.wiwen.Geeni-iOS")
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -45,9 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                             self.presentMainView()
                         }
                     }
-                    
                 })
-                
             }
             
         } catch {
@@ -58,7 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         
-        
+        //status bar color
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
     
@@ -82,6 +79,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return GIDSignIn.sharedInstance().handle(url,
                                                  sourceApplication: sourceApplication,
                                                  annotation: annotation)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
@@ -143,11 +145,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                                   "year": "2017" as AnyObject]
                             ref.child("users").childByAutoId().setValue(userDict)
                         }
-                        
                     })
-                    
-                   
-                    
                 } catch let error {
                     print("error: \(error)")
                 }

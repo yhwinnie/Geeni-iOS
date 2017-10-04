@@ -12,19 +12,19 @@ import Firebase
 
 class ScheduleTableViewController: UITableViewController {
 
-    var sessions = [Session]()
-    
-    let sessionRef = ref.child("sessions")
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+
+    var sessions = [Session]()
+    let sessionRef = ref.child("sessions")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        revealSideMenu()
-        
+        self.setupNavigationBar(title: "Schedule")
+        revealSideMenu(menuButton)
         getSessionIfTutor()
         getSessionIfStudent()
-        
     }
     
     
@@ -32,8 +32,6 @@ class ScheduleTableViewController: UITableViewController {
     func getSessionIfTutor() {
         
         guard let uid = uid else { return }
-        
-        
         sessionRef.queryOrdered(byChild: "tutor").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -63,22 +61,6 @@ class ScheduleTableViewController: UITableViewController {
             
             
         }, withCancel: nil)
-    }
-    
-    
-    func revealSideMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
-        }
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -112,7 +94,7 @@ class SessionTableViewCell: UITableViewCell {
     @IBOutlet weak var shortDescriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var courseNameLabel: UILabel!
-    @IBOutlet weak var userPicture: CustomRoundImageView!
+    @IBOutlet weak var userPicture: UIImageView!
     
     var session: Session? {
         
@@ -122,12 +104,12 @@ class SessionTableViewCell: UITableViewCell {
             shortDescriptionLabel.text = session.desc
             
             // Set Images
-            
-            if let imageURL = session.user_photo_gs {
-                
-                let url = URL(fileURLWithPath: imageURL)
-                // userPicture.kf.setImage(with: storageRef.child(imageURL))
-            }
+//            
+//            if let imageURL = session.user_photo_gs {
+//                
+////                let url = URL(fileURLWithPath: imageURL)
+//                // userPicture.kf.setImage(with: storageRef.child(imageURL))
+//            }
             
             let dateformatter = DateFormatter()
             

@@ -37,12 +37,14 @@ class BecomeTutorPartOneTableViewController: UITableViewController {
     }
     
     func setupTextFields() {
-        majotTextField.setBottomLine()
-        experienceTextField.setBottomLine()
-        availabilityTextField.setBottomLine()
+        majotTextField.borderStyle = .none
+        experienceTextField.borderStyle = .none
+        availabilityTextField.borderStyle = .none
         majotTextField.delegate = self
         experienceTextField.delegate = self
-        availabilityTextField.delegate = self        
+        availabilityTextField.delegate = self
+        descriptionTextView.text = ""
+        descriptionTextView.addDoneButton()
     }
     
     func setupContinueButton() {
@@ -55,10 +57,10 @@ class BecomeTutorPartOneTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 8 {
+        if indexPath.row == 8 || indexPath.row == 9 {
             return 70.0
         } else if indexPath.row == 7 {
-            return 200.0
+            return 150.0
         } else {
             return 44.0
         }

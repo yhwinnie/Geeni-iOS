@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MMn-t4-rIC">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MMn-t4-rIC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F3L-NX-qqH" id="DGm-Q3-W0S">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="wfe-cf-7g3">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MASTERCARD" translatesAutoresizingMaskIntoConstraints="NO" id="wfe-cf-7g3">
                                             <rect key="frame" x="15" y="6" width="40" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="ce6-Y6-neY"/>
@@ -33,7 +33,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*5555" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLf-ae-glP">
-                                            <rect key="frame" x="70" y="11" width="49" height="21"/>
+                                            <rect key="frame" x="70" y="11" width="48" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cards" id="xps-AU-Gr9">
-                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="bxJ-FE-cgv"/>
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="bxJ-FE-cgv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yHc-PY-jVo">
                             <connections>
                                 <segue destination="8Qz-zc-ttw" kind="show" id="X2y-Nk-UgY"/>
@@ -86,7 +86,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ListCard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MMn-t4-rIC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xDr-aR-fnO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -99,7 +99,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="hamburger" width="15" height="10"/>
-        <image name="mastercard" width="33" height="24"/>
+        <image name="MASTERCARD" width="33" height="24"/>
+        <image name="menu" width="15" height="10"/>
     </resources>
 </document>
