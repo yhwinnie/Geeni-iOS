@@ -53,6 +53,9 @@
 		5F73DB001F83AFE800E76232 /* PostDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DAFF1F83AFE800E76232 /* PostDetailTableViewCell.swift */; };
 		5F73DB021F83B00400E76232 /* PostResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DB011F83B00400E76232 /* PostResponseTableViewCell.swift */; };
 		5F73DB041F83B39200E76232 /* PostImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DB031F83B39200E76232 /* PostImageTableViewCell.swift */; };
+		5F73DB071F8441C300E76232 /* PostImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DB061F8441C300E76232 /* PostImageCollectionViewCell.swift */; };
+		5F73DB0A1F84C65500E76232 /* GraphsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DB091F84C65500E76232 /* GraphsViewController.swift */; };
+		5FA629931F857C250056B9BB /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */; };
 		5FD17B781F828729000290B0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD17B771F828729000290B0 /* FeedbackViewController.swift */; };
 		5FD17B7B1F829352000290B0 /* Graphs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD17B7A1F829352000290B0 /* Graphs.storyboard */; };
 		5FD57DD91F7EC12D00BAE233 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD57DD81F7EC12D00BAE233 /* Receipt.swift */; };
@@ -112,6 +115,9 @@
 		5F73DAFF1F83AFE800E76232 /* PostDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailTableViewCell.swift; sourceTree = "<group>"; };
 		5F73DB011F83B00400E76232 /* PostResponseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseTableViewCell.swift; sourceTree = "<group>"; };
 		5F73DB031F83B39200E76232 /* PostImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageTableViewCell.swift; sourceTree = "<group>"; };
+		5F73DB061F8441C300E76232 /* PostImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		5F73DB091F84C65500E76232 /* GraphsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsViewController.swift; sourceTree = "<group>"; };
+		5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		5FD17B771F828729000290B0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		5FD17B7A1F829352000290B0 /* Graphs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Graphs.storyboard; sourceTree = "<group>"; };
 		5FD57DD81F7EC12D00BAE233 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
@@ -297,15 +303,10 @@
 		4CF45AE51E7B0DF000768999 /* Geeni-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4CF45AEA1E7B0DF000768999 /* Main.storyboard */,
-				4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */,
-				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
+				5F73DB081F84BFC300E76232 /* Supporting Files */,
 				5FD57DD51F7EC0F200BAE233 /* Model */,
 				5FD57DD61F7EC0F900BAE233 /* View */,
 				5FD57DD71F7EC0FD00BAE233 /* Controller */,
-				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
-				4CF45AF21E7B0DF000768999 /* Info.plist */,
-				4CECE5F41E9192B00019D640 /* GoogleService-Info.plist */,
 			);
 			path = "Geeni-iOS";
 			sourceTree = "<group>";
@@ -333,6 +334,7 @@
 		5F73DAFE1F83AFC900E76232 /* PostTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				5FD57DE21F7EC42C00BAE233 /* PostTableViewCell.swift */,
 				5F73DAFF1F83AFE800E76232 /* PostDetailTableViewCell.swift */,
 				5F73DB011F83B00400E76232 /* PostResponseTableViewCell.swift */,
 				5F73DB031F83B39200E76232 /* PostImageTableViewCell.swift */,
@@ -340,10 +342,32 @@
 			name = PostTableViewCells;
 			sourceTree = "<group>";
 		};
+		5F73DB051F8441AB00E76232 /* PostCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5F73DB061F8441C300E76232 /* PostImageCollectionViewCell.swift */,
+			);
+			name = PostCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		5F73DB081F84BFC300E76232 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4CF45AEA1E7B0DF000768999 /* Main.storyboard */,
+				4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */,
+				4CF45AE61E7B0DF000768999 /* AppDelegate.swift */,
+				4CF45AED1E7B0DF000768999 /* Assets.xcassets */,
+				4CF45AF21E7B0DF000768999 /* Info.plist */,
+				4CECE5F41E9192B00019D640 /* GoogleService-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5FD17B791F82933A000290B0 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
 				5FD17B7A1F829352000290B0 /* Graphs.storyboard */,
+				5F73DB091F84C65500E76232 /* GraphsViewController.swift */,
 			);
 			name = Graphs;
 			sourceTree = "<group>";
@@ -363,8 +387,9 @@
 			children = (
 				4C682A861E90E55100DEA494 /* Custom Views */,
 				5FD57DDA1F7EC17500BAE233 /* WalletTableViewCell.swift */,
-				5FD57DE21F7EC42C00BAE233 /* PostTableViewCell.swift */,
+				5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */,
 				5F551BC51F80170300D25B7A /* Colors.swift */,
+				5F73DB051F8441AB00E76232 /* PostCollectionViewCell */,
 				5F73DAFE1F83AFC900E76232 /* PostTableViewCells */,
 				4C682A9B1E90E74F00DEA494 /* Reusable Code */,
 			);
@@ -553,6 +578,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PieCharts/PieCharts.framework",
 				"${BUILT_PRODUCTS_DIR}/SWRevealViewController/SWRevealViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/TKRadarChart/TKRadarChart.framework",
 			);
@@ -567,6 +593,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PieCharts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWRevealViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TKRadarChart.framework",
 			);
@@ -584,6 +611,7 @@
 			files = (
 				4CECE5DE1E9104F20019D640 /* ScheduleTableViewController.swift in Sources */,
 				4CECE5DB1E9104A90019D640 /* MessagesListTableViewController.swift in Sources */,
+				5FA629931F857C250056B9BB /* SettingsTableViewCell.swift in Sources */,
 				5F551BCA1F8025A100D25B7A /* NewPostTableViewContoller.swift in Sources */,
 				5FD57DDB1F7EC17500BAE233 /* WalletTableViewCell.swift in Sources */,
 				5FD57DE11F7EC1FD00BAE233 /* SettingsTableViewController.swift in Sources */,
@@ -596,6 +624,7 @@
 				5F73DAFD1F83AE8100E76232 /* EachPostViewController.swift in Sources */,
 				4C8F799B1E9FEA6B00C785C5 /* Post.swift in Sources */,
 				5FDCCF511F82695F00B0BF8E /* PostDetailXib.swift in Sources */,
+				5F73DB071F8441C300E76232 /* PostImageCollectionViewCell.swift in Sources */,
 				5F551BCC1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift in Sources */,
 				5FD17B781F828729000290B0 /* FeedbackViewController.swift in Sources */,
 				5F551BC81F801D0E00D25B7A /* Messages.swift in Sources */,
@@ -613,6 +642,7 @@
 				4C082A8A1E7E5D1E00EFD483 /* SideMenuTableViewController.swift in Sources */,
 				5F551BC61F80170300D25B7A /* Colors.swift in Sources */,
 				4C0D71011E90F59E00E7A108 /* NewsFeedViewController.swift in Sources */,
+				5F73DB0A1F84C65500E76232 /* GraphsViewController.swift in Sources */,
 				4C8F799D1EA003C000C785C5 /* User.swift in Sources */,
 				5FD57DE31F7EC42D00BAE233 /* PostTableViewCell.swift in Sources */,
 			);

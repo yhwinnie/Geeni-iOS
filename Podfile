@@ -18,5 +18,6 @@ target 'Geeni-iOS' do
 	pod 'Kingfisher'
 	pod 'FirebaseStorage'
   pod 'Cosmos', '~> 11.0'
-  pod 'TKRadarChart', '~> 1.3.0'
+  pod 'TKRadarChart'
+  pod 'PieCharts'
 end
