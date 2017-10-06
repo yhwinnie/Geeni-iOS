@@ -12,13 +12,13 @@ import SWRevealViewController
 class CardListTableViewController: UITableViewController {
 
     @IBOutlet weak var menuButton: UIBarButtonItem!
-    
     var cards = [Card]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         revealSideMenu(menuButton)
         getCards()
+        tableView.tableFooterView = UIView()
         setupNavigationBar(title: "Cards")
     }
     
@@ -48,70 +48,23 @@ class CardListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.cards.count
+        return 1
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardListTableViewCell
-
-        cell.card = self.cards[indexPath.row]
-
+//        cell.card = self.cards[indexPath.row]
         return cell
     }
-
-}
-
-// Card Model 
-class Card: NSObject {
-    var _id: String?
-    var card_token: String?
-    var last_four: String?
-    var provider: String?
-    var type: String?
-    var user_id: String?
-
     
-    
-    init(dictionary: [String: Any]) {
-        self._id = dictionary["_id"] as? String ?? ""
-        self.card_token = dictionary["card_token"] as? String ?? ""
-        self.last_four = dictionary["last_four"] as? String ?? ""
-        self.provider = dictionary["provider"] as? String ?? ""
-        
-        self.type = dictionary["type"] as? String ?? ""
-
-        self.user_id = dictionary["user_id"] as? String ?? ""
-        
-    }
-}
-
-
-
-class CardListTableViewCell: UITableViewCell {
-    @IBOutlet weak var cardNumber: UILabel!
-    @IBOutlet weak var cardImageView: UIImageView!
-    
-    
-    var card: Card? {
-        
-        didSet {
-            guard let card = card else { return }
-            
-            cardNumber.text = card.last_four
-
-            // Set Images
-            
-            guard let provider = card.provider else { return }
-            cardImageView.image = UIImage(named: provider)
-
-        }
-    }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction func addButtonPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "addCardSegue", sender: self)
     }
     
 }
+
+
 
 
 

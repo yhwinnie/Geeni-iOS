@@ -61,25 +61,43 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="bxJ-FE-cgv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yHc-PY-jVo">
                             <connections>
-                                <segue destination="8Qz-zc-ttw" kind="show" id="X2y-Nk-UgY"/>
+                                <action selector="addButtonPressed:" destination="7ac-Z3-F0r" id="XrU-Om-OVn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="bxJ-FE-cgv" id="o5C-ph-G9j"/>
+                        <segue destination="mjk-pi-fc0" kind="presentation" identifier="addCardSegue" id="288-vA-kl4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aya-WR-c1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-199.19999999999999" y="147.97601199400302"/>
+            <point key="canvasLocation" x="-282" y="148"/>
         </scene>
-        <!--AddCard-->
-        <scene sceneID="Whv-vj-wey">
+        <!--Add Card View Controller-->
+        <scene sceneID="IpO-gX-7lb">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddCard" id="8Qz-zc-ttw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FE0-o3-21m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="nLH-gi-9ax" customClass="AddCardViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bjf-9a-nRk"/>
+                        <viewControllerLayoutGuide type="bottom" id="YHm-aU-8HI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zZ8-Po-jYV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VN2-F0-9NJ">
+                        <barButtonItem key="leftBarButtonItem" image="back" id="4mR-YB-PGj">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="nLH-gi-9ax" id="Btd-Ot-cnE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwO-GB-A4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="-117"/>
+            <point key="canvasLocation" x="1396" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tnm-2r-Cn8">
@@ -97,9 +115,28 @@
             </objects>
             <point key="canvasLocation" x="-1151" y="148"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f7n-og-lfU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mjk-pi-fc0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kyb-sD-g0n">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nLH-gi-9ax" kind="relationship" relationship="rootViewController" id="KOR-Tu-1rj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VxW-9U-7AN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="148"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MASTERCARD" width="33" height="24"/>
+        <image name="back" width="8" height="13"/>
         <image name="menu" width="15" height="10"/>
     </resources>
 </document>

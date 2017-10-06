@@ -19,6 +19,7 @@ class MessagesListTableViewController: UITableViewController {
         setupNavigationBar(title: "Messages")
         revealSideMenu(menuButton)
         getChatrooms()
+        tableView.tableFooterView = UIView()
         
     }
     
@@ -60,14 +61,15 @@ class MessagesListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.chatrooms.count
+//        return self.chatrooms.count
+        return 1
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatroomTableViewCell
         
-        cell.chatroom = self.chatrooms[indexPath.row]
+//        cell.chatroom = self.chatrooms[indexPath.row]
         return cell
     }
     

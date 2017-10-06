@@ -26,6 +26,7 @@ class WalletTableViewController: UITableViewController {
         getReceipts()
         getWalletInfo()
         setupNavigationBar(title: "Wallet")
+        tableView.tableFooterView = UIView()
         
     }
     
@@ -91,13 +92,14 @@ class WalletTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.receipts.count
+//        return self.receipts.count
+        return 1
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WalletTableViewCell
-        cell.receipt = self.receipts[indexPath.row]
+//        cell.receipt = self.receipts[indexPath.row]
         return cell
     }
     

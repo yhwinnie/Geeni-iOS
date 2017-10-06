@@ -25,6 +25,7 @@ class ScheduleTableViewController: UITableViewController {
         revealSideMenu(menuButton)
         getSessionIfTutor()
         getSessionIfStudent()
+        tableView.tableFooterView = UIView()
     }
     
     
@@ -72,13 +73,14 @@ class ScheduleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.sessions.count
+//        return self.sessions.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SessionTableViewCell
         
-        cell.session = self.sessions[indexPath.row]
+//        cell.session = self.sessions[indexPath.row]
         
         return cell
     }
@@ -137,54 +139,4 @@ class SessionTableViewCell: UITableViewCell {
     
 }
 
-// Session Model
-class Session: NSObject {
-    var _id: String?
-    var desc: String?
-    var duration: Double?
-    var location: String?
-    
-    var processed: Int?
-    var start_time: Double?
-    var student: String?
-    var student_review_submitted: Bool?
-    var subject: String?
-    var timestamp: Double?
-    
-    var tutor: String?
-    var tutor_name: String?
-    var tutor_photo_gs: String?
-    var tutor_review_submitted: Bool?
-    
-    var user_id: String?
-    var user_photo_gs: String?
-    var username: String?
-    
 
-    init(dictionary: [String: Any]) {
-        self._id = dictionary["_id"] as? String ?? ""
-        self.desc = dictionary["desc"] as? String ?? ""
-        self.duration = dictionary["duration"] as? Double ?? 0.0
-        self.location = dictionary["location"] as? String ?? ""
-       
-        self.processed = dictionary["processed"] as? Int ?? 0
-        self.start_time = dictionary["start_time"] as? Double ?? 0.0
-        
-        self.student = dictionary["student"] as? String ?? ""
-        self.student_review_submitted = dictionary["student_review_submitted"] as? Bool ?? false
-        
-        self.subject = dictionary["subject"] as? String ?? ""
-        self.timestamp = dictionary["timestamp"] as? Double ?? 0.0
-        
-        self.tutor = dictionary["tutor"] as? String ?? ""
-        self.tutor_name = dictionary["tutor_name"] as? String ?? ""
-        self.tutor_photo_gs = dictionary["tutor_photo_gs"] as? String ?? ""
-        self.tutor_review_submitted = dictionary["tutor_review_submitted"] as? Bool ?? false
-        
-        self.user_id = dictionary["user_id"] as? String ?? ""
-        self.user_photo_gs = dictionary["user_photo_gs"] as? String ?? ""
-        self.username = dictionary["username"] as? String ?? ""
-        
-        
-    }
-}

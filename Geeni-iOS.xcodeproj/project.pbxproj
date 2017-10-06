@@ -15,7 +15,6 @@
 		4C682A7F1E90D7B300DEA494 /* BecomeTutor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A7E1E90D7B300DEA494 /* BecomeTutor.storyboard */; };
 		4C682A8A1E90E65400DEA494 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A891E90E65400DEA494 /* Profile.storyboard */; };
 		4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A8C1E90E66900DEA494 /* Login.storyboard */; };
-		4C682A901E90E69100DEA494 /* AddCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A8F1E90E69100DEA494 /* AddCard.storyboard */; };
 		4C682A921E90E69A00DEA494 /* ListCard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A911E90E69A00DEA494 /* ListCard.storyboard */; };
 		4C682A941E90E6B100DEA494 /* NewPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A931E90E6B100DEA494 /* NewPost.storyboard */; };
 		4C682A971E90E6CA00DEA494 /* NewsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */; };
@@ -47,6 +46,9 @@
 		5F551BCC1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F551BCB1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift */; };
 		5F551BCF1F824FE200D25B7A /* ProfileImageXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F551BCE1F824FE200D25B7A /* ProfileImageXib.xib */; };
 		5F551BD11F825E7E00D25B7A /* ProfileImageXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F551BD01F825E7E00D25B7A /* ProfileImageXib.swift */; };
+		5F5E10251F87846700A38E09 /* CardListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5E10241F87846700A38E09 /* CardListTableViewCell.swift */; };
+		5F5E10271F87848800A38E09 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5E10261F87848800A38E09 /* Card.swift */; };
+		5F5E10291F87853F00A38E09 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F5E10281F87853F00A38E09 /* Session.swift */; };
 		5F60F7BA1F7E52F300233155 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F60F7B91F7E52F300233155 /* Extensions.swift */; };
 		5F69DD651F8286A700049786 /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F69DD641F8286A700049786 /* Feedback.storyboard */; };
 		5F73DAFD1F83AE8100E76232 /* EachPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73DAFC1F83AE8100E76232 /* EachPostViewController.swift */; };
@@ -76,7 +78,6 @@
 		4C682A7E1E90D7B300DEA494 /* BecomeTutor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BecomeTutor.storyboard; sourceTree = "<group>"; };
 		4C682A891E90E65400DEA494 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4C682A8C1E90E66900DEA494 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		4C682A8F1E90E69100DEA494 /* AddCard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddCard.storyboard; sourceTree = "<group>"; };
 		4C682A911E90E69A00DEA494 /* ListCard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListCard.storyboard; sourceTree = "<group>"; };
 		4C682A931E90E6B100DEA494 /* NewPost.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPost.storyboard; sourceTree = "<group>"; };
 		4C682A961E90E6CA00DEA494 /* NewsFeed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsFeed.storyboard; sourceTree = "<group>"; };
@@ -109,6 +110,9 @@
 		5F551BCB1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeTutorPartOneTableViewController.swift; sourceTree = "<group>"; };
 		5F551BCE1F824FE200D25B7A /* ProfileImageXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageXib.xib; sourceTree = "<group>"; };
 		5F551BD01F825E7E00D25B7A /* ProfileImageXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageXib.swift; sourceTree = "<group>"; };
+		5F5E10241F87846700A38E09 /* CardListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListTableViewCell.swift; sourceTree = "<group>"; };
+		5F5E10261F87848800A38E09 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5F5E10281F87853F00A38E09 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		5F60F7B91F7E52F300233155 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5F69DD641F8286A700049786 /* Feedback.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feedback.storyboard; sourceTree = "<group>"; };
 		5F73DAFC1F83AE8100E76232 /* EachPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachPostViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +194,6 @@
 		4C682A8E1E90E67B00DEA494 /* Payment Options */ = {
 			isa = PBXGroup;
 			children = (
-				4C682A8F1E90E69100DEA494 /* AddCard.storyboard */,
 				4C682A911E90E69A00DEA494 /* ListCard.storyboard */,
 				4CCD80C21E7E48B9000644B1 /* AddCardViewController.swift */,
 				4CECE5E31E9111EF0019D640 /* CardListTableViewController.swift */,
@@ -377,6 +380,8 @@
 			children = (
 				5FD57DD81F7EC12D00BAE233 /* Receipt.swift */,
 				5F551BC71F801D0E00D25B7A /* Messages.swift */,
+				5F5E10261F87848800A38E09 /* Card.swift */,
+				5F5E10281F87853F00A38E09 /* Session.swift */,
 				4C682A991E90E6E400DEA494 /* Networking */,
 			);
 			name = Model;
@@ -388,6 +393,7 @@
 				4C682A861E90E55100DEA494 /* Custom Views */,
 				5FD57DDA1F7EC17500BAE233 /* WalletTableViewCell.swift */,
 				5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */,
+				5F5E10241F87846700A38E09 /* CardListTableViewCell.swift */,
 				5F551BC51F80170300D25B7A /* Colors.swift */,
 				5F73DB051F8441AB00E76232 /* PostCollectionViewCell */,
 				5F73DAFE1F83AFC900E76232 /* PostTableViewCells */,
@@ -514,7 +520,6 @@
 				4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */,
 				4CECE5F51E9192B00019D640 /* GoogleService-Info.plist in Resources */,
 				5FDCCF4F1F82694900B0BF8E /* PostDetailXib.xib in Resources */,
-				4C682A901E90E69100DEA494 /* AddCard.storyboard in Resources */,
 				5FD17B7B1F829352000290B0 /* Graphs.storyboard in Resources */,
 				4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */,
 				4CF45AEE1E7B0DF000768999 /* Assets.xcassets in Resources */,
@@ -615,6 +620,7 @@
 				5F551BCA1F8025A100D25B7A /* NewPostTableViewContoller.swift in Sources */,
 				5FD57DDB1F7EC17500BAE233 /* WalletTableViewCell.swift in Sources */,
 				5FD57DE11F7EC1FD00BAE233 /* SettingsTableViewController.swift in Sources */,
+				5F5E10251F87846700A38E09 /* CardListTableViewCell.swift in Sources */,
 				5F73DB041F83B39200E76232 /* PostImageTableViewCell.swift in Sources */,
 				4CCD80C31E7E48B9000644B1 /* AddCardViewController.swift in Sources */,
 				4CECE5EB1E9115170019D640 /* TimerViewController.swift in Sources */,
@@ -628,7 +634,9 @@
 				5F551BCC1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift in Sources */,
 				5FD17B781F828729000290B0 /* FeedbackViewController.swift in Sources */,
 				5F551BC81F801D0E00D25B7A /* Messages.swift in Sources */,
+				5F5E10291F87853F00A38E09 /* Session.swift in Sources */,
 				5F73DB021F83B00400E76232 /* PostResponseTableViewCell.swift in Sources */,
+				5F5E10271F87848800A38E09 /* Card.swift in Sources */,
 				4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */,
 				5FD57DD91F7EC12D00BAE233 /* Receipt.swift in Sources */,
 				4CECE5E41E9111EF0019D640 /* CardListTableViewController.swift in Sources */,

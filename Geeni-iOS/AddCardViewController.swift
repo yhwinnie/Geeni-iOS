@@ -152,15 +152,13 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         
         containerView.addSubview(submitButton)
         
-        //yPosition += submitButton.frame.height + 20
-        
-        //self.scrollView.contentSize.height = yPosition + 10
-        
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
 
 
 }
