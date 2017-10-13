@@ -1,0 +1,137 @@
+//
+//  SignUpTableViewController.swift
+//  Geeni-iOS
+//
+//  Created by Sahil Dhawan on 13/10/17.
+//  Copyright © 2017 wiwen. All rights reserved.
+//
+
+import UIKit
+import SWRevealViewController
+import Firebase
+import Kingfisher
+
+class SignUpTableViewController: UITableViewController {
+    
+    @IBOutlet weak var userPictureView : UIImageView!
+    @IBOutlet weak var nameTextField : UITextField!
+    @IBOutlet weak var majorsTextField : UITextField!
+    @IBOutlet weak var yearTextField : UITextField!
+    @IBOutlet weak var saveDetailsButton : UIButton!
+    
+    var imagePickerController = UIImagePickerController()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.allowsSelection = false
+        setupNavigationBar(title: "Enter Personal Information")
+        setupTextFields()
+        setupImageView()
+        setupSaveDetailsButton()
+        imagePickerController.delegate  = self
+    }
+    
+    func setupImageView(){
+        userPictureView.image = UIImage(named: "user_gray")
+        userPictureView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(userPictureTapped)))
+        userPictureView.clipsToBounds = true
+        userPictureView.isUserInteractionEnabled = true
+        userPictureView.layer.cornerRadius = 100.0
+        
+        setupUserImage()
+    }
+    
+    func setupSaveDetailsButton(){
+        saveDetailsButton.createSubmitButton()
+        saveDetailsButton.setTitle("SAVE DETAILS", for: .normal)
+        saveDetailsButton.center.x = self.view.center.x
+    }
+    
+    func userPictureTapped(){
+        let alertController = UIAlertController(title: "Geeni", message: "Select one of the following options to upload media", preferredStyle: .alert)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+            self.imagePickerController.sourceType = .camera
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        }
+        let photoAlbumAction = UIAlertAction(title: "Photo Album", style: .default) { (action) in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        }
+        let removeAction = UIAlertAction(title: "Remove Photo", style: .default) { (action) in
+            self.userPictureView.image = UIImage(named : "user_gray")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(cameraAction)
+        alertController.addAction(photoAlbumAction)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func setupTextFields() {
+        nameTextField.borderStyle = .none
+        majorsTextField.borderStyle = .none
+        yearTextField.borderStyle = .none
+        nameTextField.delegate = self
+        majorsTextField.delegate = self
+        yearTextField.delegate = self
+    }
+    
+    @IBAction func saveDetailsButtonPressed(){
+        if  nameTextField.text != "" , majorsTextField.text != "" , yearTextField.text != ""  {
+            //save user details
+            FirebaseCalls().saveUserDetails(name: nameTextField.text!, majors: majorsTextField.text!, year: yearTextField.text!, completionHandler: { (bool) in
+                if bool {
+                    // After data is saved segue is performed
+                    self.presentMainView()
+                }
+            })
+        } else {
+            showAlert("Fields cannot be empty")
+        }
+    }
+    
+    func setupUserImage() {
+        let userImageUrl = FIRAuth.auth()?.currentUser?.photoURL
+        userPictureView.kf.setImage(with: userImageUrl)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.item == 0 {
+            return 230.0
+        } else if indexPath.item == 8 {
+            return 70.0
+        } else {
+            return 44.0
+        }
+    }
+    
+    func presentMainView() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let storyboard: UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainPage") as! SWRevealViewController
+        delegate.window?.rootViewController = initialViewController
+        delegate.window?.makeKeyAndVisible()
+    }
+}
+
+extension SignUpTableViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension SignUpTableViewController : UIImagePickerControllerDelegate , UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        userPictureView.image = image
+        self.dismiss(animated: true, completion: nil)
+    }
+}
