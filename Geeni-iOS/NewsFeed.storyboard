@@ -148,7 +148,7 @@
                         <outlet property="segmentView" destination="Epv-qZ-Nz5" id="nzM-07-WBi"/>
                         <outlet property="segmentedControl" destination="Ghu-2P-uM5" id="Rn2-bQ-TCF"/>
                         <outlet property="tableView" destination="TbU-3N-BdG" id="x5E-RW-tdP"/>
-                        <segue destination="exq-i3-bs9" kind="modal" identifier="postSegue" id="bEk-n8-bjb"/>
+                        <segue destination="exq-i3-bs9" kind="presentation" identifier="postSegue" id="bEk-n8-bjb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pz1-G2-Xbn" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -46,8 +46,6 @@ class NewsFeedViewController: UIViewController {
         }
     }
     
-   
-    
     func getPublicNewsFeed() {
         FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             

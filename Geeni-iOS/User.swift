@@ -25,7 +25,6 @@ class User: NSObject {
     var username: String?
     var year: Int?
     
-    
     init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""

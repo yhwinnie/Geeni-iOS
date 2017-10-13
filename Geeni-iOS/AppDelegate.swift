@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import KeychainAccess
 import SWRevealViewController
 
 
@@ -17,7 +16,7 @@ import SWRevealViewController
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    let keychain = Keychain(service: "com.wiwen.Geeni-iOS")
+    //    let keychain = Keychain(service: "com.wiwen.Geeni-iOS")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -25,46 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        // Check if user is already logged in
-        do {
-            // Getting access token if user is already loggen in.
-            let token = try keychain.get("token")
-            if let token = token {
-                print(token)
-                
-                // Check if user is already under "users" on firebase, if yes present Main View. If no, go to sign up page which is still in progress
-                let ref = FIRDatabase.database().reference()
-                ref.child("users").observe(FIRDataEventType.value, with: {
-                    (snapshot) in
-                    for u in snapshot.children {
-                        let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
-                        if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
-                            // Move to Main Page
-                            self.presentMainView()
-                        }
-                    }
-                })
-            }
-            
-        } catch {
-            // Handle read failure
-            if FIRAuthErrorCode(rawValue: error._code) != nil {
-                print("User Error: \(error)")
-            }
-        }
-        
-        
         //status bar color
         UIApplication.shared.statusBarStyle = .lightContent
         return true
-    }
-    
-    func presentMainView() {
-        let storyboard: UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainPage") as! SWRevealViewController
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-        
     }
     
     @available(iOS 9.0, *)
@@ -87,9 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
         if error != nil {
-            // ...
+            print("\(String(describing: error?.localizedDescription))")
             return
         }
         
@@ -97,60 +58,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
-        // ...
-        
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
             if error != nil {
-                // ...
+                print("\(String(describing: error?.localizedDescription))")
                 return
             }
             else {
-            
-                do {
-                    // Store authentication to keychain
-                    // Also store the firebase id as well.
-                    try self.keychain.set(authentication.accessToken, key: "token")
-                    
-                    // Check if it is the first time user logs in, if yes, do not presentMainView
-                    let ref = FIRDatabase.database().reference()
-                    ref.child("users").observe(FIRDataEventType.value, with: {
-                        (snapshot) in
-                        var firstTime = true
-                        for u in snapshot.children {
-                            let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
-                            if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
-                                firstTime = false
-                                break;
-                            }
+                // Check if it is the first time user logs in, if yes, do not presentMainView
+                let ref = FIRDatabase.database().reference()
+                ref.child("users").observe(FIRDataEventType.value, with: {
+                    (snapshot) in
+                    var firstTime = true
+                    for u in snapshot.children {
+                        let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
+                        if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
+                            firstTime = false
+                            break;
                         }
-                        // If success, move to main view
-                        if (!firstTime) {
-                            self.presentMainView()
-                        } else {
-                            
-                            // Store new user
-                            let userDict: [String : AnyObject] = ["_id": FIRAuth.auth()?.currentUser?.uid as AnyObject,
-                                                                  "balance_available": 0 as AnyObject,
-                                                                  "balance_pending": 0 as AnyObject,
-                                                                  "email": user?.email as AnyObject,
-                                                                  "limit": 0 as AnyObject,
-                                                                  "major": "Computer Science" as AnyObject,
-                                                                  "nor_student": 0 as AnyObject,
-                                                                  "overall_ratings_student": 0 as AnyObject,
-                                                                  "overall_ratings_tutor": 0 as AnyObject,
-                                                                  "photo_gs": user?.photoURL?.absoluteString as AnyObject,
-                                                                  "tutor_bool": false as AnyObject,
-                                                                  "username": user?.displayName as AnyObject,
-                                                                  "year": "2017" as AnyObject]
-                            ref.child("users").childByAutoId().setValue(userDict)
-                        }
-                    })
-                } catch let error {
-                    print("error: \(error)")
-                }
+                    }
+                    if (!firstTime) {
+                        self.presentMainView()
+                    } else {
+                        self.presentSignUpView()
+                    }
+                })
             }
         }
+    }
+    
+    func presentMainView() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainPage") as! SWRevealViewController
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func presentSignUpView(){
+        let storyboard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "SignUp") as! UINavigationController
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
     
     

@@ -25,6 +25,7 @@ class PostTableViewCell: UITableViewCell {
             
             // Set Images
             if let imageURL = post.user_photo_gs {
+                //getting image from firebase storage
                 storageRef = storage.reference(forURL: imageURL)
                 storageRef.downloadURL { (url, error) in
                     self.userPicture.kf.setImage(with: url)
@@ -35,7 +36,6 @@ class PostTableViewCell: UITableViewCell {
             let now = dateformatter.string(from: Date(timeIntervalSince1970: post.start_time!/1000))
             dateLabel.text = now
             courseNameLabel.text = post.subject
-            
         }
     }
     

@@ -35,6 +35,5 @@ class Post: NSObject {
         self.user_id = dictionary["user_id"] as? String ?? ""
         self.user_photo_gs = dictionary["user_photo_gs"] as? String ?? ""
         self.username = dictionary["username"] as? String ?? ""
-        
     }
 }

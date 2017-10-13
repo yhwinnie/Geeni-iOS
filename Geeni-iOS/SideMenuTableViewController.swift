@@ -116,7 +116,6 @@ class SideMenuTableViewController: UITableViewController {
             do {
                 try firebaseAuth?.signOut()
                 let appDelegate = UIApplication.shared.delegate! as! AppDelegate
-                
                 let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
                 appDelegate.window?.rootViewController = initialViewController

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // Session Model
 class Session: NSObject {
     var _id: String?
