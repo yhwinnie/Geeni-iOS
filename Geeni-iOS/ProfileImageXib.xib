@@ -96,13 +96,15 @@
                 <outlet property="backButton" destination="h1P-E7-yBM" id="RrB-Xc-6q1"/>
                 <outlet property="backgroundImage" destination="eqd-Hv-upK" id="Dzf-nW-ULy"/>
                 <outlet property="messageButton" destination="YN4-Q8-Jfr" id="Xd6-dY-9A2"/>
+                <outlet property="subjectNameLabel" destination="gQU-1k-6Ka" id="uRf-cL-AjH"/>
                 <outlet property="userImage" destination="hI1-el-FWS" id="HJj-oF-D0e"/>
+                <outlet property="userNameLabel" destination="bdr-QG-6OR" id="zKt-39-mLg"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="55"/>
         </view>
     </objects>
     <resources>
-        <image name="back" width="16" height="27"/>
+        <image name="back" width="8" height="13"/>
         <image name="message" width="40" height="40"/>
         <image name="puppy" width="1280" height="866"/>
         <image name="puppyBlur" width="1280" height="866"/>

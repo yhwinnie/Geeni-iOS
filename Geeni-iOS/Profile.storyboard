@@ -21,7 +21,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppyBlur" translatesAutoresizingMaskIntoConstraints="NO" id="s1p-gx-Ny7">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppyBlur" translatesAutoresizingMaskIntoConstraints="NO" id="s1p-gx-Ny7">
                                     <rect key="frame" x="0.0" y="-22" width="414" height="262"/>
                                     <color key="backgroundColor" red="0.17254901959999999" green="0.21960784310000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </imageView>
@@ -254,7 +254,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="16" height="27"/>
+        <image name="back" width="8" height="13"/>
         <image name="message" width="40" height="40"/>
         <image name="puppy" width="1280" height="866"/>
         <image name="puppyBlur" width="1280" height="866"/>

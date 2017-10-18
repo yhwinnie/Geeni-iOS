@@ -37,7 +37,6 @@ class SignUpTableViewController: UITableViewController {
         userPictureView.clipsToBounds = true
         userPictureView.isUserInteractionEnabled = true
         userPictureView.layer.cornerRadius = 100.0
-        
         setupUserImage()
     }
     
@@ -48,7 +47,7 @@ class SignUpTableViewController: UITableViewController {
     }
     
     func userPictureTapped(){
-        let alertController = UIAlertController(title: "Geeni", message: "Select one of the following options to upload media", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Upload Photo", message: "Please select from the following options", preferredStyle: .alert)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             self.imagePickerController.sourceType = .camera
             self.present(self.imagePickerController, animated: true, completion: nil)
@@ -57,13 +56,18 @@ class SignUpTableViewController: UITableViewController {
             self.imagePickerController.sourceType = .photoLibrary
             self.present(self.imagePickerController, animated: true, completion: nil)
         }
-        let removeAction = UIAlertAction(title: "Remove Photo", style: .default) { (action) in
+        let removeAction = UIAlertAction(title: "Remove Photo", style: .destructive) { (action) in
             self.userPictureView.image = UIImage(named : "user_gray")
+        }
+        
+        let gmailAction = UIAlertAction(title : "Gmail Image", style : .default) { (action) in
+            self.userPictureView.kf.setImage(with: FIRAuth.auth()?.currentUser?.photoURL)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alertController.addAction(cameraAction)
         alertController.addAction(photoAlbumAction)
+        alertController.addAction(gmailAction)
         alertController.addAction(removeAction)
         alertController.addAction(cancelAction)
         
@@ -86,6 +90,8 @@ class SignUpTableViewController: UITableViewController {
                 if bool {
                     // After data is saved segue is performed
                     self.presentMainView()
+                }else {
+                    self.showAlert("Some unexpected error occured!")
                 }
             })
         } else {

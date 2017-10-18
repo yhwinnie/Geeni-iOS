@@ -14,10 +14,17 @@ class ProfileImageXib: UIView {
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
+    @IBOutlet weak var userNameLabel : UILabel!
+    @IBOutlet weak var subjectNameLabel : UILabel!
     
     override func awakeFromNib() {
+        userImage.image = UIImage(named : "user_gray")
+        backgroundImage.image = UIImage(named : "user_gray")
+        userNameLabel.text = ""
+        subjectNameLabel.text = ""
         userImage.makeRound()
         userImage.setBorder(color: colors.whiteColor.cgColor, width: 2)
+        userImage.contentMode = .scaleToFill
+        backgroundImage.contentMode = .scaleToFill
     }
 }

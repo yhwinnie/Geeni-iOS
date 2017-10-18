@@ -70,8 +70,6 @@
 		5FD57DDF1F7EC1D200BAE233 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD57DDE1F7EC1D200BAE233 /* Settings.storyboard */; };
 		5FD57DE11F7EC1FD00BAE233 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD57DE01F7EC1FD00BAE233 /* SettingsTableViewController.swift */; };
 		5FD57DE31F7EC42D00BAE233 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD57DE21F7EC42C00BAE233 /* PostTableViewCell.swift */; };
-		5FDCCF4F1F82694900B0BF8E /* PostDetailXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDCCF4E1F82694900B0BF8E /* PostDetailXib.xib */; };
-		5FDCCF511F82695F00B0BF8E /* PostDetailXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDCCF501F82695F00B0BF8E /* PostDetailXib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,8 +137,6 @@
 		5FD57DDE1F7EC1D200BAE233 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		5FD57DE01F7EC1FD00BAE233 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		5FD57DE21F7EC42C00BAE233 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		5FDCCF4E1F82694900B0BF8E /* PostDetailXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailXib.xib; sourceTree = "<group>"; };
-		5FDCCF501F82695F00B0BF8E /* PostDetailXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailXib.swift; sourceTree = "<group>"; };
 		6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Geeni_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Geeni-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Geeni-iOS/Pods-Geeni-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -322,8 +318,6 @@
 			children = (
 				5F551BCE1F824FE200D25B7A /* ProfileImageXib.xib */,
 				5F551BD01F825E7E00D25B7A /* ProfileImageXib.swift */,
-				5FDCCF4E1F82694900B0BF8E /* PostDetailXib.xib */,
-				5FDCCF501F82695F00B0BF8E /* PostDetailXib.swift */,
 			);
 			name = xibFiles;
 			sourceTree = "<group>";
@@ -526,7 +520,6 @@
 				4C682A8D1E90E66900DEA494 /* Login.storyboard in Resources */,
 				4C682A7D1E90D6BF00DEA494 /* SideMenu.storyboard in Resources */,
 				4CECE5F51E9192B00019D640 /* GoogleService-Info.plist in Resources */,
-				5FDCCF4F1F82694900B0BF8E /* PostDetailXib.xib in Resources */,
 				5FD17B7B1F829352000290B0 /* Graphs.storyboard in Resources */,
 				4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */,
 				5F7AF02C1F900A5600811458 /* SignUp.storyboard in Resources */,
@@ -636,7 +629,6 @@
 				5F718F331F8E47DE00E0DA7C /* SessionTableViewCell.swift in Sources */,
 				5F73DAFD1F83AE8100E76232 /* EachPostViewController.swift in Sources */,
 				4C8F799B1E9FEA6B00C785C5 /* Post.swift in Sources */,
-				5FDCCF511F82695F00B0BF8E /* PostDetailXib.swift in Sources */,
 				5F73DB071F8441C300E76232 /* PostImageCollectionViewCell.swift in Sources */,
 				5F551BCC1F80D66700D25B7A /* BecomeTutorPartOneTableViewController.swift in Sources */,
 				5FD17B781F828729000290B0 /* FeedbackViewController.swift in Sources */,

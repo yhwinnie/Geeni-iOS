@@ -100,7 +100,7 @@ class NewPostTableViewContoller: UITableViewController {
     
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "Geeni", message: "Select the source type to upload media!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Upload Photo", message: "Please select from the following options", preferredStyle: .alert)
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
             self.imagePickerController.sourceType = .camera
             self.present(self.imagePickerController, animated: true, completion: nil)

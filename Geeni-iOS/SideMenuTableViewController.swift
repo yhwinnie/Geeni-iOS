@@ -17,6 +17,7 @@ class SideMenuTableViewController: UITableViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
     let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
     
     override func viewDidLoad() {
@@ -32,6 +33,35 @@ class SideMenuTableViewController: UITableViewController {
         profileImageView.makeRound()
         profileImageView.isUserInteractionEnabled = true
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageTapped)))
+        profileImageView.image = UIImage(named : "user_gray")
+        getProfileDetails()
+    }
+    
+    func getProfileDetails(){
+        FirebaseCalls().getUserDetails { (userDetails , bool) in
+            if bool {
+                let user = userDetails!
+                self.majorLabel.text = user.major
+                self.nameLabel.text = user.username
+                let imageURL = URL(string: user.photo_gs!)
+                if user.photo_gs?.first == "g"{
+                    storageRef = storage.reference(forURL: user.photo_gs!)
+                    storageRef.downloadURL { (url, error) in
+                        self.profileImageView.kf.setImage(with: url)
+                    }
+                } else {
+                    self.profileImageView.kf.setImage(with: imageURL)
+                }
+            }
+            else {
+                let alertController = UIAlertController(title: "Geeni", message: "Unexpected error occurred!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     func profileImageTapped(){
@@ -120,7 +150,6 @@ class SideMenuTableViewController: UITableViewController {
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
                 appDelegate.window?.rootViewController = initialViewController
                 appDelegate.window?.makeKeyAndVisible()
-                
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }

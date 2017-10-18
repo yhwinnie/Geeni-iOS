@@ -16,6 +16,7 @@ class EachPostViewController : UIViewController {
     
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     var descriptionTableViewCellHeight : CGFloat = 0.0
+    var currentPost : Post? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,19 @@ class EachPostViewController : UIViewController {
         let profileImageView = Bundle.main.loadNibNamed("ProfileImageXib", owner: self, options: nil)![0] as? ProfileImageXib
         profileImageView?.frame = CGRect(x: 0, y: -statusBarHeight, width: self.view.frame.width, height: 250)
         profileImageView?.center.x = self.view.center.x
+        let userImageUrl = URL(string: (currentPost?.user_photo_gs!)!)
+        if currentPost?.user_photo_gs!.first != "g" {
+        profileImageView?.userImage.kf.setImage(with: userImageUrl)
+        profileImageView?.backgroundImage.kf.setImage(with: userImageUrl)
+        } else {
+            storageRef = storage.reference(forURL: (currentPost?.user_photo_gs!)!)
+            storageRef.downloadURL { (url, error) in
+                profileImageView?.userImage.kf.setImage(with: url)
+                profileImageView?.backgroundImage.kf.setImage(with: url)
+            }
+        }
+        profileImageView?.userNameLabel.text = currentPost?.username!
+        profileImageView?.subjectNameLabel.text = currentPost?.subject!
         profileView.frame.origin.y = -statusBarHeight
         profileView.frame = (profileImageView?.frame)!
         profileView.addSubview(profileImageView!)
@@ -76,17 +90,35 @@ extension EachPostViewController : UITableViewDataSource {
         if indexPath.section == 0 {
             if indexPath.row == 0{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "postDetail") as! PostDetailTableViewCell
+                cell.classNameLabel.text = currentPost?.subject
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yy"
+                let date = Date(timeIntervalSince1970: TimeInterval((currentPost?.start_time!)!/1000.0))
+                let dateString = dateFormatter.string(from:date)
+                cell.dateLabel.text = dateString
+                cell.locationLabel.text  = currentPost?.location!
                 return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "postDescription")
                 cell?.textLabel?.numberOfLines = 0
-                cell?.textLabel?.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                cell?.textLabel?.text = currentPost?.desc!
                 cell?.textLabel?.sizeToFit()
                 cell?.textLabel?.font = UIFont.systemFont(ofSize: 15)
                 descriptionTableViewCellHeight = (cell?.textLabel?.frame.height)!
                 return cell!
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "postImage") as! PostImageTableViewCell
+                if currentPost?.problem_photo_gs != "" {
+                    let imageUrl = URL(string:(currentPost?.problem_photo_gs!)!)
+                    if currentPost?.problem_photo_gs?.first == "g" {
+                        storageRef = storage.reference(forURL: (currentPost?.user_photo_gs!)!)
+                        storageRef.downloadURL { (url, error) in
+                            cell.imageView?.kf.setImage(with: url)
+                        }
+                    } else {
+                    cell.imageView?.kf.setImage(with: imageUrl)
+                    }
+                }
                 return cell
             }
         } else {
@@ -102,7 +134,11 @@ extension EachPostViewController : UITableViewDataSource {
             } else if indexPath .row == 1{
                 return descriptionTableViewCellHeight + 10.0
             } else {
+                if currentPost?.problem_photo_gs != "" {
                 return 260.0
+                } else {
+                    return 0.0
+                }
             }
         } else {
             return 100.0

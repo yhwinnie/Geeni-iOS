@@ -17,12 +17,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var userPicture: UIImageView!
     
     var post: Post? {
-        
         didSet {
             guard let post = post else { return }
-            
             shortDescriptionLabel.text = post.desc
-            
             // Set Images
             if let imageURL = post.user_photo_gs {
                 //getting image from firebase storage
@@ -46,6 +43,6 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         userPicture.makeRound()
+        self.userPicture.image = UIImage(named : "user_gray")
     }
-    
 }

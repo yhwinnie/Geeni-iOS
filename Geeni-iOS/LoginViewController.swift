@@ -42,7 +42,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                 }
                 if self.firstLogin {
                     self.presentSignUpView()
-//                    self.presentMainView()
                 } else {
                     self.presentMainView()
                 }

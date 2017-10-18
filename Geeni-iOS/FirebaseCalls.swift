@@ -24,20 +24,38 @@ class FirebaseCalls {
              "nor_student": 0 as AnyObject,
              "overall_ratings_student": 0 as AnyObject,
              "overall_ratings_tutor": 0 as AnyObject,
-             "photo_gs": FIRAuth.auth()?.currentUser?.photoURL as AnyObject,
+             "photo_gs": FIRAuth.auth()?.currentUser?.photoURL?.absoluteString as AnyObject,
              "tutor_bool": false as AnyObject,
              "username": name as AnyObject,
              "year": year as AnyObject
         ]
         
         ref.child("users").childByAutoId().setValue(userDict)
+        completionHandler(true)
     }
     
     func updateUserDetails(){
         
     }
     
-    func getUserDetails(completionHandler : @escaping (_ userDetails : [String : AnyObject]) -> Void) {
-        
+    func getUserDetails(completionHandler : @escaping (_ userDetails : User? , _ bool : Bool) -> Void) {
+        var foundDetails : Bool = false
+        var userDetails : User?
+        let userId = FIRAuth.auth()?.currentUser?.uid
+        ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+            for id in snapshot.children {
+                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                if user["_id"] as! String == userId! {
+                    foundDetails = true
+                    userDetails = User(dictionary : user)
+                    break;
+                }
+            }
+            if foundDetails {
+                completionHandler(userDetails!,foundDetails)
+            } else {
+                completionHandler(nil,foundDetails)
+            }
+        })
     }
 }

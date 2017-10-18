@@ -62,7 +62,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-aO-oaY">
-                                    <rect key="frame" x="223" y="9.6666666666666643" width="18" height="22"/>
+                                    <rect key="frame" x="142" y="9.6666666666666643" width="18" height="22"/>
                                     <state key="normal" image="settings-cog_"/>
                                     <connections>
                                         <action selector="settingsButtonPressed:" destination="FBY-fB-Bjh" eventType="touchUpInside" id="rgw-H6-R7h"/>
@@ -73,9 +73,9 @@
                             <constraints>
                                 <constraint firstItem="TPI-U8-Qaj" firstAttribute="leading" secondItem="9E9-5N-MXd" secondAttribute="trailing" constant="10" id="AW5-e1-ihJ"/>
                                 <constraint firstItem="9E9-5N-MXd" firstAttribute="centerY" secondItem="koZ-SL-OeZ" secondAttribute="centerY" id="X4D-Mm-STG"/>
+                                <constraint firstItem="U4q-aO-oaY" firstAttribute="leading" secondItem="ZkR-bI-gzI" secondAttribute="trailing" constant="20" id="XGt-im-ACe"/>
                                 <constraint firstItem="ZkR-bI-gzI" firstAttribute="leading" secondItem="9E9-5N-MXd" secondAttribute="trailing" constant="10" id="aiQ-ug-b3r"/>
                                 <constraint firstItem="9E9-5N-MXd" firstAttribute="leading" secondItem="koZ-SL-OeZ" secondAttribute="leading" constant="15" id="d9u-RT-XSV"/>
-                                <constraint firstItem="U4q-aO-oaY" firstAttribute="centerX" secondItem="koZ-SL-OeZ" secondAttribute="centerX" constant="25" id="ghY-sy-tE9"/>
                                 <constraint firstItem="TPI-U8-Qaj" firstAttribute="top" secondItem="ZkR-bI-gzI" secondAttribute="bottom" constant="2" id="jcH-fA-Esp"/>
                                 <constraint firstItem="U4q-aO-oaY" firstAttribute="centerY" secondItem="ZkR-bI-gzI" secondAttribute="centerY" id="nhL-RW-Ps8"/>
                                 <constraint firstItem="ZkR-bI-gzI" firstAttribute="top" secondItem="koZ-SL-OeZ" secondAttribute="top" constant="10" id="rTT-Zv-OVz"/>
@@ -121,7 +121,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="puppy" width="680" height="606"/>
+        <image name="puppy" width="1280" height="866"/>
         <image name="settings-cog_" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>

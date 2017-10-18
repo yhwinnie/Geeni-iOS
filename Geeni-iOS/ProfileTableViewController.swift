@@ -19,17 +19,53 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var ratingCollectionView: UICollectionView!
     @IBOutlet weak var ratingFlowLayout: UICollectionViewFlowLayout!
     
+    var userRating : Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userImageView.makeRound()
         userImageView.setBorder(color : UIColor.white.cgColor , width : 2)
         tableView.allowsSelection = false
-        setupRatingCollectionView()
+        getProfileDetails()
+        setupRatingCollectionView(userRating)
         tableView.tableFooterView = UIView()
     }
     
-    func setupRatingCollectionView() {
+    func getProfileDetails(){
+        FirebaseCalls().getUserDetails { (userDetails , bool) in
+            if bool {
+                let user = userDetails!
+                self.majorLabel.text = user.major
+                self.userNameLabel.text = user.username
+                 let imageURL = URL(string: user.photo_gs!)
+                 if user.photo_gs?.first == "g"{
+                    storageRef = storage.reference(forURL: user.photo_gs!)
+                    storageRef.downloadURL { (url, error) in
+                        self.userImageView.kf.setImage(with: url)
+                        self.backgroundImageView.kf.setImage(with: url)
+                    }
+                 } else {
+                    self.userImageView.kf.setImage(with: imageURL)
+                    self.backgroundImageView.kf.setImage(with: imageURL)
+                }
+                if user.tutor_bool! {
+                    self.userRating = user.overall_ratings_tutor!
+                } else {
+                    self.userRating = user.overall_ratings_student!
+                }
+            }
+            else {
+                let alertController = UIAlertController(title: "Geeni", message: "Unexpected error occurred!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func setupRatingCollectionView(_ rating : Double) {
         ratingCollectionView.dataSource = self
         ratingCollectionView.allowsSelection = false
         let ratingSize : CGFloat = 15.0

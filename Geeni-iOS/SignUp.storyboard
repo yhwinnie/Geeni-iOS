@@ -76,7 +76,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="SXf-bh-8BB"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYT-8K-1EM">
@@ -131,7 +131,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="sfI-Go-ZMa"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPi-2q-tLh">
@@ -186,7 +186,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="xI3-9g-4Ve"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gmz-2y-I6S">
@@ -226,6 +226,9 @@
                                                     <rect key="frame" x="158" y="4" width="58" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="saveDetailsButtonPressed" destination="UzA-K7-KfO" eventType="touchUpInside" id="ain-G5-qwE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
