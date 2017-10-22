@@ -29,13 +29,31 @@ class FirebaseCalls {
              "username": name as AnyObject,
              "year": year as AnyObject
         ]
-        
         ref.child("users").childByAutoId().setValue(userDict)
         completionHandler(true)
     }
     
-    func updateUserDetails(){
-        
+    // uploading image to firebase storage
+    func uploadImageToFirebase(_ image : UIImage, completionHandler : @escaping (_ url : String? , _ error : Error?) -> Void){
+        if let pngRepresentation = UIImagePNGRepresentation(image){
+            storageRef.put(pngRepresentation, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    completionHandler(nil,error)
+                } else {
+                    let imageUrlString = metadata?.downloadURL()?.absoluteString
+                    completionHandler(imageUrlString , nil)
+                }
+            }
+        }
+    }
+    
+    func createNewPost(_ dict : [String : AnyObject] , completionHandler : @escaping(_ bool : Bool) -> Void) {
+        let postRef = ref.child("posts").childByAutoId()
+        let id = postRef.key
+        var postDict : [String : AnyObject] = dict
+        postDict["_id"] = id as AnyObject
+        postRef.setValue(postDict)
+        completionHandler(true)
     }
     
     func getUserDetails(completionHandler : @escaping (_ userDetails : User? , _ bool : Bool) -> Void) {

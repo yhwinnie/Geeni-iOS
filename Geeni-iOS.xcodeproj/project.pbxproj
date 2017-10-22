@@ -39,6 +39,7 @@
 		4CF45AF11E7B0DF000768999 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF45AEF1E7B0DF000768999 /* LaunchScreen.storyboard */; };
 		4CF45AF91E7B115F00768999 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF45AF81E7B115F00768999 /* LoginViewController.swift */; };
 		5A03F38F49C52473E1BA2467 /* Pods_Geeni_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9E2D3AD97B6DB4D737B3B /* Pods_Geeni_iOS.framework */; };
+		5F2F2ED51F9BCEB400C31FA8 /* AvailableTutors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2F2ED41F9BCEB400C31FA8 /* AvailableTutors.swift */; };
 		5F551BC61F80170300D25B7A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F551BC51F80170300D25B7A /* Colors.swift */; };
 		5F551BC81F801D0E00D25B7A /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F551BC71F801D0E00D25B7A /* Messages.swift */; };
 		5F551BCA1F8025A100D25B7A /* NewPostTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F551BC91F8025A100D25B7A /* NewPostTableViewContoller.swift */; };
@@ -106,6 +107,7 @@
 		4CF45AF01E7B0DF000768999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF45AF21E7B0DF000768999 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF45AF81E7B115F00768999 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5F2F2ED41F9BCEB400C31FA8 /* AvailableTutors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTutors.swift; sourceTree = "<group>"; };
 		5F551BC51F80170300D25B7A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5F551BC71F801D0E00D25B7A /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		5F551BC91F8025A100D25B7A /* NewPostTableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostTableViewContoller.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				5F7AF02D1F9011C600811458 /* FirebaseCalls.swift */,
 				4C8F79981E9DE31800C785C5 /* Model.swift */,
 				4C8F799A1E9FEA6B00C785C5 /* Post.swift */,
+				5F2F2ED41F9BCEB400C31FA8 /* AvailableTutors.swift */,
 				4C8F799C1EA003C000C785C5 /* User.swift */,
 			);
 			name = Networking;
@@ -653,6 +656,7 @@
 				5F551BC61F80170300D25B7A /* Colors.swift in Sources */,
 				4C0D71011E90F59E00E7A108 /* NewsFeedViewController.swift in Sources */,
 				5F73DB0A1F84C65500E76232 /* GraphsViewController.swift in Sources */,
+				5F2F2ED51F9BCEB400C31FA8 /* AvailableTutors.swift in Sources */,
 				4C8F799D1EA003C000C785C5 /* User.swift in Sources */,
 				5FD57DE31F7EC42D00BAE233 /* PostTableViewCell.swift in Sources */,
 			);
@@ -778,12 +782,15 @@
 			baseConfigurationReference = 6EBAEB2CA1C7CF6A6EBEA45E /* Pods-Geeni-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Q7M69XNR3;
 				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -793,12 +800,15 @@
 			baseConfigurationReference = E2C728534B69344A2502220C /* Pods-Geeni-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7Q7M69XNR3;
 				INFOPLIST_FILE = "Geeni-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS-com.wiwen.Geeni-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

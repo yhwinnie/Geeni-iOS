@@ -22,6 +22,7 @@ class Post: NSObject {
     var user_photo_gs: String?
     var username: String?
     var problem_photo_gs : String?
+    var available_tutors : availableTutors?
 
     init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
@@ -37,5 +38,6 @@ class Post: NSObject {
         self.user_photo_gs = dictionary["user_photo_gs"] as? String ?? ""
         self.username = dictionary["username"] as? String ?? ""
         self.problem_photo_gs = dictionary["problem_photo_gs"] as? String ?? ""
+        self.available_tutors = dictionary["available_tutors"] as? availableTutors ?? nil
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewPostTableViewContoller: UITableViewController {
     
@@ -18,10 +19,12 @@ class NewPostTableViewContoller: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var postImageFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var durationTextField : UITextField!
     
     var selectedImages : [UIImage] = []
     let imagePickerController = UIImagePickerController()
     let datePicker = UIDatePicker()
+    var courseDict : [String : AnyObject] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +58,10 @@ class NewPostTableViewContoller: UITableViewController {
         locationTextField.borderStyle = .none
         courseTextField.borderStyle = .none
         dateTextField.borderStyle = .none
+        durationTextField.addDoneButton()
+        durationTextField.borderStyle = .none
+        durationTextField.keyboardType = .decimalPad
+        durationTextField.delegate = self
         locationTextField.delegate = self
         courseTextField.delegate = self
         descriptionTextView.text = ""
@@ -62,7 +69,7 @@ class NewPostTableViewContoller: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 8 || indexPath.row == 9 {
+        if indexPath.row == 10 || indexPath.row == 11 {
             return 70.0
         } else if indexPath.row == 7 {
             return 150
@@ -114,6 +121,71 @@ class NewPostTableViewContoller: UITableViewController {
         alertController.addAction(albumAction)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func submitButtonPressed() {
+        if courseTextField.text == "" || locationTextField.text == "" || dateTextField.text == "" || descriptionTextView.text == "" || durationTextField.text == "" {
+            showAlert("Text Fields cannot be empty!")
+        } else {
+            FirebaseCalls().getUserDetails(completionHandler: { (user, bool) in
+                if bool {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
+                    let timeStamp = [".sv": "timestamp"]
+                    let timeStampString = FIRServerValue.timestamp()[".sv"] as! String
+                    
+                    let courseName = self.courseTextField.text
+                    let courseLocation = self.locationTextField.text
+                    let courseDate = self.dateTextField.text
+                    let courseDescription = self.descriptionTextView.text
+                    let courseDuration = self.durationTextField.text
+                    self.courseDict["major"] = user?.major as AnyObject
+                    self.courseDict["processed"] = false as AnyObject
+                    self.courseDict["user_id"] = user?._id as AnyObject
+                    self.courseDict["desc"] = courseDescription as AnyObject
+                    self.courseDict["location"] = courseLocation as AnyObject
+                    self.courseDict["start_time"] =  dateFormatter.date(from: courseDate!)?.timeIntervalSince1970 as AnyObject
+                    self.courseDict["duration"] = (courseDuration! as NSString).floatValue * 60 * 60 * 1000 as AnyObject
+                    self.courseDict["timestamp"] = timeStamp as AnyObject
+                    self.courseDict["username"] = user?.username as AnyObject
+                    self.courseDict["user_photo_gs"] = user?.photo_gs as AnyObject
+                    self.courseDict["subject"] = courseName as AnyObject
+                    self.courseDict["private_sort_tag"] =  (user?._id)! + " " +  timeStampString as AnyObject
+                    if self.selectedImages.count > 0 {
+                        FirebaseCalls().uploadImageToFirebase(self.selectedImages.first!, completionHandler: { (imageUrlString, error) in
+                            if error == nil {
+                                self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
+                            } else {
+                                self.showAlert("Could not save course description image")
+                            }
+                        })
+                    }
+                    FirebaseCalls().createNewPost(self.courseDict, completionHandler: { (bool) in
+                        if bool {
+                            let alertController = UIAlertController(title: "Geeni", message: "New post created", preferredStyle: .alert)
+                            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                                DispatchQueue.main.async {
+                                    self.courseTextField.text = ""
+                                    self.locationTextField.text = ""
+                                    self.dateTextField.text = ""
+                                    self.descriptionTextView.text = ""
+                                    self.durationTextField.text = ""
+                                    self.selectedImages = []
+                                    self.imageCollectionView.reloadData()
+                                }
+                            })
+                            alertController.addAction(dismissAction)
+                            self.present(alertController, animated: true, completion: nil)
+                            
+                        } else {
+                            self.showAlert("Unexpected error occured!")
+                        }
+                    })
+                } else {
+                    self.showAlert("Unexpected error occurred!")
+                }
+            })
+        }
     }
 }
 

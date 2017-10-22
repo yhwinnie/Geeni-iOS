@@ -23,9 +23,13 @@ class PostTableViewCell: UITableViewCell {
             // Set Images
             if let imageURL = post.user_photo_gs {
                 //getting image from firebase storage
-                storageRef = storage.reference(forURL: imageURL)
-                storageRef.downloadURL { (url, error) in
-                    self.userPicture.kf.setImage(with: url)
+                if post.user_photo_gs?.first == "g" {
+                    storageRef = storage.reference(forURL: imageURL)
+                    storageRef.downloadURL { (url, error) in
+                        self.userPicture.kf.setImage(with: url)
+                    }
+                }else {
+                    self.userPicture.kf.setImage(with: URL(string : imageURL))
                 }
             }
             let dateformatter = DateFormatter()

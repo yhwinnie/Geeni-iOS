@@ -12,7 +12,7 @@ import Firebase
 import SWRevealViewController
 
 class LoginViewController: UIViewController, GIDSignInUIDelegate{
-
+    
     @IBOutlet weak var activityView : UIActivityIndicatorView!
     var firstLogin : Bool = true
     
@@ -40,10 +40,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
                         break;
                     }
                 }
-                if self.firstLogin {
-                    self.presentSignUpView()
-                } else {
-                    self.presentMainView()
+                DispatchQueue.main.async {
+                    if self.firstLogin {
+                        self.presentSignUpView()
+                    } else {
+                        self.presentMainView()
+                    }
                 }
             })
         } else {

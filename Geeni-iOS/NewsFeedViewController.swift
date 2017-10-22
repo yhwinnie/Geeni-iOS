@@ -79,6 +79,11 @@ class NewsFeedViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! EachPostViewController
         destination.currentPost = self.selectedPost
+        if segmentedControl.selectedSegmentIndex == 0 {
+            destination.addTutor = true
+        } else {
+            destination.addTutor = false
+        }
     }
 }
 

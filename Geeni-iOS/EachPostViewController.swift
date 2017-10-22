@@ -17,12 +17,14 @@ class EachPostViewController : UIViewController {
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     var descriptionTableViewCellHeight : CGFloat = 0.0
     var currentPost : Post? = nil
+    var addTutor : Bool = false
+    var tutorsArray : [Tutors] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupProfileImageView()
-        addTutorButton(true)
+        addTutorButton(addTutor)
     }
     
     func setupTableView(){
@@ -67,6 +69,13 @@ class EachPostViewController : UIViewController {
         self.view.addSubview(tutorButton)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 75, right: 0)
     }
+    
+    func setupResponses(){
+        tutorsArray = []
+        if currentPost?.available_tutors != nil {
+            tutorsArray = (currentPost?.available_tutors?.tutors)!
+        }
+    }
 }
 
 extension EachPostViewController : UITableViewDelegate {
@@ -82,7 +91,7 @@ extension EachPostViewController : UITableViewDataSource {
         if section == 0 {
             return 3
         } else {
-            return 2
+            return tutorsArray.count
         }
     }
     
@@ -123,6 +132,16 @@ extension EachPostViewController : UITableViewDataSource {
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "postResponse") as! PostResponseTableViewCell
+            cell.userLabel.text = tutorsArray[indexPath.item].username
+            let imageUrl = URL(string : tutorsArray[indexPath.item].photo_gs)
+            if tutorsArray[indexPath.item].photo_gs.first == "g" {
+                storageRef = storage.reference(forURL: (tutorsArray[indexPath.item].photo_gs))
+                storageRef.downloadURL { (url, error) in
+                    cell.userImage.kf.setImage(with: url)
+                }
+            } else {
+                cell.userImage.kf.setImage(with: imageUrl)
+            }
             return cell
         }
     }
@@ -155,7 +174,11 @@ extension EachPostViewController : UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
+            if tutorsArray.count > 0 {
             return 30.0
+            } else {
+                return 0.0
+            }
         } else {
             return 0.0
         }
