@@ -18,7 +18,11 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var ratingCollectionView: UICollectionView!
     @IBOutlet weak var ratingFlowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var messageButton: UIButton!
     
+    var schedule : Bool = true
     var userRating : Double = 0.0
     
     override func viewDidLoad() {
@@ -29,6 +33,25 @@ class ProfileTableViewController: UITableViewController {
         getProfileDetails()
         setupRatingCollectionView(userRating)
         tableView.tableFooterView = UIView()
+        if schedule {
+            self.setupNavigationBar(title: "Schedule")
+            revealSideMenu(menuButton)
+            hideBackButton(true)
+            hideMessageButton(true)
+        } else {
+            hideBackButton(false)
+            hideMessageButton(false)
+        }
+    }
+    
+    func hideMessageButton(_ bool : Bool){
+        messageButton.isHidden = bool
+        messageButton.isUserInteractionEnabled = !bool
+    }
+    
+    func hideBackButton(_ bool : Bool){
+        backButton.isHidden = bool
+        backButton.isUserInteractionEnabled = !bool
     }
     
     func getProfileDetails(){
@@ -37,14 +60,14 @@ class ProfileTableViewController: UITableViewController {
                 let user = userDetails!
                 self.majorLabel.text = user.major
                 self.userNameLabel.text = user.username
-                 let imageURL = URL(string: user.photo_gs!)
-                 if user.photo_gs?.first == "g"{
+                let imageURL = URL(string: user.photo_gs!)
+                if user.photo_gs?.first == "g"{
                     storageRef = storage.reference(forURL: user.photo_gs!)
                     storageRef.downloadURL { (url, error) in
                         self.userImageView.kf.setImage(with: url)
                         self.backgroundImageView.kf.setImage(with: url)
                     }
-                 } else {
+                } else {
                     self.userImageView.kf.setImage(with: imageURL)
                     self.backgroundImageView.kf.setImage(with: imageURL)
                 }

@@ -49,10 +49,13 @@ class NewsFeedViewController: UIViewController {
     }
     
     func getPublicNewsFeed() {
+        guard let uid = uid else {return}
         FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
-                self.posts.append(post)
+                if post.user_id != uid {
+                    self.posts.append(post)
+                }
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
@@ -64,10 +67,12 @@ class NewsFeedViewController: UIViewController {
     func getPrivateNewsFeed() {
         
         guard let uid = uid else { return }
-        FIRDatabase.database().reference().child("posts").queryOrdered(byChild: "private_sort_tag").queryStarting(atValue: "\(uid) 0").queryEnding(atValue: "\(uid) 99999999").observe(.childAdded, with: { (snapshot) in
+        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
-                self.posts.append(post)
+                if post.user_id == uid {
+                    self.posts.append(post)
+                }
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })

@@ -144,7 +144,7 @@ class NewPostTableViewContoller: UITableViewController {
                     self.courseDict["user_id"] = user?._id as AnyObject
                     self.courseDict["desc"] = courseDescription as AnyObject
                     self.courseDict["location"] = courseLocation as AnyObject
-                    self.courseDict["start_time"] =  dateFormatter.date(from: courseDate!)?.timeIntervalSince1970 as AnyObject
+                    self.courseDict["start_time"] =  (dateFormatter.date(from: courseDate!)?.timeIntervalSince1970)! * 1000000 as AnyObject
                     self.courseDict["duration"] = (courseDuration! as NSString).floatValue * 60 * 60 * 1000 as AnyObject
                     self.courseDict["timestamp"] = timeStamp as AnyObject
                     self.courseDict["username"] = user?.username as AnyObject

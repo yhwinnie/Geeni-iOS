@@ -39,8 +39,8 @@ class EachPostViewController : UIViewController {
         profileImageView?.center.x = self.view.center.x
         let userImageUrl = URL(string: (currentPost?.user_photo_gs!)!)
         if currentPost?.user_photo_gs!.first != "g" {
-        profileImageView?.userImage.kf.setImage(with: userImageUrl)
-        profileImageView?.backgroundImage.kf.setImage(with: userImageUrl)
+            profileImageView?.userImage.kf.setImage(with: userImageUrl)
+            profileImageView?.backgroundImage.kf.setImage(with: userImageUrl)
         } else {
             storageRef = storage.reference(forURL: (currentPost?.user_photo_gs!)!)
             storageRef.downloadURL { (url, error) in
@@ -61,13 +61,15 @@ class EachPostViewController : UIViewController {
     }
     
     func addTutorButton(_ bool : Bool){
-        let tutorButton = UIButton()
-        tutorButton.frame = CGRect(x: 0.0, y: self.view.frame.height - 75.0, width: self.view.frame.width, height: 75.0)
-        tutorButton.setTitle("Tutor this student", for: .normal)
-        tutorButton.backgroundColor = colors.blueColor
-        tutorButton.setTitleColor(colors.whiteColor, for: .normal)
-        self.view.addSubview(tutorButton)
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 75, right: 0)
+        if bool {
+            let tutorButton = UIButton()
+            tutorButton.frame = CGRect(x: 0.0, y: self.view.frame.height - 75.0, width: self.view.frame.width, height: 75.0)
+            tutorButton.setTitle("Tutor this student", for: .normal)
+            tutorButton.backgroundColor = colors.blueColor
+            tutorButton.setTitleColor(colors.whiteColor, for: .normal)
+            self.view.addSubview(tutorButton)
+            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 75, right: 0)
+        }
     }
     
     func setupResponses(){
@@ -102,7 +104,7 @@ extension EachPostViewController : UITableViewDataSource {
                 cell.classNameLabel.text = currentPost?.subject
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yy"
-                let date = Date(timeIntervalSince1970: TimeInterval((currentPost?.start_time!)!/1000.0))
+                let date = Date(timeIntervalSince1970: TimeInterval((currentPost?.start_time!)!/1000000.0))
                 let dateString = dateFormatter.string(from:date)
                 cell.dateLabel.text = dateString
                 cell.locationLabel.text  = currentPost?.location!
@@ -125,7 +127,7 @@ extension EachPostViewController : UITableViewDataSource {
                             cell.imageView?.kf.setImage(with: url)
                         }
                     } else {
-                    cell.imageView?.kf.setImage(with: imageUrl)
+                        cell.imageView?.kf.setImage(with: imageUrl)
                     }
                 }
                 return cell
@@ -154,7 +156,7 @@ extension EachPostViewController : UITableViewDataSource {
                 return descriptionTableViewCellHeight + 10.0
             } else {
                 if currentPost?.problem_photo_gs != "" {
-                return 260.0
+                    return 260.0
                 } else {
                     return 0.0
                 }
@@ -175,7 +177,7 @@ extension EachPostViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
             if tutorsArray.count > 0 {
-            return 30.0
+                return 30.0
             } else {
                 return 0.0
             }
@@ -194,8 +196,8 @@ extension EachPostViewController : UITableViewDataSource {
             return []
         }
     }
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-
+        
     }
 }

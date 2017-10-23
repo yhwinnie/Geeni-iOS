@@ -27,4 +27,14 @@ class ProfileImageXib: UIView {
         userImage.contentMode = .scaleToFill
         backgroundImage.contentMode = .scaleToFill
     }
+    
+    func hideMessageButton(_ bool : Bool){
+        messageButton.isHidden = bool
+        messageButton.isUserInteractionEnabled = !bool
+    }
+    
+    func hideBackButton(_ bool : Bool){
+        backButton.isHidden = bool
+        backButton.isUserInteractionEnabled = !bool
+    }
 }

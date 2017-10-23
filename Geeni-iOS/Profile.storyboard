@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1wR-0O-t4u">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,10 +52,10 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nJA-K3-hcM">
-                                    <rect key="frame" x="111.66666666666669" y="130" width="190.66666666666663" height="30"/>
+                                    <rect key="frame" x="111.66666666666667" y="130" width="190.66666666666663" height="30"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kathy Kane" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRi-CU-bq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999999" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -72,7 +72,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@therealbatpuppy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-1w-8cc">
-                                    <rect key="frame" x="127" y="155" width="160.66666666666669" height="25"/>
+                                    <rect key="frame" x="126.99999999999999" y="155" width="160.66666666666663" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="Jyy-Rb-lhL"/>
                                     </constraints>
@@ -113,7 +113,7 @@
                                                     <rect key="frame" x="20" y="5" width="374" height="99.666666666666671"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7J-8O-qQe">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9E-z4-Lyz">
-                                                            <rect key="frame" x="0.0" y="68.333333333333329" width="374" height="31.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="68.333333333333329" width="374" height="31.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -187,7 +187,7 @@
                                                             </cells>
                                                         </collectionView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews from Tutors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMl-ax-8Nz">
-                                                            <rect key="frame" x="0.0" y="39" width="374" height="33.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="39" width="374" height="33.666666666666657"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -239,9 +239,15 @@
                             <outlet property="delegate" destination="1wR-0O-t4u" id="WBP-yn-6VB"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="HpF-bH-XPf">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="prv-js-Qxv"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="RCs-NC-YGa" id="rXn-ws-rYy"/>
                         <outlet property="backgroundImageView" destination="s1p-gx-Ny7" id="quQ-lk-aLO"/>
                         <outlet property="majorLabel" destination="E8x-1w-8cc" id="X9u-wq-wNW"/>
+                        <outlet property="menuButton" destination="prv-js-Qxv" id="0xa-Ru-N4M"/>
+                        <outlet property="messageButton" destination="kG8-gf-Va1" id="mRI-ne-wzR"/>
                         <outlet property="ratingCollectionView" destination="ffa-AA-Kle" id="J3X-TY-LvW"/>
                         <outlet property="ratingFlowLayout" destination="91k-Bm-HhO" id="YQK-B7-zGj"/>
                         <outlet property="userImageView" destination="NQo-Fk-6yH" id="DpG-tg-kCB"/>
@@ -250,11 +256,30 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDR-6Y-GTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.62318840579712" y="136.95652173913044"/>
+            <point key="canvasLocation" x="1568.1159420289857" y="136.95652173913044"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="d44-LD-6v2">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNav" automaticallyAdjustsScrollViewInsets="NO" id="lcL-Bh-YtJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PXy-fv-uxV">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1wR-0O-t4u" kind="relationship" relationship="rootViewController" id="haZ-Ce-ClX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7V-rk-T3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="137"/>
         </scene>
     </scenes>
     <resources>
         <image name="back" width="8" height="13"/>
+        <image name="menu" width="15" height="10"/>
         <image name="message" width="40" height="40"/>
         <image name="puppy" width="1280" height="866"/>
         <image name="puppyBlur" width="1280" height="866"/>

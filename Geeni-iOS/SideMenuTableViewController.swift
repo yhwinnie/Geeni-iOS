@@ -65,7 +65,9 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     func profileImageTapped(){
-        let profileViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as! UITableViewController
+        let profileViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as! ProfileTableViewController
+        profileViewController.schedule = false
+        
         self.present(profileViewController, animated: true, completion: nil)
     }
     
@@ -122,7 +124,8 @@ class SideMenuTableViewController: UITableViewController {
             self.revealViewController().setFront(newPost, animated: true)
             
         case 2:
-            let schedule: UIViewController = UIStoryboard(name: "Schedule", bundle: nil).instantiateViewController(withIdentifier: "Schedule") as! UINavigationController
+            let schedule: UIViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "ProfileNav") as! UINavigationController
+            
             self.revealViewController().setFront(schedule, animated: true)
             
         case 3:
