@@ -30,6 +30,17 @@ class NewsFeedViewController: UIViewController {
         revealSideMenu(menuButton)
         self.setupNavigationBar(title: "News Feed")
         setupSegmentController()
+        guard let uid = uid else { return }
+        
+        //getting user details on first launch
+        if UserDetails.user == nil {
+            FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
+                if bool {
+                    UserDetails.user = user
+                }
+            })
+        } 
+        getUserPosts()
     }
     
     func setupSegmentController() {
@@ -77,7 +88,22 @@ class NewsFeedViewController: UIViewController {
                     self.tableView.reloadData()
                 })
             }
-            
+        }, withCancel: nil)
+    }
+    
+    func getUserPosts() {
+        guard let uid = uid else { return }
+        UserDetails.userPosts = []
+        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let post = Post(dictionary: dictionary)
+                if post.user_id == uid {
+                    UserDetails.userPosts.append(post)
+                }
+                DispatchQueue.main.async(execute: {
+                    self.tableView.reloadData()
+                })
+            }
         }, withCancel: nil)
     }
     
@@ -85,7 +111,11 @@ class NewsFeedViewController: UIViewController {
         let destination = segue.destination as! EachPostViewController
         destination.currentPost = self.selectedPost
         if segmentedControl.selectedSegmentIndex == 0 {
-            destination.addTutor = true
+            if UserDetails.user?.tutor_bool == true {
+                destination.addTutor = true
+            } else {
+                destination.addTutor = false
+            }
         } else {
             destination.addTutor = false
         }

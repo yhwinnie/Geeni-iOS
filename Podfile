@@ -4,7 +4,7 @@
 target 'Geeni-iOS' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
-    
+
     # Pods for Geeni-iOS
     pod 'Firebase'
     pod 'FirebaseDatabase'
@@ -18,5 +18,7 @@ target 'Geeni-iOS' do
     pod 'FirebaseStorage'
     pod 'Cosmos', '~> 11.0'
     pod 'TKRadarChart'
+    pod 'JSQMessagesViewController'
     pod 'PieCharts'
+    pod 'Stripe'
 end

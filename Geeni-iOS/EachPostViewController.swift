@@ -19,6 +19,7 @@ class EachPostViewController : UIViewController {
     var currentPost : Post? = nil
     var addTutor : Bool = false
     var tutorsArray : [Tutors] = []
+    var profileImageXibArray : [ProfileImageXib] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,46 +30,86 @@ class EachPostViewController : UIViewController {
     
     func setupTableView(){
         tableView.allowsSelection = false
-        tableView.delegate = self
         tableView.dataSource = self
     }
     
     func setupProfileImageView(){
+        
         let profileImageView = Bundle.main.loadNibNamed("ProfileImageXib", owner: self, options: nil)![0] as? ProfileImageXib
         profileImageView?.frame = CGRect(x: 0, y: -statusBarHeight, width: self.view.frame.width, height: 250)
         profileImageView?.center.x = self.view.center.x
         let userImageUrl = URL(string: (currentPost?.user_photo_gs!)!)
         if currentPost?.user_photo_gs!.first != "g" {
+            // if the photo is saved in firebase storage
             profileImageView?.userImage.kf.setImage(with: userImageUrl)
             profileImageView?.backgroundImage.kf.setImage(with: userImageUrl)
         } else {
+            // if there is a direct link
             storageRef = storage.reference(forURL: (currentPost?.user_photo_gs!)!)
             storageRef.downloadURL { (url, error) in
                 profileImageView?.userImage.kf.setImage(with: url)
                 profileImageView?.backgroundImage.kf.setImage(with: url)
+                profileImageView?.messageButton.addTarget(self, action: #selector(self.messageButtonPressed), for: .touchUpInside)
             }
         }
+        
+        // when profile image is clicked
+        profileImageView?.userImage.isUserInteractionEnabled = true
+        profileImageView?.userImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(profileImageClicked)))
+        
         profileImageView?.userNameLabel.text = currentPost?.username!
         profileImageView?.subjectNameLabel.text = currentPost?.subject!
         profileView.frame.origin.y = -statusBarHeight
         profileView.frame = (profileImageView?.frame)!
+        if !addTutor {
+            // hide message button if the user is not a tutor
+            profileImageView?.hideMessageButton(true)
+        }
         profileView.addSubview(profileImageView!)
         profileImageView?.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
+        profileImageXibArray.append(profileImageView!)
+    }
+    
+    //presenting profile of post owner
+    func profileImageClicked(){
+        let profileViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as! ProfileTableViewController
+        profileViewController.userDetails = false
+        profileViewController.id = (currentPost?.user_id)!
+        self.present(profileViewController, animated: true, completion: nil)
     }
     
     func backButtonPressed() {
+        profileImageXibArray = []
         self.dismiss(animated: true, completion: nil)
     }
     
+    func messageButtonPressed(){
+        // go to chat room
+    }
+    
     func addTutorButton(_ bool : Bool){
+        // check if the user is tutor or not
         if bool {
             let tutorButton = UIButton()
             tutorButton.frame = CGRect(x: 0.0, y: self.view.frame.height - 75.0, width: self.view.frame.width, height: 75.0)
             tutorButton.setTitle("Tutor this student", for: .normal)
             tutorButton.backgroundColor = colors.blueColor
             tutorButton.setTitleColor(colors.whiteColor, for: .normal)
+            tutorButton.addTarget(self, action: #selector(tutorButtonPressed), for: .touchUpInside)
             self.view.addSubview(tutorButton)
             tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 75, right: 0)
+        }
+    }
+    
+    func tutorButtonPressed() {
+        // create chat room and unhide message button if chatroom is already not present
+        profileImageXibArray.first?.hideMessageButton(false)
+        FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
+            if bool {
+                // chat room created
+            } else {
+                self.showAlert("Unexpected error occurred!")
+            }
         }
     }
     
@@ -78,10 +119,6 @@ class EachPostViewController : UIViewController {
             tutorsArray = (currentPost?.available_tutors?.tutors)!
         }
     }
-}
-
-extension EachPostViewController : UITableViewDelegate {
-    
 }
 
 extension EachPostViewController : UITableViewDataSource {
@@ -103,8 +140,8 @@ extension EachPostViewController : UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "postDetail") as! PostDetailTableViewCell
                 cell.classNameLabel.text = currentPost?.subject
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yy"
-                let date = Date(timeIntervalSince1970: TimeInterval((currentPost?.start_time!)!/1000000.0))
+                dateFormatter.dateFormat = "MM/dd/yy h:mm a Z"
+                let date = Date(timeIntervalSince1970: TimeInterval((currentPost?.start_time!)!/1000.0))
                 let dateString = dateFormatter.string(from:date)
                 cell.dateLabel.text = dateString
                 cell.locationLabel.text  = currentPost?.location!
@@ -122,13 +159,15 @@ extension EachPostViewController : UITableViewDataSource {
                 if currentPost?.problem_photo_gs != "" {
                     let imageUrl = URL(string:(currentPost?.problem_photo_gs!)!)
                     if currentPost?.problem_photo_gs?.first == "g" {
-                        storageRef = storage.reference(forURL: (currentPost?.user_photo_gs!)!)
+                        storageRef = storage.reference(forURL: (currentPost?.problem_photo_gs!)!)
                         storageRef.downloadURL { (url, error) in
                             cell.imageView?.kf.setImage(with: url)
                         }
                     } else {
                         cell.imageView?.kf.setImage(with: imageUrl)
                     }
+                } else {
+                    tableView.reloadData()
                 }
                 return cell
             }

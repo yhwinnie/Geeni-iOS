@@ -12,6 +12,9 @@ import SWRevealViewController
 class MessagesListTableViewController: UITableViewController {
     
     var chatrooms = [Chatroom]()
+    var userArray = [User]()
+    var selectedChatroom : Chatroom?
+    var receiver : User?
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
@@ -20,11 +23,21 @@ class MessagesListTableViewController: UITableViewController {
         revealSideMenu(menuButton)
         getChatrooms()
         tableView.tableFooterView = UIView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Messages"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
     }
     
     func getChatrooms() {
         ref.child("chatrooms").queryOrdered(byChild: "student").queryEqual(toValue: uid).observe(.childAdded, with: { (snapshot) in
-            
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let chatroom = Chatroom(dictionary: dictionary)
                 self.chatrooms.append(chatroom)
@@ -48,22 +61,52 @@ class MessagesListTableViewController: UITableViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ChatroomViewController
+        destination.chatroom = selectedChatroom
+        if selectedChatroom?.student == uid {
+            destination.receiverId = selectedChatroom?.tutor
+        } else {
+            destination.receiverId = selectedChatroom?.student
+        }
+        destination.receiverUsername = receiver?.username
+        destination.sender = uid
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.chatrooms.count
-//        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatroomTableViewCell
-        cell.chatroom = self.chatrooms[indexPath.row]
+        let chatroom = self.chatrooms[indexPath.row]
+        if uid == chatroom.student {
+            // getting tutor details
+            FirebaseCalls().getUserDetails(idString: chatroom.tutor, completionHandler: { (user, bool) in
+                if bool {
+                    self.receiver = user
+                    cell.user = user
+                } else {
+                    self.showAlert("Unexpected error occured!")
+                }
+            })
+        } else {
+            // getting student details
+            FirebaseCalls().getUserDetails(idString: chatroom.student, completionHandler: { (user, bool) in
+                if bool {
+                    self.receiver = user
+                    cell.user = user
+                } else {
+                    self.showAlert("Unexpected error occured!")
+                }
+            })
+        }
         return cell
     }
     
@@ -71,6 +114,13 @@ class MessagesListTableViewController: UITableViewController {
         return 80
     }
     
+    // MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedChatroom = chatrooms[indexPath.item]
+        
+        performSegue(withIdentifier: "chatroomSegue", sender: self)
+    }
 }
 
 

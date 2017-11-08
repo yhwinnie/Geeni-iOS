@@ -24,6 +24,8 @@ class User: NSObject {
     var tutor_bool: Bool?
     var username: String?
     var year: Int?
+    var stripeid_customer : String?
+    var stripeid_tutor : String?
     
     init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
@@ -40,5 +42,8 @@ class User: NSObject {
         self.tutor_bool = dictionary["tutor_bool"] as? Bool ?? false
         self.username = dictionary["username"] as? String ?? ""
         self.year = dictionary["year"] as? Int ?? 0
+        self.stripeid_customer = dictionary["stripeid_customer"] as? String ?? ""
+        self.stripeid_tutor = dictionary["stripeid_tutor"] as? String ?? ""
     }
 }
+

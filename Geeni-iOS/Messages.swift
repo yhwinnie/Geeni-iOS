@@ -19,8 +19,8 @@ class Message: NSObject {
     
     init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
-        self.to = dictionary["student"] as? String ?? ""
-        self.from = dictionary["tutor"] as? String ?? ""
+        self.to = dictionary["to"] as? String ?? ""
+        self.from = dictionary["from"] as? String ?? ""
         self.message = dictionary["message"] as? String ?? ""
         self.timestamp = dictionary["timestamp"] as? Double ?? 0.0
     }

@@ -13,13 +13,13 @@ class Chatroom: NSObject {
     var _id: String?
     var student: String?
     var tutor: String?
-    //  var messages: [Message]?
+    var messages: [Message]?
     
     init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
         self.student = dictionary["student"] as? String ?? ""
         self.tutor = dictionary["tutor"] as? String ?? ""
-        //      self.messages = dictionary["messages"] as? [Message] ?? []
+        self.messages = dictionary["messages"] as? [Message] ?? []
         
     }
 }

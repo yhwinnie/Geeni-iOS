@@ -16,4 +16,5 @@ struct colors {
     static let blackColor = UIColor.black
     static let grayColor = UIColor.gray
     static let lightGrayColor = UIColor.lightGray
+    static let ratingsColor = UIColor(displayP3Red: 255/255, green: 222/255, blue: 8/255, alpha: 1)
 }

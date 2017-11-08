@@ -38,28 +38,37 @@ class SideMenuTableViewController: UITableViewController {
     }
     
     func getProfileDetails(){
-        FirebaseCalls().getUserDetails { (userDetails , bool) in
-            if bool {
-                let user = userDetails!
-                self.majorLabel.text = user.major
-                self.nameLabel.text = user.username
-                let imageURL = URL(string: user.photo_gs!)
-                if user.photo_gs?.first == "g"{
-                    storageRef = storage.reference(forURL: user.photo_gs!)
-                    storageRef.downloadURL { (url, error) in
-                        self.profileImageView.kf.setImage(with: url)
-                    }
+        guard let uid = uid else { return }
+        if UserDetails.user == nil {
+            // if user details are not already present
+            FirebaseCalls().getUserDetails(idString : uid) { (user , bool) in
+                if bool {
+                    UserDetails.user = user
                 } else {
-                    self.profileImageView.kf.setImage(with: imageURL)
+                    DispatchQueue.main.async {
+                        
+                        let alertController = UIAlertController(title: "Geeni", message: "Unexpected error occurred!", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            self.dismiss(animated: true, completion: nil)
+                        })
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
                 }
             }
-            else {
-                let alertController = UIAlertController(title: "Geeni", message: "Unexpected error occurred!", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    self.dismiss(animated: true, completion: nil)
-                })
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
+        } else {
+            // if user details are already present
+            let user = UserDetails.user
+            self.majorLabel.text = user?.major
+            self.nameLabel.text = user?.username
+            let imageURL = URL(string: (user?.photo_gs!)!)
+            if user?.photo_gs?.first == "g"{
+                storageRef = storage.reference(forURL: (user?.photo_gs!)!)
+                storageRef.downloadURL { (url, error) in
+                    self.profileImageView.kf.setImage(with: url)
+                }
+            } else {
+                self.profileImageView.kf.setImage(with: imageURL)
             }
         }
     }
@@ -67,7 +76,6 @@ class SideMenuTableViewController: UITableViewController {
     func profileImageTapped(){
         let profileViewController = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as! ProfileTableViewController
         profileViewController.schedule = false
-        
         self.present(profileViewController, animated: true, completion: nil)
     }
     
@@ -86,7 +94,6 @@ class SideMenuTableViewController: UITableViewController {
                     storageRef.downloadURL { (url, error) in
                         self.profileImageView.kf.setImage(with: url)
                     }
-                    
                     self.tableView.reloadData()
                 })
             }

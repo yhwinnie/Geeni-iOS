@@ -13,7 +13,7 @@ import Firebase
 class FirebaseCalls {
     
     // Firebase Calls for User's Personal Information
-    func saveUserDetails(name : String , majors : String , year : String , completionHandler : @escaping(_ bool : Bool) -> Void){
+    func saveUserDetails(name : String , majors : String , year : String ,tutor_bool : Bool, completionHandler : @escaping(_ bool : Bool) -> Void){
         let userDict: [String : AnyObject] =
             ["_id": FIRAuth.auth()?.currentUser?.uid as AnyObject,
              "balance_available": 0 as AnyObject,
@@ -25,7 +25,7 @@ class FirebaseCalls {
              "overall_ratings_student": 0 as AnyObject,
              "overall_ratings_tutor": 0 as AnyObject,
              "photo_gs": FIRAuth.auth()?.currentUser?.photoURL?.absoluteString as AnyObject,
-             "tutor_bool": false as AnyObject,
+             "tutor_bool": tutor_bool as AnyObject,
              "username": name as AnyObject,
              "year": year as AnyObject
         ]
@@ -56,14 +56,14 @@ class FirebaseCalls {
         completionHandler(true)
     }
     
-    func getUserDetails(completionHandler : @escaping (_ userDetails : User? , _ bool : Bool) -> Void) {
+    func getUserDetails( idString : String? , completionHandler : @escaping (_ userDetails : User? , _ bool : Bool) -> Void) {
         var foundDetails : Bool = false
         var userDetails : User?
-        let userId = FIRAuth.auth()?.currentUser?.uid
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             for id in snapshot.children {
                 let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
-                if user["_id"] as! String == userId! {
+                let userIdString = user["_id"] as! String
+                if userIdString  == idString {
                     foundDetails = true
                     userDetails = User(dictionary : user)
                     break;
@@ -76,4 +76,29 @@ class FirebaseCalls {
             }
         })
     }
+    
+    //MARK: - chatroom firebase calls
+    func createNewChatroom(student : String? , completionHandler:@escaping( _ chatroom : Chatroom? , _ bool : Bool) -> Void){
+        guard let uid = uid else { return }
+        let tutorId = uid
+        let studentId = student
+        var newChatroom = [String : AnyObject]()
+        newChatroom["tutor"] = tutorId as AnyObject
+        newChatroom["student"] = studentId as AnyObject
+        let chatroomRef = ref.child("chatrooms").childByAutoId()
+        let chatroomId = chatroomRef.key
+        newChatroom["_id"] = chatroomId as AnyObject
+        chatroomRef.setValue(newChatroom)
+        completionHandler(Chatroom(dictionary : newChatroom),true)
+    }
+    
+    func createMessage(dict : [String:AnyObject] , chatroomId : String, completionHandler : @escaping( _ bool : Bool) -> Void ) {
+        let messageRef = ref.child("chatrooms").child(chatroomId).child("messages").childByAutoId()
+        let messageKey = messageRef.key
+        var messageDict = dict
+        messageDict["_id"] = messageKey as AnyObject
+        messageRef.setValue(messageDict)
+        completionHandler(true)
+    }
+    
 }

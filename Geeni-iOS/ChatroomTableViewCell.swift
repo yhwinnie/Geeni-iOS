@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ChatroomTableViewCell: UITableViewCell {
     
@@ -16,25 +17,33 @@ class ChatroomTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
-    var chatroom: Chatroom? {
-        
+    var user : User? {
+        didSet {
+            userName.text = user?.username
+            majorLabel.text = user?.major
+            //getting image from firebase
+            if let imageUrl = user?.photo_gs {
+                if user?.photo_gs?.first == "g"{
+                    storageRef = storage.reference(forURL: imageUrl)
+                    storageRef.downloadURL { (url, error) in
+                        self.userImageView?.kf.setImage(with: url)
+                    }
+                } else {
+                    self.userImageView?.kf.setImage(with: (URL (string : imageUrl)))
+                }
+            }
+        }
+    }
+    
+    var post : Post? {
         didSet {
             
-            guard let uid = uid else { return }
-            guard let chatroom = chatroom else { return }
-            //          guard let messages = chatroom.messages else { return }
-            //
-            //            if (messages.count) > 0 {
-            //                descriptionLabel.text = messages[0].message
-            //            }
-            
-            if chatroom.student == uid {
-                userName.text = chatroom.tutor
-            }
-            else {
-                userName.text = chatroom.student
-            }
-            
         }
+    }
+    
+    override func awakeFromNib() {
+        userImageView.image = UIImage(named : "user_gray")
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.width/2
     }
 }

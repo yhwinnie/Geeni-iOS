@@ -89,9 +89,9 @@ extension UIButton {
         self.setTitleColor(colors.whiteColor, for: .normal)
         self.translatesAutoresizingMaskIntoConstraints = true
         self.frame.size.width += 150
-        self.frame.size.height = 50
+        self.frame.size.height = 40
         self.clipsToBounds = true
-        self.layer.cornerRadius = 25
+        self.layer.cornerRadius = 20
     }
 }
 

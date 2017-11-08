@@ -70,7 +70,7 @@ class NewPostTableViewContoller: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 10 || indexPath.row == 11 {
-            return 70.0
+            return 60.0
         } else if indexPath.row == 7 {
             return 150
         } else {
@@ -127,65 +127,79 @@ class NewPostTableViewContoller: UITableViewController {
         if courseTextField.text == "" || locationTextField.text == "" || dateTextField.text == "" || descriptionTextView.text == "" || durationTextField.text == "" {
             showAlert("Text Fields cannot be empty!")
         } else {
-            FirebaseCalls().getUserDetails(completionHandler: { (user, bool) in
-                if bool {
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
-                    let timeStamp = [".sv": "timestamp"]
-                    let timeStampString = FIRServerValue.timestamp()[".sv"] as! String
-                    
-                    let courseName = self.courseTextField.text
-                    let courseLocation = self.locationTextField.text
-                    let courseDate = self.dateTextField.text
-                    let courseDescription = self.descriptionTextView.text
-                    let courseDuration = self.durationTextField.text
-                    self.courseDict["major"] = user?.major as AnyObject
-                    self.courseDict["processed"] = false as AnyObject
-                    self.courseDict["user_id"] = user?._id as AnyObject
-                    self.courseDict["desc"] = courseDescription as AnyObject
-                    self.courseDict["location"] = courseLocation as AnyObject
-                    self.courseDict["start_time"] =  (dateFormatter.date(from: courseDate!)?.timeIntervalSince1970)! * 1000000 as AnyObject
-                    self.courseDict["duration"] = (courseDuration! as NSString).floatValue * 60 * 60 * 1000 as AnyObject
-                    self.courseDict["timestamp"] = timeStamp as AnyObject
-                    self.courseDict["username"] = user?.username as AnyObject
-                    self.courseDict["user_photo_gs"] = user?.photo_gs as AnyObject
-                    self.courseDict["subject"] = courseName as AnyObject
-                    self.courseDict["private_sort_tag"] =  (user?._id)! + " " +  timeStampString as AnyObject
-                    if self.selectedImages.count > 0 {
-                        FirebaseCalls().uploadImageToFirebase(self.selectedImages.first!, completionHandler: { (imageUrlString, error) in
-                            if error == nil {
-                                self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
-                            } else {
-                                self.showAlert("Could not save course description image")
-                            }
-                        })
-                    }
-                    FirebaseCalls().createNewPost(self.courseDict, completionHandler: { (bool) in
-                        if bool {
-                            let alertController = UIAlertController(title: "Geeni", message: "New post created", preferredStyle: .alert)
-                            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
-                                DispatchQueue.main.async {
-                                    self.courseTextField.text = ""
-                                    self.locationTextField.text = ""
-                                    self.dateTextField.text = ""
-                                    self.descriptionTextView.text = ""
-                                    self.durationTextField.text = ""
-                                    self.selectedImages = []
-                                    self.imageCollectionView.reloadData()
-                                }
-                            })
-                            alertController.addAction(dismissAction)
-                            self.present(alertController, animated: true, completion: nil)
-                            
-                        } else {
+            guard let uid = uid else {return}
+            if UserDetails.user == nil {
+                FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
+                    if bool {
+                        UserDetails.user = user
+                        self.createNewPost()
+                    } else {
+                        DispatchQueue.main.async {
                             self.showAlert("Unexpected error occured!")
                         }
-                    })
+                    }
+                })
+            } else {
+                createNewPost()
+            }
+        }
+    }
+    
+    func createNewPost() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
+        let timeStamp = [".sv": "timestamp"]
+        let timeStampString = FIRServerValue.timestamp()[".sv"] as! String
+        
+        let courseName = self.courseTextField.text
+        let courseLocation = self.locationTextField.text
+        let courseDate = self.dateTextField.text
+        let courseDescription = self.descriptionTextView.text
+        let courseDuration = self.durationTextField.text
+        self.courseDict["major"] = UserDetails.user?.major as AnyObject
+        self.courseDict["processed"] = false as AnyObject
+        self.courseDict["user_id"] = UserDetails.user?._id as AnyObject
+        self.courseDict["desc"] = courseDescription as AnyObject
+        self.courseDict["location"] = courseLocation as AnyObject
+        self.courseDict["start_time"] =  (dateFormatter.date(from: courseDate!)?.timeIntervalSince1970)! * 1000 as AnyObject
+        self.courseDict["duration"] = (courseDuration! as NSString).floatValue * 60 * 60 * 1000 as AnyObject
+        self.courseDict["timestamp"] = timeStamp as AnyObject
+        self.courseDict["username"] = UserDetails.user?.username as AnyObject
+        self.courseDict["user_photo_gs"] = UserDetails.user?.photo_gs as AnyObject
+        self.courseDict["subject"] = courseName as AnyObject
+        self.courseDict["private_sort_tag"] =  (UserDetails.user?._id)! + " " +  timeStampString as AnyObject
+        
+        if self.selectedImages.count >= 1 {
+            FirebaseCalls().uploadImageToFirebase(self.selectedImages.first!, completionHandler: { (imageUrlString, error) in
+                if error == nil {
+                    self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
                 } else {
-                    self.showAlert("Unexpected error occurred!")
+                    self.showAlert("Could not save course description image")
                 }
             })
         }
+        
+        FirebaseCalls().createNewPost(self.courseDict, completionHandler: { (bool) in
+            if bool {
+                let alertController = UIAlertController(title: "Geeni", message: "New post created", preferredStyle: .alert)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                    DispatchQueue.main.async {
+                        self.courseTextField.text = ""
+                        self.locationTextField.text = ""
+                        self.dateTextField.text = ""
+                        self.descriptionTextView.text = ""
+                        self.durationTextField.text = ""
+                        self.selectedImages = []
+                        self.imageCollectionView.reloadData()
+                    }
+                })
+                alertController.addAction(dismissAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else {
+                self.showAlert("Unexpected error occured!")
+            }
+        })
     }
 }
 

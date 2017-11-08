@@ -34,7 +34,7 @@ class PostTableViewCell: UITableViewCell {
             }
             let dateformatter = DateFormatter()
             dateformatter.dateFormat = "MM/dd/yy h:mm a Z"
-            let now = dateformatter.string(from: Date(timeIntervalSince1970: post.start_time!/1000000))
+            let now = dateformatter.string(from: Date(timeIntervalSince1970: post.start_time!/1000))
             dateLabel.text = now
             courseNameLabel.text = post.subject
         }
