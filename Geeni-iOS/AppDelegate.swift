@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import SWRevealViewController
-
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        //stripe key
+        Stripe.setDefaultPublishableKey("pk_test_j332MyKrjUJHZQtag8xVMMKy")
+        
+        
+        //firebase configuration
         FIRApp.configure()
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -55,7 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         guard let authentication = user.authentication else { return }
-        
         let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                           accessToken: authentication.accessToken)
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in

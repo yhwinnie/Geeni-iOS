@@ -65,6 +65,7 @@
 		5F7AF02A1F900A4200811458 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AF0291F900A4200811458 /* SignUpTableViewController.swift */; };
 		5F7AF02C1F900A5600811458 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F7AF02B1F900A5600811458 /* SignUp.storyboard */; };
 		5F7AF02E1F9011C600811458 /* FirebaseCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F7AF02D1F9011C600811458 /* FirebaseCalls.swift */; };
+		5F8820381FBB37A900D062BA /* ServerCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F8820371FBB37A900D062BA /* ServerCalls.swift */; };
 		5FA629931F857C250056B9BB /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */; };
 		5FD17B781F828729000290B0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD17B771F828729000290B0 /* FeedbackViewController.swift */; };
 		5FD17B7B1F829352000290B0 /* Graphs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD17B7A1F829352000290B0 /* Graphs.storyboard */; };
@@ -135,6 +136,7 @@
 		5F7AF0291F900A4200811458 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		5F7AF02B1F900A5600811458 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		5F7AF02D1F9011C600811458 /* FirebaseCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCalls.swift; sourceTree = "<group>"; };
+		5F8820371FBB37A900D062BA /* ServerCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCalls.swift; sourceTree = "<group>"; };
 		5FA629921F857C250056B9BB /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		5FD17B771F828729000290B0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		5FD17B7A1F829352000290B0 /* Graphs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Graphs.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				5F7AF02D1F9011C600811458 /* FirebaseCalls.swift */,
+				5F8820371FBB37A900D062BA /* ServerCalls.swift */,
 				4C8F79981E9DE31800C785C5 /* Model.swift */,
 				4C8F799A1E9FEA6B00C785C5 /* Post.swift */,
 				5F2F2ED41F9BCEB400C31FA8 /* AvailableTutors.swift */,
@@ -669,6 +672,7 @@
 				5F551BC61F80170300D25B7A /* Colors.swift in Sources */,
 				5F1DA5771FA526700023164F /* ProfileReviewTableViewCell.swift in Sources */,
 				4C0D71011E90F59E00E7A108 /* NewsFeedViewController.swift in Sources */,
+				5F8820381FBB37A900D062BA /* ServerCalls.swift in Sources */,
 				5F73DB0A1F84C65500E76232 /* GraphsViewController.swift in Sources */,
 				5F2F2ED51F9BCEB400C31FA8 /* AvailableTutors.swift in Sources */,
 				4C8F799D1EA003C000C785C5 /* User.swift in Sources */,

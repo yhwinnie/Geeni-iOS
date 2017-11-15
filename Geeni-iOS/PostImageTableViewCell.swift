@@ -11,5 +11,6 @@ import UIKit
 
 class PostImageTableViewCell : UITableViewCell {
     
-    @IBOutlet weak var postImageView : UIImageView!
+    @IBOutlet weak var postImageView: UIImageView!
+    
 }

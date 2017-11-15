@@ -11,5 +11,6 @@ import Foundation
 struct UserDetails {
     
     static var user : User?
+    static var userToken : String?
     static var userPosts : [Post] = []
 }

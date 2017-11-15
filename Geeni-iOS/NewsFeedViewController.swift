@@ -37,10 +37,12 @@ class NewsFeedViewController: UIViewController {
             FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
                 if bool {
                     UserDetails.user = user
+                    self.getUserPosts()
                 }
             })
-        } 
-        getUserPosts()
+        } else {
+            getUserPosts()
+        }
     }
     
     func setupSegmentController() {

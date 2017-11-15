@@ -173,12 +173,16 @@ class NewPostTableViewContoller: UITableViewController {
             FirebaseCalls().uploadImageToFirebase(self.selectedImages.first!, completionHandler: { (imageUrlString, error) in
                 if error == nil {
                     self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
+                    self.submitPost()
                 } else {
                     self.showAlert("Could not save course description image")
+                    self.submitPost()
                 }
             })
         }
-        
+    }
+    
+    func submitPost() {
         FirebaseCalls().createNewPost(self.courseDict, completionHandler: { (bool) in
             if bool {
                 let alertController = UIAlertController(title: "Geeni", message: "New post created", preferredStyle: .alert)

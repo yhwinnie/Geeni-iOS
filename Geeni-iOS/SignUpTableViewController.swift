@@ -10,6 +10,7 @@ import UIKit
 import SWRevealViewController
 import Firebase
 import Kingfisher
+import Stripe
 
 class SignUpTableViewController: UITableViewController {
     

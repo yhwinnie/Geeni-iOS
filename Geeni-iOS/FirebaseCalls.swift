@@ -29,6 +29,10 @@ class FirebaseCalls {
              "username": name as AnyObject,
              "year": year as AnyObject
         ]
+        
+        //registering user to stripe
+        //todo
+        
         ref.child("users").childByAutoId().setValue(userDict)
         completionHandler(true)
     }

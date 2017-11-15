@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFf-xp-H5B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFf-xp-H5B">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -240,14 +240,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postImage" rowHeight="177" id="Sf9-ta-dyl" customClass="PostImageTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="image" rowHeight="177" id="Sf9-ta-dyl" customClass="PostImageTableViewCell" customModule="Geeni_iOS">
                                         <rect key="frame" x="0.0" y="403" width="414" height="177"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sf9-ta-dyl" id="2kh-is-KtE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="postImage" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-sZ-gYK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user_gray" translatesAutoresizingMaskIntoConstraints="NO" id="n9A-sZ-gYK">
                                                     <rect key="frame" x="15" y="5" width="384" height="166.66666666666666"/>
                                                 </imageView>
                                             </subviews>
@@ -259,7 +259,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="postImageView" destination="n9A-sZ-gYK" id="7bE-zH-a8p"/>
+                                            <outlet property="postImageView" destination="n9A-sZ-gYK" id="tTr-qF-fBI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postResponse" rowHeight="117" id="tkv-IS-gIy" customClass="PostResponseTableViewCell" customModule="Geeni_iOS" customModuleProvider="target">
@@ -270,14 +270,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="svb-v6-kpS">
-                                                    <rect key="frame" x="18" y="18.666666666666671" width="80" height="80"/>
+                                                    <rect key="frame" x="25" y="18.666666666666671" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="2H7-nz-H3F"/>
                                                         <constraint firstAttribute="width" constant="80" id="eJn-ss-1nw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oXd-wO-Ln9">
-                                                    <rect key="frame" x="113" y="38.666666666666664" width="286" height="39.999999999999993"/>
+                                                    <rect key="frame" x="120" y="38.666666666666664" width="279" height="39.999999999999993"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MDE-ls-T6j">
                                                             <rect key="frame" x="0.0" y="0.0" width="107" height="20"/>
@@ -374,7 +374,7 @@
     </scenes>
     <resources>
         <image name="menu" width="15" height="10"/>
-        <image name="postImage" width="958" height="590"/>
         <image name="puppy" width="1280" height="866"/>
+        <image name="user_gray" width="100" height="100"/>
     </resources>
 </document>

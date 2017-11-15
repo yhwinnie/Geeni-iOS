@@ -155,16 +155,18 @@ extension EachPostViewController : UITableViewDataSource {
                 descriptionTableViewCellHeight = (cell?.textLabel?.frame.height)!
                 return cell!
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "postImage") as! PostImageTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "image") as! PostImageTableViewCell
                 if currentPost?.problem_photo_gs != "" {
                     let imageUrl = URL(string:(currentPost?.problem_photo_gs!)!)
                     if currentPost?.problem_photo_gs?.first == "g" {
                         storageRef = storage.reference(forURL: (currentPost?.problem_photo_gs!)!)
                         storageRef.downloadURL { (url, error) in
-                            cell.imageView?.kf.setImage(with: url)
+                            cell.postImageView?.kf.setImage(with: url)
+                            cell.postImageView?.frame.size = CGSize(width: self.view.frame.width - 30, height: 250)
+                            tableView.reloadData()
                         }
                     } else {
-                        cell.imageView?.kf.setImage(with: imageUrl)
+                        cell.postImageView?.kf.setImage(with: imageUrl)
                     }
                 } else {
                     tableView.reloadData()
