@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6yA-C2-8nu">
-    <device id="retina3_5" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6yA-C2-8nu">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,40 +18,48 @@
                         <viewControllerLayoutGuide type="bottom" id="RVp-VW-IaL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NYe-q1-rYW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="spw-1e-P7w">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="z0k-kC-8DP">
-                                <rect key="frame" x="105" y="106" width="110" height="100"/>
+                                <rect key="frame" x="132.5" y="106" width="110" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="JOg-Wt-DJK"/>
                                     <constraint firstAttribute="width" constant="110" id="yVS-it-y8a"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8O-dK-DIC" customClass="GIDSignInButton">
-                                <rect key="frame" x="40" y="372" width="240" height="38"/>
+                                <rect key="frame" x="67.5" y="559" width="240" height="38"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="86Y-KA-8oq"/>
                                     <constraint firstAttribute="width" constant="240" id="FU7-XQ-jdy"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NGI-Jc-Dhj">
+                                <rect key="frame" x="169" y="315.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z0k-kC-8DP" firstAttribute="top" secondItem="p7W-Ds-EUn" secondAttribute="bottom" constant="86" id="1kF-5F-je6"/>
+                            <constraint firstItem="spw-1e-P7w" firstAttribute="top" secondItem="NYe-q1-rYW" secondAttribute="top" id="BRC-J6-Axh"/>
                             <constraint firstAttribute="trailing" secondItem="spw-1e-P7w" secondAttribute="trailing" id="EKB-VV-Y2j"/>
                             <constraint firstItem="z0k-kC-8DP" firstAttribute="centerX" secondItem="NYe-q1-rYW" secondAttribute="centerX" id="GI3-H3-QiL"/>
                             <constraint firstItem="Y8O-dK-DIC" firstAttribute="centerX" secondItem="NYe-q1-rYW" secondAttribute="centerX" id="JTa-fE-iKn"/>
                             <constraint firstItem="spw-1e-P7w" firstAttribute="leading" secondItem="NYe-q1-rYW" secondAttribute="leading" id="bRX-dx-Fvt"/>
                             <constraint firstItem="RVp-VW-IaL" firstAttribute="top" secondItem="Y8O-dK-DIC" secondAttribute="bottom" constant="70" id="dY5-7G-WBF"/>
                             <constraint firstItem="RVp-VW-IaL" firstAttribute="top" secondItem="spw-1e-P7w" secondAttribute="bottom" id="fSm-Os-yjD"/>
-                            <constraint firstItem="spw-1e-P7w" firstAttribute="top" secondItem="NYe-q1-rYW" secondAttribute="top" id="tme-LM-lIZ"/>
+                            <constraint firstItem="NGI-Jc-Dhj" firstAttribute="centerX" secondItem="NYe-q1-rYW" secondAttribute="centerX" id="mA6-Sl-Q4O"/>
+                            <constraint firstItem="NGI-Jc-Dhj" firstAttribute="centerY" secondItem="NYe-q1-rYW" secondAttribute="centerY" id="s2l-VZ-WGQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activityView" destination="NGI-Jc-Dhj" id="bsx-oO-kho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uON-vr-Ecz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

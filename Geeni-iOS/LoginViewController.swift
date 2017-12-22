@@ -9,26 +9,70 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import SWRevealViewController
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
-
+class LoginViewController: UIViewController, GIDSignInUIDelegate{
+    
+    @IBOutlet weak var activityView : UIActivityIndicatorView!
+    var firstLogin : Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the Google sign in UI
         GIDSignIn.sharedInstance().uiDelegate = self
-        
-        
-        // Use to call the sign in view from Google 
-//        GIDSignIn.sharedInstance().signIn()
+        setupActivityView()
+        firebaseAutoLogin()
     }
     
-
-
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func firebaseAutoLogin(){
+        activityView.isHidden = false
+        activityView.startAnimating()
+        //check if the user has logged in
+        if FIRAuth.auth()?.currentUser != nil {
+            let ref = FIRDatabase.database().reference()
+            ref.child("users").observe(FIRDataEventType.value, with: {
+                (snapshot) in
+                for u in snapshot.children {
+                    let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
+                    if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
+                        self.firstLogin = false
+                        self.activityView.stopAnimating()
+                        self.activityView.isHidden = true
+                        break;
+                    }
+                }
+                DispatchQueue.main.async {
+                    if self.firstLogin {
+                        self.presentSignUpView()
+                    } else {
+                        self.presentMainView()
+                    }
+                }
+            })
+        } else {
+            activityView.stopAnimating()
+            activityView.isHidden = true
+        }
     }
-
+    
+    func setupActivityView() {
+        activityView.activityIndicatorViewStyle = .whiteLarge
+        activityView.center  = self.view.center
+        activityView.isHidden = true
+    }
+    
+    func presentMainView() {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let storyboard: UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainPage") as! SWRevealViewController
+        delegate.window?.rootViewController = initialViewController
+        delegate.window?.makeKeyAndVisible()
+    }
+    
+    func presentSignUpView(){
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        let storyboard: UIStoryboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "SignUp") as! UINavigationController
+        delegate.window?.rootViewController = initialViewController
+        delegate.window?.makeKeyAndVisible()
+    }
 }

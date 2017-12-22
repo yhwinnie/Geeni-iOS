@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0bq-PO-KWU">
-    <device id="retina3_5" orientation="portrait">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0bq-PO-KWU">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sXG-qS-9SH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rEU-RL-V3V">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <connections>
@@ -28,21 +28,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiF-Uw-ytE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-407" y="121"/>
+            <point key="canvasLocation" x="821" y="-821"/>
         </scene>
         <!--Side Menu Table View Controller-->
         <scene sceneID="Eh7-UJ-P82">
             <objects>
                 <tableViewController id="FBY-fB-Bjh" customClass="SideMenuTableViewController" customModule="Geeni_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="J6i-wD-1wv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="koZ-SL-OeZ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-5N-MXd" customClass="CustomRoundImageView" customModule="Geeni_iOS" customModuleProvider="target">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-5N-MXd">
                                     <rect key="frame" x="15" y="8" width="52" height="52"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="52" id="XXr-kp-Xno"/>
@@ -50,40 +50,43 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkR-bI-gzI">
-                                    <rect key="frame" x="77" y="10" width="45" height="21"/>
+                                    <rect key="frame" x="77" y="10.000000000000002" width="45" height="20.666666666666671"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EECS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPI-U8-Qaj">
-                                    <rect key="frame" x="77" y="33" width="42" height="21"/>
+                                    <rect key="frame" x="77" y="32.666666666666664" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4q-aO-oaY">
-                                    <rect key="frame" x="282" y="23" width="18" height="22"/>
+                                    <rect key="frame" x="142" y="9.6666666666666643" width="18" height="22"/>
                                     <state key="normal" image="settings-cog_"/>
+                                    <connections>
+                                        <action selector="settingsButtonPressed:" destination="FBY-fB-Bjh" eventType="touchUpInside" id="rgw-H6-R7h"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             <constraints>
                                 <constraint firstItem="TPI-U8-Qaj" firstAttribute="leading" secondItem="9E9-5N-MXd" secondAttribute="trailing" constant="10" id="AW5-e1-ihJ"/>
-                                <constraint firstItem="U4q-aO-oaY" firstAttribute="centerY" secondItem="koZ-SL-OeZ" secondAttribute="centerY" id="JyZ-nH-YJh"/>
-                                <constraint firstAttribute="trailing" secondItem="U4q-aO-oaY" secondAttribute="trailing" constant="20" id="Rwn-aF-wat"/>
                                 <constraint firstItem="9E9-5N-MXd" firstAttribute="centerY" secondItem="koZ-SL-OeZ" secondAttribute="centerY" id="X4D-Mm-STG"/>
+                                <constraint firstItem="U4q-aO-oaY" firstAttribute="leading" secondItem="ZkR-bI-gzI" secondAttribute="trailing" constant="20" id="XGt-im-ACe"/>
                                 <constraint firstItem="ZkR-bI-gzI" firstAttribute="leading" secondItem="9E9-5N-MXd" secondAttribute="trailing" constant="10" id="aiQ-ug-b3r"/>
                                 <constraint firstItem="9E9-5N-MXd" firstAttribute="leading" secondItem="koZ-SL-OeZ" secondAttribute="leading" constant="15" id="d9u-RT-XSV"/>
                                 <constraint firstItem="TPI-U8-Qaj" firstAttribute="top" secondItem="ZkR-bI-gzI" secondAttribute="bottom" constant="2" id="jcH-fA-Esp"/>
+                                <constraint firstItem="U4q-aO-oaY" firstAttribute="centerY" secondItem="ZkR-bI-gzI" secondAttribute="centerY" id="nhL-RW-Ps8"/>
                                 <constraint firstItem="ZkR-bI-gzI" firstAttribute="top" secondItem="koZ-SL-OeZ" secondAttribute="top" constant="10" id="rTT-Zv-OVz"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="aac-OM-qN8">
-                                <rect key="frame" x="0.0" y="96" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aac-OM-qN8" id="0tg-39-pco">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -118,7 +121,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="puppy" width="680" height="606"/>
+        <image name="puppy" width="1280" height="866"/>
         <image name="settings-cog_" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
