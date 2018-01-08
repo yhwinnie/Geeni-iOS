@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 class NewPostTableViewContoller: UITableViewController {
     
@@ -26,6 +27,9 @@ class NewPostTableViewContoller: UITableViewController {
     let datePicker = UIDatePicker()
     var courseDict : [String : AnyObject] = [:]
     
+    
+    let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar(title: "New Post")
@@ -37,6 +41,7 @@ class NewPostTableViewContoller: UITableViewController {
         imagePickerController.delegate = self
         setupDatePicker()
         setupPostImageColelctionView()
+        setupActivityIndicatorView()
     }
     
     func setupSubmitButton() {
@@ -44,10 +49,15 @@ class NewPostTableViewContoller: UITableViewController {
         submitPostButton.center.x = self.view.center.x
     }
     
+    func setupActivityIndicatorView(){
+        activityIndicator.isHidden = true
+        activityIndicator.center = self.view.center
+    }
+    
     func setupPostImageColelctionView(){
         imageCollectionView.dataSource = self
         imageCollectionView.allowsSelection = false
-        let imageSize = CGSize(width: 100.0, height: 50.0)
+        let imageSize = CGSize(width: 75, height: 50.0)
         let spacing : CGFloat = 5.0
         postImageFlowLayout.minimumLineSpacing = spacing
         postImageFlowLayout.minimumInteritemSpacing = spacing
@@ -169,20 +179,64 @@ class NewPostTableViewContoller: UITableViewController {
         self.courseDict["subject"] = courseName as AnyObject
         self.courseDict["private_sort_tag"] =  (UserDetails.user?._id)! + " " +  timeStampString as AnyObject
         
-        if self.selectedImages.count >= 1 {
-            FirebaseCalls().uploadImageToFirebase(self.selectedImages.first!, completionHandler: { (imageUrlString, error) in
-                if error == nil {
-                    self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
-                    self.submitPost()
-                } else {
-                    self.showAlert("Could not save course description image")
-                    self.submitPost()
-                }
-            })
+        if self.selectedImages.count == 0 {
+            self.submitPost()
+        } else {
+            if self.selectedImages.count <= 3 {
+                let stichedImage = stitchImages(images: self.selectedImages, isVertical: true)
+                FirebaseCalls().uploadImageToFirebase(stichedImage, completionHandler: { (imageUrlString, error) in
+                    if error == nil {
+                        self.courseDict["problem_photo_gs"] = imageUrlString as AnyObject
+                        self.submitPost()
+                    } else {
+                        self.showAlert("Could not save course description image")
+                        self.submitPost()
+                    }
+                })
+            } else {
+                self.showAlert("Cannot add more than 3 images!")
+            }
         }
     }
     
+    func stitchImages(images: [UIImage], isVertical: Bool) -> UIImage {
+        var stitchedImages : UIImage!
+        if images.count > 0 {
+            var maxWidth = CGFloat(0), maxHeight = CGFloat(0)
+            for image in images {
+                if image.size.width > maxWidth {
+                    maxWidth = image.size.width
+                }
+                if image.size.height > maxHeight {
+                    maxHeight = image.size.height
+                }
+            }
+            var totalSize : CGSize
+            let maxSize = CGSize(width: maxWidth, height: maxHeight)
+            if isVertical {
+                totalSize = CGSize(width: maxSize.width, height: maxSize.height * (CGFloat)(images.count))
+            } else {
+                totalSize = CGSize(width: maxSize.width  * (CGFloat)(images.count), height:  maxSize.height)
+            }
+            UIGraphicsBeginImageContext(totalSize)
+            for image in images {
+                let offset = (CGFloat)(images.index(of: image)!)
+                let rect =  AVMakeRect(aspectRatio: image.size, insideRect: isVertical ?
+                    CGRect(x: 0, y: maxSize.height * offset, width: maxSize.width, height: maxSize.height) :
+                    CGRect(x: maxSize.width * offset, y: 0, width: maxSize.width, height: maxSize.height))
+                image.draw(in: rect)
+            }
+            stitchedImages = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+        }
+        return stitchedImages
+    }
+    
     func submitPost() {
+        
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        
         FirebaseCalls().createNewPost(self.courseDict, completionHandler: { (bool) in
             if bool {
                 let alertController = UIAlertController(title: "Geeni", message: "New post created", preferredStyle: .alert)
@@ -195,12 +249,21 @@ class NewPostTableViewContoller: UITableViewController {
                         self.durationTextField.text = ""
                         self.selectedImages = []
                         self.imageCollectionView.reloadData()
+                        
+                        self.activityIndicator.isHidden = true
+                        self.activityIndicator.stopAnimating()
+                        
+                        let newsFeedViewController = UIStoryboard(name: "NewsFeed", bundle: nil).instantiateViewController(withIdentifier: "NewsFeed") as! UINavigationController
+                        self.revealViewController().setFront(newsFeedViewController, animated: true)
                     }
                 })
                 alertController.addAction(dismissAction)
                 self.present(alertController, animated: true, completion: nil)
                 
             } else {
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+                
                 self.showAlert("Unexpected error occured!")
             }
         })

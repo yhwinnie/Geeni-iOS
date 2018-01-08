@@ -14,7 +14,7 @@ class Session: NSObject {
     var desc: String?
     var duration: Double?
     var location: String?
-    var processed: Int?
+    var processed: Bool?
     var start_time: Double?
     var student: String?
     var student_review_submitted: Bool?
@@ -33,8 +33,8 @@ class Session: NSObject {
         self.desc = dictionary["desc"] as? String ?? ""
         self.duration = dictionary["duration"] as? Double ?? 0.0
         self.location = dictionary["location"] as? String ?? ""
-        self.processed = dictionary["processed"] as? Int ?? 0
-        self.start_time = dictionary["start_time"] as? Double ?? 0.0
+        self.processed = dictionary["processed"] as? Bool ?? false
+        self.start_time = dictionary["start_time"] as? Double ?? 0
         self.student = dictionary["student"] as? String ?? ""
         self.student_review_submitted = dictionary["student_review_submitted"] as? Bool ?? false
         self.subject = dictionary["subject"] as? String ?? ""

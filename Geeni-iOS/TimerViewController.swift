@@ -16,8 +16,12 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton : UIButton!
     @IBOutlet weak var stopButton : UIButton!
     @IBOutlet weak var sessionLabel : UILabel!
+    @IBOutlet weak var cancelButton : UIButton!
     
     var previousMinute : Int = 0
+    var currentSession : Session?
+    var sessionDuration : Double = 0
+    var isTutor : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,7 @@ class TimerViewController: UIViewController {
         setupButtons()
         setupTimer()
         timer.cltimer_delegate = self
+        sessionDuration = (currentSession?.duration)!/60000
     }
     
     func setupButtons(){
@@ -53,16 +58,50 @@ class TimerViewController: UIViewController {
     @IBAction func startTimer(_ sender: Any) {
         timer.startTimer(withSeconds: 0, format:.Minutes , mode: .Forward)
     }
+    
+    @IBAction func cancelButtonPressed(_ sender : Any) {
+        //cancel session
+        //change the user for session cancelation i.e. $4
+        //todo
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func hideCancelButton(_ bool : Bool){
+        cancelButton.isHidden = bool
+        cancelButton.isUserInteractionEnabled = !bool
+    }
+    
+    func setupCancelButton(){
+        cancelButton.setTitle("CANCEL", for: .normal)
+        cancelButton.setTitleColor(colors.whiteColor, for: .normal)
+        cancelButton.backgroundColor = colors.redColor
+        cancelButton.createSubmitButton()
+    }
 }
 
 extension TimerViewController : cltimerDelegate {
     
     func timerDidUpdate(time: Int) {
         let minute = time / 60
-        if minute > previousMinute {
-            previousMinute = minute
-            let cost : CGFloat = CGFloat(previousMinute) * (17.0/60.0)
-            sessionLabel.text = "Session Cost : " + String(format : "%.2f" , cost) + "$"
+        if time < Int(sessionDuration * 60) {
+            // cancel button should be available only for 10 minutes
+            if minute < 10 {
+                hideCancelButton(false)
+            } else {
+                hideCancelButton((true))
+            }
+            
+            if minute > previousMinute {
+                previousMinute = minute
+                let cost : CGFloat = CGFloat(previousMinute) * (17.0/60.0)
+                sessionLabel.text = "Session Cost : " + "$" + String(format : "%.2f" , cost)
+            }
+        } else {
+            if isTutor {
+                //close button should pop up
+            } else {
+                timer.stopTimer()
+            }
         }
     }
 }

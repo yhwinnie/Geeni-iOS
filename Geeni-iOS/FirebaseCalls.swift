@@ -51,6 +51,7 @@ class FirebaseCalls {
         }
     }
     
+    //creating new post
     func createNewPost(_ dict : [String : AnyObject] , completionHandler : @escaping(_ bool : Bool) -> Void) {
         let postRef = ref.child("posts").childByAutoId()
         let id = postRef.key
@@ -60,6 +61,12 @@ class FirebaseCalls {
         completionHandler(true)
     }
     
+    //deleting private post
+    func deletePost() {
+        
+    }
+    
+    //getting user's details
     func getUserDetails( idString : String? , completionHandler : @escaping (_ userDetails : User? , _ bool : Bool) -> Void) {
         var foundDetails : Bool = false
         var userDetails : User?
@@ -105,4 +112,40 @@ class FirebaseCalls {
         completionHandler(true)
     }
     
+    //get sessions with current user as student
+    func getUserSessions(_ completionHandler : @escaping( _ sessions : [Session]) -> Void){
+        var sessionsArray : [Session] = []
+        ref.child("sessions").observeSingleEvent(of: .value , with: { (snapshot) in
+            for id in snapshot.children {
+                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                let userIdString = user["user_id"] as! String
+                if userIdString == uid {
+                    sessionsArray.append(Session(dictionary: user))
+                }
+            }
+        })
+        
+        //sort sessions based on start time
+        let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
+        completionHandler(sortedArray)
+    }
+    
+    //get sessions with current user as student
+    func getTutorSessions(_ completionHandler : @escaping( _ sessions : [Session]) -> Void){
+        var sessionsArray : [Session] = []
+
+        ref.child("sessions").observeSingleEvent(of: .value , with: { (snapshot) in
+            for id in snapshot.children {
+                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                let userIdString = user["tutor"] as! String
+                if userIdString == uid {
+                    sessionsArray.append(Session(dictionary: user))
+                }
+            }
+        })
+        
+        //sort sessions based on start time
+        let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
+        completionHandler(sortedArray)
+    }
 }

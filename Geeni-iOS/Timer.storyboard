@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fxz-BV-OKE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fxz-BV-OKE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,10 +87,20 @@
                                     <constraint firstAttribute="height" constant="50" id="RVN-Rx-pXV"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKE-iv-hVM">
+                                <rect key="frame" x="156.5" y="549" width="61" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="6OV-qR-Qz2" eventType="touchUpInside" id="z6N-bM-r1b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3qn-Gp-Pkh" firstAttribute="top" secondItem="IfB-nz-fDG" secondAttribute="bottom" constant="50" id="0k1-8U-mtG"/>
+                            <constraint firstItem="aKE-iv-hVM" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="7mP-ZZ-XOs"/>
+                            <constraint firstItem="aKE-iv-hVM" firstAttribute="top" secondItem="3qn-Gp-Pkh" secondAttribute="bottom" constant="15" id="FZf-PB-Gbt"/>
                             <constraint firstItem="3qn-Gp-Pkh" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="I3Q-Gr-AZr"/>
                             <constraint firstAttribute="trailing" secondItem="3qn-Gp-Pkh" secondAttribute="trailing" constant="10" id="PuM-lg-KIr"/>
                             <constraint firstItem="IfB-nz-fDG" firstAttribute="top" secondItem="DmE-rp-UAj" secondAttribute="bottom" constant="30" id="T9b-T6-qKX"/>
@@ -102,6 +112,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="j6i-Eo-ZCW"/>
                     <connections>
+                        <outlet property="cancelButton" destination="aKE-iv-hVM" id="TzY-sC-HyP"/>
                         <outlet property="sessionLabel" destination="DmE-rp-UAj" id="8rb-Rd-Yce"/>
                         <outlet property="startButton" destination="f8l-Bg-2Zh" id="nIJ-Ie-QwB"/>
                         <outlet property="stopButton" destination="w1f-8g-7aw" id="nTK-po-uAf"/>

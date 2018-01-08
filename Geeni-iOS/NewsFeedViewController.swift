@@ -43,6 +43,32 @@ class NewsFeedViewController: UIViewController {
         } else {
             getUserPosts()
         }
+        
+        
+        //getting usersSession
+        if UserDetails.sessions == [] {
+            FirebaseCalls().getUserSessions({ (sessions) in
+                UserDetails.sessions = sessions
+            })
+        }
+        if UserDetails.tutorSessions == [] {
+            FirebaseCalls().getTutorSessions({ (sessions) in
+                UserDetails.tutorSessions = sessions
+            })
+        }
+        presentSessionView()
+        
+        print(FIRServerValue.timestamp())
+    }
+    
+    func presentSessionView(){
+            //compare current time with session time and present session view
+        let currentTime = Date().timeIntervalSince1970
+        if currentTime == UserDetails.sessions.first?.start_time {
+            //start session with current user as student
+        } else if currentTime == UserDetails.tutorSessions.first?.start_time{
+            //start session with current user as tutor
+        }
     }
     
     func setupSegmentController() {
@@ -150,6 +176,19 @@ extension NewsFeedViewController : UITableViewDelegate {
         self.selectedPost = self.posts[indexPath.item]
         self.performSegue(withIdentifier: "postSegue", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if segmentedControl.selectedSegmentIndex == 0{
+            return []
+        } else {
+            //delete button should only appear in private posts
+            let deletePostButton = UITableViewRowAction(style: .destructive, title: "Delete", handler: { (rowAction, indexPath) in
+                //todo
+            })
+            deletePostButton.backgroundColor = colors.redColor
+            return [deletePostButton]
+        }
     }
 }
 
