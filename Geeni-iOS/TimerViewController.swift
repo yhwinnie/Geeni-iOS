@@ -11,41 +11,99 @@ import CLTimer
 
 
 class TimerViewController: UIViewController {
-
+    
     @IBOutlet weak var timer: CLTimer!
+    @IBOutlet weak var startButton : UIButton!
+    @IBOutlet weak var stopButton : UIButton!
+    @IBOutlet weak var sessionLabel : UILabel!
+    @IBOutlet weak var cancelButton : UIButton!
+    
+    var previousMinute : Int = 0
+    var currentSession : Session?
+    var sessionDuration : Double = 0
+    var isTutor : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        setupNavigationBar(title: "Current Session")
+        setupButtons()
+        setupTimer()
+        timer.cltimer_delegate = self
+        sessionDuration = (currentSession?.duration)!/60000
     }
     
-
-    func resetTimer() {
-        timer.resetTimer()
-
+    func setupButtons(){
+        startButton.backgroundColor = colors.blueColor
+        startButton.setTitleColor(colors.whiteColor, for: .normal)
+        stopButton.backgroundColor = colors.blueColor
+        stopButton.setTitleColor(colors.whiteColor, for: .normal)
+        startButton.clipsToBounds = true
+        stopButton.clipsToBounds = true
+        startButton.layer.cornerRadius = 20.0
+        stopButton.layer.cornerRadius = 20.0
     }
+    
+    func setupTimer(){
+        timer.backgroundColor = colors.blueColor
+        timer.tintColor = colors.whiteColor
+        timer.clipsToBounds = true
+        timer.layer.cornerRadius = timer.frame.width/2
+    }
+    
     @IBAction func stopTimer(_ sender: Any) {
         timer.stopTimer()
-
+        timer.resetTimer()
     }
+    
     @IBAction func startTimer(_ sender: Any) {
-        timer.startTimer(withSeconds: 3600, format:.Minutes , mode: .Reverse)
-
+        timer.startTimer(withSeconds: 0, format:.Minutes , mode: .Forward)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func cancelButtonPressed(_ sender : Any) {
+        //cancel session
+        //change the user for session cancelation i.e. $4
+        //todo
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func hideCancelButton(_ bool : Bool){
+        cancelButton.isHidden = bool
+        cancelButton.isUserInteractionEnabled = !bool
+    }
+    
+    func setupCancelButton(){
+        cancelButton.setTitle("CANCEL", for: .normal)
+        cancelButton.setTitleColor(colors.whiteColor, for: .normal)
+        cancelButton.backgroundColor = colors.redColor
+        cancelButton.createSubmitButton()
+    }
 }
+
+extension TimerViewController : cltimerDelegate {
+    
+    func timerDidUpdate(time: Int) {
+        let minute = time / 60
+        if time < Int(sessionDuration * 60) {
+            // cancel button should be available only for 10 minutes
+            if minute < 10 {
+                hideCancelButton(false)
+            } else {
+                hideCancelButton((true))
+            }
+            
+            if minute > previousMinute {
+                previousMinute = minute
+                let cost : CGFloat = CGFloat(previousMinute) * (17.0/60.0)
+                sessionLabel.text = "Session Cost : " + "$" + String(format : "%.2f" , cost)
+            }
+        } else {
+            if isTutor {
+                //close button should pop up
+            } else {
+                timer.stopTimer()
+            }
+        }
+    }
+}
+
+

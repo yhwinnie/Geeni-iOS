@@ -12,30 +12,39 @@ import SWRevealViewController
 class MessagesListTableViewController: UITableViewController {
     
     var chatrooms = [Chatroom]()
+    var userArray = [User]()
+    var selectedChatroom : Chatroom?
+    var receiver : User?
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        revealSideMenu()
+        setupNavigationBar(title: "Messages")
+        revealSideMenu(menuButton)
         getChatrooms()
+        tableView.tableFooterView = UIView()
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Messages"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.title = ""
     }
     
     func getChatrooms() {
         ref.child("chatrooms").queryOrdered(byChild: "student").queryEqual(toValue: uid).observe(.childAdded, with: { (snapshot) in
-            
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let chatroom = Chatroom(dictionary: dictionary)
                 self.chatrooms.append(chatroom)
-                
                 DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
             }
-            
-            
         }, withCancel: nil)
         
         ref.child("chatrooms").queryOrdered(byChild: "tutor").queryEqual(toValue: uid).observe(.childAdded, with: { (snapshot) in
@@ -52,37 +61,52 @@ class MessagesListTableViewController: UITableViewController {
         
     }
     
-    func revealSideMenu() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ChatroomViewController
+        destination.chatroom = selectedChatroom
+        if selectedChatroom?.student == uid {
+            destination.receiverId = selectedChatroom?.tutor
+        } else {
+            destination.receiverId = selectedChatroom?.student
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        destination.receiverUsername = receiver?.username
+        destination.sender = uid
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.chatrooms.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatroomTableViewCell
-        
-        cell.chatroom = self.chatrooms[indexPath.row]
+        let chatroom = self.chatrooms[indexPath.row]
+        if uid == chatroom.student {
+            // getting tutor details
+            FirebaseCalls().getUserDetails(idString: chatroom.tutor, completionHandler: { (user, bool) in
+                if bool {
+                    self.receiver = user
+                    cell.user = user
+                } else {
+                    self.showAlert("Unexpected error occured!")
+                }
+            })
+        } else {
+            // getting student details
+            FirebaseCalls().getUserDetails(idString: chatroom.student, completionHandler: { (user, bool) in
+                if bool {
+                    self.receiver = user
+                    cell.user = user
+                } else {
+                    self.showAlert("Unexpected error occured!")
+                }
+            })
+        }
         return cell
     }
     
@@ -90,77 +114,13 @@ class MessagesListTableViewController: UITableViewController {
         return 80
     }
     
-}
-
-
-class ChatroomTableViewCell: UITableViewCell {
+    // MARK: - Table View Delegate
     
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var majorLabel: UILabel!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userImageView: CustomRoundImageView!
-    
-    
-    
-    var chatroom: Chatroom? {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedChatroom = chatrooms[indexPath.item]
         
-        didSet {
-            
-            guard let uid = uid else { return }
-            guard let chatroom = chatroom else { return }
-            
-//            guard let messages = chatroom.messages else { return }
-//            
-//            if (messages.count) > 0 {
-//                
-//                descriptionLabel.text = messages[0].message
-//        
-//            }
-            
-            
-
-            if chatroom.student == uid {
-                userName.text = chatroom.tutor
-            }
-            else {
-                userName.text = chatroom.student
-            }
-            
-        }
-    }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
-}
-
-// Chatroom Model
-class Chatroom: NSObject {
-    var _id: String?
-    var student: String?
-    var tutor: String?
-//    var messages: [Message]?
-    
-    
-    init(dictionary: [String: Any]) {
-        self._id = dictionary["_id"] as? String ?? ""
-        
-        self.student = dictionary["student"] as? String ?? ""
-        
-        self.tutor = dictionary["tutor"] as? String ?? ""
-        
-        
-//        self.messages = dictionary["messages"] as? [Message] ?? []
-        
+        performSegue(withIdentifier: "chatroomSegue", sender: self)
     }
 }
+
+
