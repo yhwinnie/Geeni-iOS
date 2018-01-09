@@ -37,6 +37,5 @@ class ServerCalls {
                 completionHandler(false,"Unexpected error occurred!")
             }
         })
-        
     }
 }

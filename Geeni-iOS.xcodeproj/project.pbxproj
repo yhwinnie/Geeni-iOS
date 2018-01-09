@@ -388,11 +388,11 @@
 		5FD57DD51F7EC0F200BAE233 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5FD57DD81F7EC12D00BAE233 /* Receipt.swift */,
 				5F551BC71F801D0E00D25B7A /* Messages.swift */,
 				5F5E10261F87848800A38E09 /* Card.swift */,
 				5F718F361F8E499F00E0DA7C /* Chatroom.swift */,
 				5F5E10281F87853F00A38E09 /* Session.swift */,
+				5FD57DD81F7EC12D00BAE233 /* Receipt.swift */,
 				4C682A991E90E6E400DEA494 /* Networking */,
 			);
 			name = Model;

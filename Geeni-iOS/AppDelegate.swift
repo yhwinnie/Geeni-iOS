@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //stripe key
-        Stripe.setDefaultPublishableKey("pk_test_j332MyKrjUJHZQtag8xVMMKy")
+        Stripe.setDefaultPublishableKey("pk_live_Hj9VUB3kQrZFczITJkfOeNqW")
         
         
         //firebase configuration

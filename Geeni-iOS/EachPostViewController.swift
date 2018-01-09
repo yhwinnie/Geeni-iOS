@@ -233,7 +233,7 @@ extension EachPostViewController : UITableViewDataSource {
             }
             messageButton.backgroundColor = UIColor.init(patternImage: UIImage(named : "messageAction")!)
             return [messageButton]
-        }else {
+        } else {
             return []
         }
     }

@@ -13,4 +13,6 @@ struct UserDetails {
     static var user : User?
     static var userToken : String?
     static var userPosts : [Post] = []
+    static var sessions : [Session] = []
+    static var tutorSessions : [Session] = []
 }
