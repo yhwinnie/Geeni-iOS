@@ -301,6 +301,7 @@ extension NewPostTableViewContoller : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImage", for: indexPath) as! PostImageCollectionViewCell
         cell.postImageView.image = selectedImages[indexPath.item]
+        cell.postImageView.contentMode = .scaleAspectFit
         return cell
     }
 }

@@ -31,6 +31,7 @@ class EachPostViewController : UIViewController {
     func setupTableView(){
         tableView.allowsSelection = false
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func setupProfileImageView(){
@@ -59,6 +60,7 @@ class EachPostViewController : UIViewController {
         
         profileImageView?.userNameLabel.text = currentPost?.username!
         profileImageView?.subjectNameLabel.text = currentPost?.subject!
+        profileImageView?.majorLabel.text = "@" + (currentPost?.username!)!
         profileView.frame.origin.y = -statusBarHeight
         profileView.frame = (profileImageView?.frame)!
         if !addTutor {
@@ -107,6 +109,12 @@ class EachPostViewController : UIViewController {
         FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
             if bool {
                 // chat room created
+                let alertController = UIAlertController(title: "Geeni", message: "New Chatroom created", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
             } else {
                 self.showAlert("Unexpected error occurred!")
             }
@@ -121,7 +129,7 @@ class EachPostViewController : UIViewController {
     }
 }
 
-extension EachPostViewController : UITableViewDataSource {
+extension EachPostViewController : UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -197,7 +205,7 @@ extension EachPostViewController : UITableViewDataSource {
                 return descriptionTableViewCellHeight + 10.0
             } else {
                 if currentPost?.problem_photo_gs != "" {
-                    return 260.0
+                    return 400
                 } else {
                     return 0.0
                 }
