@@ -22,13 +22,15 @@ public protocol TKRadarChartDataSource: class {
 /// You can custom chart by `TKRadarChartDelegate`
 public protocol TKRadarChartDelegate: class {
     
-    func colorOfTitleForRadarChart(_ radarChart: TKRadarChart) -> UIColor
     func colorOfLineForRadarChart(_ radarChart: TKRadarChart) -> UIColor
     func colorOfFillStepForRadarChart(_ radarChart: TKRadarChart, step: Int) -> UIColor
     
     func colorOfSectionFillForRadarChart(_ radarChart: TKRadarChart, section: Int) -> UIColor
     func colorOfSectionBorderForRadarChart(_ radarChart: TKRadarChart, section: Int) -> UIColor
     
+    func fontOfTitleForRadarChart(_ radarChart: TKRadarChart) -> UIFont
+    func colorOfTitleForRadarChart(_ radarChart: TKRadarChart) -> UIColor
+
 }
 
 
@@ -204,7 +206,7 @@ public class TKRadarChart: UIView, TKRadarChartDelegate {
             let pointOnEdge = CGPoint(x: centerPoint.x - radius * sin(i * perAngle),
                                       y: centerPoint.y - radius * cos(i * perAngle))
             let attributeTextSize = (title as NSString).size(withAttributes: [NSAttributedStringKey.font: textFont])
-
+            
             let width = attributeTextSize.width
             let xOffset = pointOnEdge.x >=  centerPoint .x ? width / 2.0 + padding : -width / 2.0 - padding
             let yOffset = pointOnEdge.y >=  centerPoint .y ? height / 2.0 + padding : -height / 2.0 - padding
@@ -215,7 +217,7 @@ public class TKRadarChart: UIView, TKRadarChartDelegate {
             paragraphStyle.lineBreakMode = .byClipping
             let attributes = [NSAttributedStringKey.font: textFont,
                               NSAttributedStringKey.paragraphStyle: paragraphStyle,
-                              NSAttributedStringKey.foregroundColor: titleColor , NSAttributedStringKey.backgroundColor : UIColor.gray]
+                              NSAttributedStringKey.foregroundColor: titleColor]
             
             /// Fix title offset
             if index == 0 ||  (numOfRow%2 == 0 && index == numOfRow/2){
@@ -223,7 +225,6 @@ public class TKRadarChart: UIView, TKRadarChartDelegate {
                 legendCenter.y = centerPoint.y + (radius + padding + height / 2.0) * CGFloat(index == 0 ? -1 : 1)
             }
             let rect = CGRect(x: legendCenter.x - width / 2.0, y: legendCenter.y - height / 2.0, width: width, height: height)
-            
             (title as NSString).draw(in: rect, withAttributes: attributes)
         }
         

@@ -138,7 +138,7 @@ class NewPostTableViewContoller: UITableViewController {
             showAlert("Text Fields cannot be empty!")
         } else {
             guard let uid = uid else {return}
-            if UserDetails.user == nil {
+            if UserDetails.user != nil {
                 FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
                     if bool {
                         UserDetails.user = user
@@ -159,7 +159,7 @@ class NewPostTableViewContoller: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
         let timeStamp = [".sv": "timestamp"]
-        let timeStampString = FIRServerValue.timestamp()[".sv"] as! String
+        let timeStampString = ServerValue.timestamp()[".sv"] as! String
         
         let courseName = self.courseTextField.text
         let courseLocation = self.locationTextField.text

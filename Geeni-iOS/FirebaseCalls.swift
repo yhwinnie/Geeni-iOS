@@ -15,16 +15,16 @@ class FirebaseCalls {
     // Firebase Calls for User's Personal Information
     func saveUserDetails(name : String , majors : String , year : String ,tutor_bool : Bool, completionHandler : @escaping(_ bool : Bool) -> Void){
         let userDict: [String : AnyObject] =
-            ["_id": FIRAuth.auth()?.currentUser?.uid as AnyObject,
+            ["_id": Auth.auth().currentUser?.uid as AnyObject,
              "balance_available": 0 as AnyObject,
              "balance_pending": 0 as AnyObject,
-             "email": FIRAuth.auth()?.currentUser?.email as AnyObject,
+             "email": Auth.auth().currentUser?.email as AnyObject,
              "limit": 0 as AnyObject,
              "major": majors as AnyObject,
              "nor_student": 0 as AnyObject,
              "overall_ratings_student": 0 as AnyObject,
              "overall_ratings_tutor": 0 as AnyObject,
-             "photo_gs": FIRAuth.auth()?.currentUser?.photoURL?.absoluteString as AnyObject,
+             "photo_gs": Auth.auth().currentUser?.photoURL?.absoluteString as AnyObject,
              "tutor_bool": tutor_bool as AnyObject,
              "username": name as AnyObject,
              "year": year as AnyObject
@@ -40,7 +40,7 @@ class FirebaseCalls {
     // uploading image to firebase storage
     func uploadImageToFirebase(_ image : UIImage, completionHandler : @escaping (_ url : String? , _ error : Error?) -> Void){
         if let pngRepresentation = UIImagePNGRepresentation(image){
-            storageRef.put(pngRepresentation, metadata: nil) { (metadata, error) in
+            storageRef.putData(pngRepresentation, metadata: nil) { (metadata, error) in
                 if error != nil {
                     completionHandler(nil,error)
                 } else {
@@ -49,6 +49,7 @@ class FirebaseCalls {
                 }
             }
         }
+        
     }
     
     //creating new post
@@ -72,7 +73,7 @@ class FirebaseCalls {
         var userDetails : User?
         ref.child("users").observeSingleEvent(of: .value, with: { (snapshot) in
             for id in snapshot.children {
-                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                let user = (id as! DataSnapshot).value as! [String : AnyObject]
                 let userIdString = user["_id"] as! String
                 if userIdString  == idString {
                     foundDetails = true
@@ -117,7 +118,7 @@ class FirebaseCalls {
         var sessionsArray : [Session] = []
         ref.child("sessions").observeSingleEvent(of: .value , with: { (snapshot) in
             for id in snapshot.children {
-                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                let user = (id as! DataSnapshot).value as! [String : AnyObject]
                 let userIdString = user["user_id"] as! String
                 if userIdString == uid {
                     sessionsArray.append(Session(dictionary: user))
@@ -136,7 +137,7 @@ class FirebaseCalls {
 
         ref.child("sessions").observeSingleEvent(of: .value , with: { (snapshot) in
             for id in snapshot.children {
-                let user = (id as! FIRDataSnapshot).value as! [String : AnyObject]
+                let user = (id as! DataSnapshot).value as! [String : AnyObject]
                 let userIdString = user["tutor"] as! String
                 if userIdString == uid {
                     sessionsArray.append(Session(dictionary: user))

@@ -28,7 +28,10 @@ class ChatroomViewController: JSQMessagesViewController {
         self.senderId = sender
         self.senderDisplayName = ""
         observeMessages()
-        
+    }
+    
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        //do nothing
     }
     
     private func addMessage(message : Message) {

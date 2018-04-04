@@ -81,7 +81,7 @@ class SignUpTableViewController: UITableViewController {
         }
         
         let gmailAction = UIAlertAction(title : "Gmail Image", style : .default) { (action) in
-            self.userPictureView.kf.setImage(with: FIRAuth.auth()?.currentUser?.photoURL)
+            self.userPictureView.kf.setImage(with: Auth.auth().currentUser?.photoURL)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
@@ -120,7 +120,7 @@ class SignUpTableViewController: UITableViewController {
     }
     
     func setupUserImage() {
-        let userImageUrl = FIRAuth.auth()?.currentUser?.photoURL
+        let userImageUrl = Auth.auth().currentUser?.photoURL
         userPictureView.kf.setImage(with: userImageUrl)
     }
     

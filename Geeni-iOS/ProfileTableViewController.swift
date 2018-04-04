@@ -54,7 +54,7 @@ class ProfileTableViewController: UITableViewController {
     func getUserPosts() {
         guard let uid = uid else { return }
         UserDetails.userPosts = []
-        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
                 if post.user_id == uid {
@@ -68,7 +68,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func getPosts() {
-        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
                 if post.user_id == self.id {
@@ -94,7 +94,7 @@ class ProfileTableViewController: UITableViewController {
     func getProfileDetails() {
         if userDetails {
             guard let uid = uid else { return }
-            if UserDetails.user == nil {
+            if UserDetails.user != nil {
                 FirebaseCalls().getUserDetails(idString: uid) { (user , bool) in
                     if bool {
                         UserDetails.user = user
@@ -113,8 +113,23 @@ class ProfileTableViewController: UITableViewController {
                     }
                 }
             } else {
-                setupProfile()
-            }
+                FirebaseCalls().getUserDetails(idString: uid) { (user , bool) in
+                    if bool {
+                        self.postUser = user
+                        self.getPosts()
+                        self.setupPostUserProfile()
+                        
+                    } else {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Geeni", message: "Unexpected error occurred!", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                                self.dismiss(animated: true, completion: nil)
+                            })
+                            alertController.addAction(okAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }            }
         } else {
             FirebaseCalls().getUserDetails(idString: id) { (user , bool) in
                 if bool {

@@ -15,7 +15,7 @@ class ServerCalls {
     
     func addNewCard(_ stripeToken : STPToken , completionHandler : @escaping( _ bool : Bool , _ errorMessage : String?) -> Void){
         let url = "https://geeni-test-server.herokuapp.com/api/test/card"
-        let currentUser = FIRAuth.auth()?.currentUser
+        let currentUser = Auth.auth().currentUser
         currentUser?.getTokenForcingRefresh(true, completion: { (token, error) in
             if error == nil {
                 UserDetails.userToken = token

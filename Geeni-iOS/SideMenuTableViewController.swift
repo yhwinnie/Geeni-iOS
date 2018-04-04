@@ -11,6 +11,7 @@ import SWRevealViewController
 import Firebase
 import FirebaseStorage
 import Kingfisher
+import GoogleSignIn
 
 class SideMenuTableViewController: UITableViewController {
     
@@ -152,9 +153,10 @@ class SideMenuTableViewController: UITableViewController {
             self.revealViewController().setFront(becomeTutor, animated: true)
             
         case 7:
-            let firebaseAuth = FIRAuth.auth()
+
             do {
-                try firebaseAuth?.signOut()
+                try Auth.auth().signOut()
+                GIDSignIn.sharedInstance().signOut()
                 let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                 let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController

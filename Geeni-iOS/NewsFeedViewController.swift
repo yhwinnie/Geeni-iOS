@@ -18,7 +18,7 @@ class NewsFeedViewController: UIViewController {
     @IBOutlet weak var segmentView: UIView!
     
     var posts = [Post]()
-    let ref = FIRDatabase.database().reference()
+    let ref = Database.database().reference()
     var selectedPost : Post? = nil
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class NewsFeedViewController: UIViewController {
         guard let uid = uid else { return }
         
         //getting user details on first launch
-        if UserDetails.user == nil {
+        if UserDetails.user != nil {
             FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
                 if bool {
                     UserDetails.user = user
@@ -58,7 +58,7 @@ class NewsFeedViewController: UIViewController {
         }
         presentSessionView()
         
-        print(FIRServerValue.timestamp())
+        print(ServerValue.timestamp())
     }
     
     func presentSessionView(){
@@ -89,7 +89,7 @@ class NewsFeedViewController: UIViewController {
     
     func getPublicNewsFeed() {
         guard let uid = uid else {return}
-        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
                 if post.user_id != uid {
@@ -106,7 +106,7 @@ class NewsFeedViewController: UIViewController {
     func getPrivateNewsFeed() {
         
         guard let uid = uid else { return }
-        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
                 if post.user_id == uid {
@@ -122,7 +122,7 @@ class NewsFeedViewController: UIViewController {
     func getUserPosts() {
         guard let uid = uid else { return }
         UserDetails.userPosts = []
-        FIRDatabase.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
+        Database.database().reference().child("posts").observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let post = Post(dictionary: dictionary)
                 if post.user_id == uid {
