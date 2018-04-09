@@ -105,20 +105,24 @@ class EachPostViewController : UIViewController {
     
     func tutorButtonPressed() {
         // create chat room and unhide message button if chatroom is already not present
-        profileImageXibArray.first?.hideMessageButton(false)
-        FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
-            if bool {
-                // chat room created
-                let alertController = UIAlertController(title: "Geeni", message: "New Chatroom created", preferredStyle: .alert)
-                let alertAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
-                    self.dismiss(animated: true, completion: nil)
-                })
-                alertController.addAction(alertAction)
-                self.present(alertController, animated: true, completion: nil)
-            } else {
-                self.showAlert("Unexpected error occurred!")
-            }
-        }
+//        profileImageXibArray.first?.hideMessageButton(false)
+//        FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
+//            if bool {
+//                // chat room created
+//                let alertController = UIAlertController(title: "Geeni", message: "New Chatroom created", preferredStyle: .alert)
+//                let alertAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+//                    self.dismiss(animated: true, completion: nil)
+//                })
+//                alertController.addAction(alertAction)
+//                self.present(alertController, animated: true, completion: nil)
+//            } else {
+//                self.showAlert("Unexpected error occurred!")
+//            }
+//        }
+        
+        ServerCalls().acceptTutor(studentId: (currentPost?.user_id)!, postId: (currentPost?._id)!, completionHandler: {(message) in
+            self.showAlert(message)
+        })
     }
     
     func setupResponses(){

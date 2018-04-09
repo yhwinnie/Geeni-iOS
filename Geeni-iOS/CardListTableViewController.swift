@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import SWRevealViewController
 
 class CardListTableViewController: UITableViewController {
@@ -24,19 +25,33 @@ class CardListTableViewController: UITableViewController {
     
     func getCards() {
         guard let uid = uid else { return }
-        ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let card = Card(dictionary: dictionary)
-                self.cards.append(card)
-                
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
+//        ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
+//
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                let card = Card(dictionary: dictionary)
+//                self.cards.append(card)
+//
+//                DispatchQueue.main.async(execute: {
+//                    self.tableView.reloadData()
+//                })
+//            }
+//
+//
+//        }, withCancel: nil)
+        
+        ref.child("cards").observe(.value, with: { (snapshot) in
+            let cardArray = snapshot.children.allObjects as NSArray
+            for card in cardArray {
+                let cardSnapshot = card as! DataSnapshot
+                let cardValue = cardSnapshot.value as! NSDictionary
+                let userId = cardValue["user_id"] as! String
+                if userId == uid {
+                    let cardObject = Card(dictionary : cardValue as! [String : Any])
+                    self.cards.append(cardObject)
+                }
             }
-            
-            
-        }, withCancel: nil)
+            self.tableView.reloadData()
+        })
     }
     
     // MARK: - Table view data source
@@ -53,6 +68,7 @@ class CardListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardListTableViewCell
         cell.card = self.cards[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     

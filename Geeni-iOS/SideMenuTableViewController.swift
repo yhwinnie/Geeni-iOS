@@ -45,6 +45,20 @@ class SideMenuTableViewController: UITableViewController {
             FirebaseCalls().getUserDetails(idString : uid) { (user , bool) in
                 if bool {
                     UserDetails.user = user
+                    
+                    let userDetails = UserDetails.user
+                    self.majorLabel.text = userDetails?.major
+                    self.nameLabel.text = userDetails?.username
+                    let imageURL = URL(string: (userDetails?.photo_gs!)!)
+                    if user?.photo_gs?.first == "g"{
+                        storageRef = storage.reference(forURL: (userDetails?.photo_gs!)!)
+                        storageRef.downloadURL { (url, error) in
+                            self.profileImageView.kf.setImage(with: url)
+                        }
+                    } else {
+                        self.profileImageView.kf.setImage(with: imageURL)
+                    } 
+                    
                 } else {
                     DispatchQueue.main.async {
                         
