@@ -53,7 +53,7 @@ class ServerCalls {
                                            "accepted_tutor" : tutorId ?? ""]
         
         let url = "https://geeni-test-server.herokuapp.com/api2/tutor_acception"
-       
+        
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             if response.error != nil {
                 if response.response?.statusCode == 200 {
@@ -64,17 +64,33 @@ class ServerCalls {
             } else {
                 let json = response.result.value as? NSDictionary
                 let message = json!["message"] as! String
-                let success = json!["success"] as!  Int
-                if success == 1 {
-                    completionHandler(message)
-                } else {
-                    completionHandler("Could not tutor this student")
-                }
+                completionHandler(message)
             }
         }
     }
     
-    func cancelSession(){
+    func cancelSession(sessionId : String, completionHandler : @escaping (_ message : String) -> Void) {
+        let url = "https://geeni-test-server.herokuapp.com/api2/cancel_session"
+        let parameters  : [String : Any] = ["session_id" : sessionId ,
+                                            "user_token" : uid ?? ""]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
+            if response.error != nil {
+                completionHandler("Could not cancel session")
+            } else {
+                let json = response.result.value as? NSDictionary
+                let message = json!["message"] as! String
+                completionHandler(message)
+                
+            }
+        }
+    }
+    
+    func endSession(){
+        
+    }
+    
+    func createReceipt(){
         
     }
 }

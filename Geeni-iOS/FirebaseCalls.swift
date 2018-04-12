@@ -149,4 +149,6 @@ class FirebaseCalls {
         let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
         completionHandler(sortedArray)
     }
+    
+    
 }

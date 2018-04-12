@@ -115,8 +115,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="g4W-MY-smg">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="cJj-Zk-P8Y"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="cJj-Zk-P8Y">
+                            <connections>
+                                <action selector="cancelButtonPressed" destination="fEK-qZ-qU1" id="3gp-dJ-xep"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="cJj-Zk-P8Y" id="XDk-8l-U9Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uv-vz-yit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

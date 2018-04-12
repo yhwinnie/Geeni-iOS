@@ -65,6 +65,7 @@ class MessagesListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ChatroomViewController
         destination.chatroom = selectedChatroom
+       
         if selectedChatroom?.student == uid {
             destination.receiverId = selectedChatroom?.tutor
         } else {
@@ -93,8 +94,8 @@ class MessagesListTableViewController: UITableViewController {
             if let snapshotValue = snapshot.value as? [String: AnyObject] {
                 let session = Session(dictionary: snapshotValue)
                 cell.descriptionLabel.text = session.desc
-                let timeStamp = session.timestamp
-                let time = Date(timeIntervalSince1970: timeStamp!)
+                let timeStamp = session.timestamp! / 1000
+                let time = Date(timeIntervalSince1970: timeStamp)
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy h:mm a Z"
                 let timeString = dateFormatter.string(from: time)
