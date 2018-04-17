@@ -9,6 +9,7 @@
 import UIKit
 import SWRevealViewController
 import Firebase
+import UserNotifications
 
 class NewsFeedViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class NewsFeedViewController: UIViewController {
     var posts = [Post]()
     let ref = Database.database().reference()
     var selectedPost : Post? = nil
+    var sessions : [Session] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,42 +35,111 @@ class NewsFeedViewController: UIViewController {
         guard let uid = uid else { return }
         
         //getting user details on first launch
-        if UserDetails.user != nil {
+        
             FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
                 if bool {
                     UserDetails.user = user
                     self.getUserPosts()
+                    self.presentSessionView()
+                    
                 }
             })
-        } else {
-            getUserPosts()
-        }
+       
         
-        
-        //getting usersSession
-        if UserDetails.sessions == [] {
-            FirebaseCalls().getUserSessions({ (sessions) in
-                UserDetails.sessions = sessions
-            })
-        }
-        if UserDetails.tutorSessions == [] {
-            FirebaseCalls().getTutorSessions({ (sessions) in
-                UserDetails.tutorSessions = sessions
-            })
-        }
-        presentSessionView()
         
         print(ServerValue.timestamp())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func presentSessionView(){
             //compare current time with session time and present session view
-        let currentTime = Date().timeIntervalSince1970
-        if currentTime == UserDetails.sessions.first?.start_time {
-            //start session with current user as student
-        } else if currentTime == UserDetails.tutorSessions.first?.start_time{
-            //start session with current user as tutor
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        if UserDetails.user?.tutor_bool == false {
+            //fetch user sessions
+            FirebaseCalls().getUserSessions { (sessions) in
+                self.sessions = sessions
+                
+                // set notifications before 15 minutes of post
+                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                
+                for session in sessions {
+                    delegate.scheduleNotifications(session)
+                }
+                
+                UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (notifications) in
+                    for notification in notifications {
+                        print(notification.trigger)
+                    }
+                })
+                
+                // present timer View Controller
+                
+                for session in sessions {
+                    let startTime = session.start_time! / 1000
+                    let duration = session.duration
+                    let startDate = Date(timeIntervalSince1970: startTime)
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "ddMMyyyy, HH:mm"
+                    let startDateString = dateFormatter.string(from: startDate)
+                    let dateString = dateFormatter.string(from: Date())
+                    
+                    if startDateString == dateString {
+                        let timerViewController = UIStoryboard(name: "Timer", bundle: nil).instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
+                        timerViewController.sessionDuration = duration!
+                        self.present(timerViewController, animated: true, completion: nil)
+                    }
+                }
+   
+            }
+        } else {
+            //fetch tutor sessions
+            FirebaseCalls().getTutorSessions { (sessions) in
+                self.sessions = sessions
+                
+                // set notifications before 15 minutes of post
+                UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                
+                for session in sessions {
+                    delegate.scheduleNotifications(session)
+                }
+                
+                UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { (notifications) in
+                    for notification in notifications {
+                        print(notification.trigger)
+                    }
+                })
+                
+                // present timer View Controller
+                
+                for session in sessions {
+                    let startTime = session.start_time!/1000
+                    let duration = session.duration
+                    let startDate = Date(timeIntervalSince1970: startTime)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "ddMMyyyy, HH:mm"
+                    let startDateString = dateFormatter.string(from: startDate)
+                    let dateString = dateFormatter.string(from: Date())
+                    
+                    if startDateString == dateString {
+                        let timerViewController = UIStoryboard(name: "Timer", bundle: nil).instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
+                        timerViewController.sessionDuration = duration!
+                        self.present(timerViewController, animated: true, completion: nil)
+                        return
+                    }
+                }
+            }
         }
+
+       
     }
     
     func setupSegmentController() {

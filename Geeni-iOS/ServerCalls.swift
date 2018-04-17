@@ -54,6 +54,9 @@ class ServerCalls {
         
         let url = "https://geeni-test-server.herokuapp.com/api2/tutor_acception"
         
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        
+        
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             if response.error != nil {
                 if response.response?.statusCode == 200 {
@@ -64,6 +67,10 @@ class ServerCalls {
             } else {
                 let json = response.result.value as? NSDictionary
                 let message = json!["message"] as! String
+                
+                
+                
+                
                 completionHandler(message)
             }
         }

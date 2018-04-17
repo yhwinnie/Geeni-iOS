@@ -117,18 +117,20 @@ class FirebaseCalls {
     func getUserSessions(_ completionHandler : @escaping( _ sessions : [Session]) -> Void){
         var sessionsArray : [Session] = []
         ref.child("sessions").observeSingleEvent(of: .value , with: { (snapshot) in
-            for id in snapshot.children {
+            for id in snapshot.children.allObjects {
                 let user = (id as! DataSnapshot).value as! [String : AnyObject]
                 let userIdString = user["user_id"] as! String
                 if userIdString == uid {
                     sessionsArray.append(Session(dictionary: user))
                 }
             }
+            
+            //sort sessions based on start time
+            let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
+            completionHandler(sortedArray)
         })
         
-        //sort sessions based on start time
-        let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
-        completionHandler(sortedArray)
+       
     }
     
     //get sessions with current user as student
@@ -143,12 +145,9 @@ class FirebaseCalls {
                     sessionsArray.append(Session(dictionary: user))
                 }
             }
+            //sort sessions based on start time
+            let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
+            completionHandler(sortedArray)
         })
-        
-        //sort sessions based on start time
-        let sortedArray = sessionsArray.sorted(by: {$0.start_time! < $1.start_time!})
-        completionHandler(sortedArray)
     }
-    
-    
 }

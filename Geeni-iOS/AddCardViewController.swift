@@ -193,17 +193,16 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         defaultButton.setImage(defaultImage.image, for: .normal)
         defaultButton.isUserInteractionEnabled = true
         
-        scrollView.addSubview(defaultButton)
-        
+//      scrollView.addSubview(defaultButton)
         
         paymentDefaultLabel = UILabel(frame: CGRect(x: defaultButton.frame.width + 30, y: yPosition, width: self.view.frame.width - 20, height: 20))
         paymentDefaultLabel.text = "DEFAULT PAYMENT OPTION"
         
         paymentDefaultLabel.textColor = UIColor.darkGray
-        scrollView.addSubview(paymentDefaultLabel)
+//        scrollView.addSubview(paymentDefaultLabel)
         
         // default button
-        yPosition += defaultButton.frame.height + 40
+//        yPosition += defaultButton.frame.height + 40
         submitButton = UIButton(frame: CGRect(x: self.view.frame.width/2 - 100, y: yPosition, width: 200, height: 50))
         
         //submit button

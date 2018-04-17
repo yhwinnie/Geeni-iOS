@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFf-xp-H5B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="yFf-xp-H5B">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -231,7 +231,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qFt-G4-k9e">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="40"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="40"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -270,14 +270,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppy" translatesAutoresizingMaskIntoConstraints="NO" id="svb-v6-kpS">
-                                                    <rect key="frame" x="25" y="18.666666666666671" width="80" height="80"/>
+                                                    <rect key="frame" x="30" y="18.666666666666671" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="2H7-nz-H3F"/>
                                                         <constraint firstAttribute="width" constant="80" id="eJn-ss-1nw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oXd-wO-Ln9">
-                                                    <rect key="frame" x="120" y="38.666666666666664" width="279" height="39.999999999999993"/>
+                                                    <rect key="frame" x="125" y="38.666666666666657" width="274" height="40"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MDE-ls-T6j">
                                                             <rect key="frame" x="0.0" y="0.0" width="107" height="20"/>
@@ -353,9 +353,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oko-gJ-wA3">
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oko-gJ-wA3" firstAttribute="centerX" secondItem="c8Q-bE-AUR" secondAttribute="centerX" id="Gik-hI-w9C"/>
+                            <constraint firstItem="oko-gJ-wA3" firstAttribute="centerY" secondItem="c8Q-bE-AUR" secondAttribute="centerY" id="LOn-JB-PjA"/>
                             <constraint firstItem="Ony-Wy-VRp" firstAttribute="leading" secondItem="c8Q-bE-AUR" secondAttribute="leading" id="MpZ-iY-Zsu"/>
                             <constraint firstItem="mDy-Q0-hGH" firstAttribute="top" secondItem="Ony-Wy-VRp" secondAttribute="bottom" id="hqZ-Ca-n1D"/>
                             <constraint firstAttribute="trailing" secondItem="Ony-Wy-VRp" secondAttribute="trailing" id="ioV-tu-NEj"/>
@@ -363,6 +369,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="oko-gJ-wA3" id="vjh-ET-Ogn"/>
                         <outlet property="profileView" destination="aYL-1J-qrU" id="sip-5Z-bIK"/>
                         <outlet property="tableView" destination="Ony-Wy-VRp" id="4K9-ZM-ZNz"/>
                     </connections>

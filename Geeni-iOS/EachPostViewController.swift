@@ -13,6 +13,7 @@ class EachPostViewController : UIViewController {
     
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView : UIActivityIndicatorView!
     
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     var descriptionTableViewCellHeight : CGFloat = 0.0
@@ -26,6 +27,7 @@ class EachPostViewController : UIViewController {
         setupTableView()
         setupProfileImageView()
         addTutorButton(addTutor)
+        activityIndicatorView.isHidden = true
     }
     
     func setupTableView(){
@@ -120,8 +122,14 @@ class EachPostViewController : UIViewController {
 //            }
 //        }
         
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
+        
         ServerCalls().acceptTutor(studentId: (currentPost?.user_id)!, postId: (currentPost?._id)!, completionHandler: {(message) in
             self.showAlert(message)
+            self.navigationController?.popViewController(animated: true)
+            self.activityIndicatorView.isHidden = true
+            self.activityIndicatorView.stopAnimating()
         })
     }
     

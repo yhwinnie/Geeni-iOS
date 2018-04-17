@@ -13,7 +13,6 @@ import CLTimer
 class TimerViewController: UIViewController {
     
     @IBOutlet weak var timer: CLTimer!
-    @IBOutlet weak var startButton : UIButton!
     @IBOutlet weak var stopButton : UIButton!
     @IBOutlet weak var sessionLabel : UILabel!
     @IBOutlet weak var cancelButton : UIButton!
@@ -29,18 +28,29 @@ class TimerViewController: UIViewController {
         setupButtons()
         setupTimer()
         timer.cltimer_delegate = self
-        sessionDuration = (currentSession?.duration)!/60000
+        timer.startTimer(withSeconds: 0, format:.Minutes , mode: .Forward)
+
     }
     
     func setupButtons(){
-        startButton.backgroundColor = colors.blueColor
-        startButton.setTitleColor(colors.whiteColor, for: .normal)
+        cancelButton.backgroundColor = colors.blueColor
+        cancelButton.setTitleColor(colors.whiteColor, for: .normal)
         stopButton.backgroundColor = colors.blueColor
         stopButton.setTitleColor(colors.whiteColor, for: .normal)
-        startButton.clipsToBounds = true
+        cancelButton.clipsToBounds = true
         stopButton.clipsToBounds = true
-        startButton.layer.cornerRadius = 20.0
+        cancelButton.layer.cornerRadius = 20.0
         stopButton.layer.cornerRadius = 20.0
+        
+        if UserDetails.user?.tutor_bool == false {
+            cancelButton.isEnabled = true
+            stopButton.isEnabled = false
+            stopButton.alpha = 0.5
+        } else {
+            stopButton.isEnabled = true
+            cancelButton.isEnabled = false
+            cancelButton.alpha = 0.5
+        }
     }
     
     func setupTimer(){
@@ -55,15 +65,16 @@ class TimerViewController: UIViewController {
         timer.resetTimer()
     }
     
-    @IBAction func startTimer(_ sender: Any) {
-        timer.startTimer(withSeconds: 0, format:.Minutes , mode: .Forward)
-    }
+    
     
     @IBAction func cancelButtonPressed(_ sender : Any) {
         //cancel session
         //change the user for session cancelation i.e. $4
         //todo
-        self.dismiss(animated: true, completion: nil)
+        
+        ServerCalls().cancelSession(sessionId: (currentSession?._id)!) { (message) in
+            self.showAlert(message)
+        }
     }
     
     func hideCancelButton(_ bool : Bool){
@@ -93,7 +104,7 @@ extension TimerViewController : cltimerDelegate {
             
             if minute > previousMinute {
                 previousMinute = minute
-                let cost : CGFloat = CGFloat(previousMinute) * (17.0/60.0)
+                let cost : CGFloat = CGFloat(previousMinute) * (18.4/60.0)
                 sessionLabel.text = "Session Cost : " + "$" + String(format : "%.2f" , cost)
             }
         } else {
@@ -103,6 +114,13 @@ extension TimerViewController : cltimerDelegate {
                 timer.stopTimer()
             }
         }
+    }
+    
+    func timerDidStop(time: Int) {
+        let cost : CGFloat = CGFloat(time/3600) * 18.4
+        sessionLabel.text = "Session Cost : " + "$" + String(format : "%.2f" , cost)
+
+        self.showAlert("Session Ended")
     }
 }
 

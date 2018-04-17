@@ -15,12 +15,16 @@ class CardListTableViewController: UITableViewController {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var cards = [Card]()
     
+    var newPostBool : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         revealSideMenu(menuButton)
         getCards()
         tableView.tableFooterView = UIView()
         setupNavigationBar(title: "Cards")
+        
+        
     }
     
     func getCards() {
@@ -64,6 +68,13 @@ class CardListTableViewController: UITableViewController {
         return cards.count
     }
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if newPostBool {
+            UserDetails.selectedCard = cards[indexPath.item]
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardListTableViewCell

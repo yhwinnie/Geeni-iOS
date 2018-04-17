@@ -15,4 +15,5 @@ struct UserDetails {
     static var userPosts : [Post] = []
     static var sessions : [Session] = []
     static var tutorSessions : [Session] = []
+    static var selectedCard : Card? = nil
 }
