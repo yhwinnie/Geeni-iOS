@@ -19,7 +19,7 @@ class SideMenuTableViewController: UITableViewController {
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
+    let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR","SHARE","LOGOUT"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +123,7 @@ class SideMenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 9
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -167,6 +167,10 @@ class SideMenuTableViewController: UITableViewController {
             self.revealViewController().setFront(becomeTutor, animated: true)
             
         case 7:
+            let shareLink : String = "Checkout Geeni Mobile App on Apple App Store and Google Plat Store"
+            let activityViewController = UIActivityViewController(activityItems: [shareLink], applicationActivities: [])
+            self.present(activityViewController, animated: true, completion: nil)
+        case 8:
 
             do {
                 try Auth.auth().signOut()

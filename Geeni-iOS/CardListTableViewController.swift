@@ -11,11 +11,11 @@ import Firebase
 import SWRevealViewController
 
 class CardListTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var cards = [Card]()
     
-    var newPostBool : Bool = false
+    var newPostBool : Bool? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,19 +29,19 @@ class CardListTableViewController: UITableViewController {
     
     func getCards() {
         guard let uid = uid else { return }
-//        ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
-//
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let card = Card(dictionary: dictionary)
-//                self.cards.append(card)
-//
-//                DispatchQueue.main.async(execute: {
-//                    self.tableView.reloadData()
-//                })
-//            }
-//
-//
-//        }, withCancel: nil)
+        //        ref.child("cards").queryOrdered(byChild: "user_id").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
+        //
+        //            if let dictionary = snapshot.value as? [String: AnyObject] {
+        //                let card = Card(dictionary: dictionary)
+        //                self.cards.append(card)
+        //
+        //                DispatchQueue.main.async(execute: {
+        //                    self.tableView.reloadData()
+        //                })
+        //            }
+        //
+        //
+        //        }, withCancel: nil)
         
         ref.child("cards").observe(.value, with: { (snapshot) in
             let cardArray = snapshot.children.allObjects as NSArray
@@ -59,20 +59,24 @@ class CardListTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cards.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if newPostBool {
-            UserDetails.selectedCard = cards[indexPath.item]
-            self.navigationController?.popViewController(animated: true)
+        if newPostBool! != nil {
+            if newPostBool! {
+                UserDetails.selectedCard = cards[indexPath.item]
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                
+            }
         }
     }
     

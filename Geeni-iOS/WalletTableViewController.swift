@@ -8,6 +8,8 @@
 
 import UIKit
 import SWRevealViewController
+import Firebase
+import FirebaseDatabase
 
 class WalletTableViewController: UITableViewController {
     
@@ -38,13 +40,12 @@ class WalletTableViewController: UITableViewController {
                 let user = User(dictionary: dictionary)
                 
                 DispatchQueue.main.async(execute: {
-                    self.balanceLabel.text = String(describing: user.balance_available!)
+                    self.balanceLabel.text = "You have $" + String(describing: user.balance_available!) + " in your Geeni Wallet"
                     self.userNameLabel.text = user.username
                     
                     if let imageURL = user.photo_gs {
                         
                         storageRef = storage.reference(forURL: imageURL)
-                        
                         
                         storageRef.downloadURL { (url, error) in
                             self.userImageView.kf.setImage(with: url)
@@ -59,29 +60,33 @@ class WalletTableViewController: UITableViewController {
     func getReceipts() {
         
         guard let uid = uid else { return }
-        ref.child("receipts").queryOrdered(byChild: "from").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
-            
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let receipt = Receipt(dictionary: dictionary)
-                self.receipts.append(receipt)
+        ref.child("receipts").observe(.value, with: { (snapshot) in
+            let receiptArray = snapshot.children.allObjects as NSArray
+            for receipt in receiptArray {
+                let receiptSnapshot = receipt as! DataSnapshot
+                if let receiptValue = receiptSnapshot.value as? [String : Any] {
+                    let toValue = receiptValue["to"] as! String
+                    
+                    //if tutor
+
+                    if toValue == uid {
+                        let receiptObject = Receipt(dictionary: receiptValue)
+                        self.receipts.append(receiptObject)
+                    }
+                    
+                    //if student
+                    let forValue = receiptValue["from"] as! String
+                    if forValue == uid {
+                        let receiptObject = Receipt(dictionary: receiptValue)
+                        self.receipts.append(receiptObject)
+                    }
+                }
                 
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
             }
-        }, withCancel: nil)
-        
-        ref.child("receipts").queryOrdered(byChild: "to").queryEqual(toValue: uid).observe(.value, with: { (snapshot) in
+            self.tableView.reloadData()
+
             
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let receipt = Receipt(dictionary: dictionary)
-                self.receipts.append(receipt)
-                
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
-            }
-        }, withCancel: nil)
+        })
         
     }
     
@@ -93,13 +98,14 @@ class WalletTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 //        return self.receipts.count
-        return 1
+        return receipts.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! WalletTableViewCell
-//        cell.receipt = self.receipts[indexPath.row]
+        cell.receipt = self.receipts[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -86,14 +86,13 @@ class NewsFeedViewController: UIViewController {
                     let duration = session.duration
                     let startDate = Date(timeIntervalSince1970: startTime)
                     
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "ddMMyyyy, HH:mm"
-                    let startDateString = dateFormatter.string(from: startDate)
-                    let dateString = dateFormatter.string(from: Date())
+                    let gregorian = Calendar(identifier: .gregorian)
+                    let futureTime = gregorian.date(byAdding: .minute, value: +5, to: startDate)
                     
-                    if startDateString == dateString {
+                    if startDate <= Date() && Date() <= futureTime! {
                         let timerViewController = UIStoryboard(name: "Timer", bundle: nil).instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
                         timerViewController.sessionDuration = duration!
+                        timerViewController.currentSession = session
                         self.present(timerViewController, animated: true, completion: nil)
                     }
                 }
@@ -124,14 +123,14 @@ class NewsFeedViewController: UIViewController {
                     let startTime = session.start_time!/1000
                     let duration = session.duration
                     let startDate = Date(timeIntervalSince1970: startTime)
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "ddMMyyyy, HH:mm"
-                    let startDateString = dateFormatter.string(from: startDate)
-                    let dateString = dateFormatter.string(from: Date())
                     
-                    if startDateString == dateString {
+                    let gregorian = Calendar(identifier: .gregorian)
+                    let futureTime = gregorian.date(byAdding: .minute, value: +5, to: startDate)
+
+                    if startDate <= Date() && Date() <= futureTime! {
                         let timerViewController = UIStoryboard(name: "Timer", bundle: nil).instantiateViewController(withIdentifier: "TimerViewController") as! TimerViewController
                         timerViewController.sessionDuration = duration!
+                        timerViewController.currentSession = session
                         self.present(timerViewController, animated: true, completion: nil)
                         return
                     }

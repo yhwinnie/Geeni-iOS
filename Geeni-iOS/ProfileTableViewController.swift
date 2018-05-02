@@ -51,6 +51,16 @@ class ProfileTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+        super.viewWillDisappear(animated)
+    }
+    
     func getUserPosts() {
         guard let uid = uid else { return }
         UserDetails.userPosts = []

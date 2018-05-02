@@ -16,11 +16,13 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var stopButton : UIButton!
     @IBOutlet weak var sessionLabel : UILabel!
     @IBOutlet weak var cancelButton : UIButton!
+    @IBOutlet weak var retryButton : UIButton!
     
     var previousMinute : Int = 0
     var currentSession : Session?
     var sessionDuration : Double = 0
     var isTutor : Bool = false
+    var currentTime : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,22 +34,34 @@ class TimerViewController: UIViewController {
 
     }
     
+    @IBAction func retryButtonTapped(){
+        ServerCalls().retryPayment((currentSession?._id)!) { (message) in
+            self.showAlert("message")
+        }
+    }
+    
     func setupButtons(){
         cancelButton.backgroundColor = colors.blueColor
         cancelButton.setTitleColor(colors.whiteColor, for: .normal)
         stopButton.backgroundColor = colors.blueColor
         stopButton.setTitleColor(colors.whiteColor, for: .normal)
+        retryButton.backgroundColor = colors.blueColor
+        retryButton.setTitleColor(colors.whiteColor, for: .normal)
         cancelButton.clipsToBounds = true
         stopButton.clipsToBounds = true
+        retryButton.clipsToBounds = true
         cancelButton.layer.cornerRadius = 20.0
+        retryButton.layer.cornerRadius = 20.0
         stopButton.layer.cornerRadius = 20.0
         
         if UserDetails.user?.tutor_bool == false {
             cancelButton.isEnabled = true
             stopButton.isEnabled = false
+            retryButton.isEnabled = true
             stopButton.alpha = 0.5
         } else {
             stopButton.isEnabled = true
+            retryButton.isEnabled = false
             cancelButton.isEnabled = false
             cancelButton.alpha = 0.5
         }
@@ -63,17 +77,21 @@ class TimerViewController: UIViewController {
     @IBAction func stopTimer(_ sender: Any) {
         timer.stopTimer()
         timer.resetTimer()
+        ServerCalls().endSession(currentSession!,currentTime ) { (message) in
+            if message == 1 {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Geeni", message: "Payment Failed", preferredStyle: .alert)
+                
+            }
+        }
     }
-    
-    
-    
+
     @IBAction func cancelButtonPressed(_ sender : Any) {
-        //cancel session
-        //change the user for session cancelation i.e. $4
-        //todo
         
         ServerCalls().cancelSession(sessionId: (currentSession?._id)!) { (message) in
-            self.showAlert(message)
+            self.timer.stopTimer()
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -93,6 +111,9 @@ class TimerViewController: UIViewController {
 extension TimerViewController : cltimerDelegate {
     
     func timerDidUpdate(time: Int) {
+        
+        
+        currentTime  = time
         let minute = time / 60
         if time < Int(sessionDuration * 60) {
             // cancel button should be available only for 10 minutes
@@ -117,10 +138,10 @@ extension TimerViewController : cltimerDelegate {
     }
     
     func timerDidStop(time: Int) {
-        let cost : CGFloat = CGFloat(time/3600) * 18.4
-        sessionLabel.text = "Session Cost : " + "$" + String(format : "%.2f" , cost)
-
+        
         self.showAlert("Session Ended")
+        self.dismiss(animated: true, completion: nil)
+        
     }
 }
 

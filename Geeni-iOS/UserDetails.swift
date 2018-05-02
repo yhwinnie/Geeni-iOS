@@ -16,4 +16,5 @@ struct UserDetails {
     static var sessions : [Session] = []
     static var tutorSessions : [Session] = []
     static var selectedCard : Card? = nil
+    static var retryCard : Card? = nil
 }

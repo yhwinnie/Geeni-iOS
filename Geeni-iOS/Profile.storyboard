@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +22,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="puppyBlur" translatesAutoresizingMaskIntoConstraints="NO" id="s1p-gx-Ny7">
-                                    <rect key="frame" x="0.0" y="-22" width="414" height="262"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                     <color key="backgroundColor" red="0.17254901959999999" green="0.21960784310000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCs-NC-YGa">
@@ -72,7 +72,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8x-1w-8cc">
-                                    <rect key="frame" x="208" y="155" width="0.0" height="25"/>
+                                    <rect key="frame" x="207" y="155" width="0.0" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="Jyy-Rb-lhL"/>
                                     </constraints>
@@ -96,7 +96,7 @@
                                 <constraint firstItem="nJA-K3-hcM" firstAttribute="centerX" secondItem="frk-hE-nnp" secondAttribute="centerX" id="jmQ-oS-ntX"/>
                                 <constraint firstAttribute="trailing" secondItem="s1p-gx-Ny7" secondAttribute="trailing" id="nEG-H7-Nhu"/>
                                 <constraint firstAttribute="bottom" secondItem="s1p-gx-Ny7" secondAttribute="bottom" id="uPi-jS-VoA"/>
-                                <constraint firstItem="s1p-gx-Ny7" firstAttribute="top" secondItem="frk-hE-nnp" secondAttribute="top" constant="-22" id="xTl-xE-Q6U"/>
+                                <constraint firstItem="s1p-gx-Ny7" firstAttribute="top" secondItem="frk-hE-nnp" secondAttribute="top" id="xTl-xE-Q6U"/>
                             </constraints>
                         </view>
                         <prototypes>

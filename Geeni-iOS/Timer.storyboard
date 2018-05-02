@@ -87,6 +87,17 @@
                                     <constraint firstAttribute="height" constant="40" id="RVN-Rx-pXV"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMl-vw-PeA">
+                                <rect key="frame" x="137.5" y="588.5" width="100" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4BP-1C-El6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="RETRY"/>
+                                <connections>
+                                    <action selector="retryButtonTapped" destination="6OV-qR-Qz2" eventType="touchUpInside" id="Sh7-GF-Ujg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -94,15 +105,18 @@
                             <constraint firstItem="IfB-nz-fDG" firstAttribute="centerY" secondItem="hhd-HE-Zed" secondAttribute="centerY" id="HHt-S2-Sxj"/>
                             <constraint firstItem="3qn-Gp-Pkh" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="I3Q-Gr-AZr"/>
                             <constraint firstAttribute="trailing" secondItem="3qn-Gp-Pkh" secondAttribute="trailing" constant="20" id="PuM-lg-KIr"/>
+                            <constraint firstItem="MMl-vw-PeA" firstAttribute="top" secondItem="3qn-Gp-Pkh" secondAttribute="bottom" constant="15" id="XR9-Ku-v7f"/>
                             <constraint firstAttribute="trailing" secondItem="DmE-rp-UAj" secondAttribute="trailing" constant="20" id="c4H-OC-TEH"/>
                             <constraint firstItem="3qn-Gp-Pkh" firstAttribute="leading" secondItem="hhd-HE-Zed" secondAttribute="leading" constant="20" id="f48-bR-VSU"/>
                             <constraint firstItem="DmE-rp-UAj" firstAttribute="top" secondItem="wbW-Ak-MBX" secondAttribute="bottom" constant="10" id="j5I-uv-AU5"/>
                             <constraint firstItem="IfB-nz-fDG" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="j83-7F-vjt"/>
+                            <constraint firstItem="MMl-vw-PeA" firstAttribute="centerX" secondItem="hhd-HE-Zed" secondAttribute="centerX" id="oE9-mN-ufz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="j6i-Eo-ZCW"/>
                     <connections>
                         <outlet property="cancelButton" destination="aKE-iv-hVM" id="TzY-sC-HyP"/>
+                        <outlet property="retryButton" destination="MMl-vw-PeA" id="meq-xr-QlR"/>
                         <outlet property="sessionLabel" destination="DmE-rp-UAj" id="8rb-Rd-Yce"/>
                         <outlet property="stopButton" destination="w1f-8g-7aw" id="2YL-zi-yco"/>
                         <outlet property="timer" destination="IfB-nz-fDG" id="g1R-P1-sfC"/>

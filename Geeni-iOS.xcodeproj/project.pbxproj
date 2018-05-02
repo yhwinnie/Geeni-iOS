@@ -184,8 +184,8 @@
 		4C682A881E90E64300DEA494 /* New Post */ = {
 			isa = PBXGroup;
 			children = (
-				4C682A931E90E6B100DEA494 /* NewPost.storyboard */,
 				5F551BC91F8025A100D25B7A /* NewPostTableViewContoller.swift */,
+				4C682A931E90E6B100DEA494 /* NewPost.storyboard */,
 			);
 			name = "New Post";
 			sourceTree = "<group>";
@@ -234,7 +234,6 @@
 				5F7AF02D1F9011C600811458 /* FirebaseCalls.swift */,
 				5F8820371FBB37A900D062BA /* ServerCalls.swift */,
 				4C8F79981E9DE31800C785C5 /* Model.swift */,
-				4C8F799A1E9FEA6B00C785C5 /* Post.swift */,
 				5F2F2ED41F9BCEB400C31FA8 /* AvailableTutors.swift */,
 				4C8F799C1EA003C000C785C5 /* User.swift */,
 				5F1DA5721FA513800023164F /* UserDetails.swift */,
@@ -272,8 +271,8 @@
 		4CECE5D51E91046B0019D640 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
-				4CECE5D81E9104950019D640 /* Messages.storyboard */,
 				4CECE5DA1E9104A90019D640 /* MessagesListTableViewController.swift */,
+				4CECE5D81E9104950019D640 /* Messages.storyboard */,
 				5F665F211FA07D4D004FB465 /* ChatroomViewController.swift */,
 			);
 			name = Messages;
@@ -395,6 +394,7 @@
 				5F718F361F8E499F00E0DA7C /* Chatroom.swift */,
 				5F5E10281F87853F00A38E09 /* Session.swift */,
 				5FD57DD81F7EC12D00BAE233 /* Receipt.swift */,
+				4C8F799A1E9FEA6B00C785C5 /* Post.swift */,
 				4C682A991E90E6E400DEA494 /* Networking */,
 			);
 			name = Model;
