@@ -40,15 +40,18 @@ class WalletTableViewController: UITableViewController {
                 let user = User(dictionary: dictionary)
                 
                 DispatchQueue.main.async(execute: {
-                    self.balanceLabel.text = "You have $" + String(describing: user.balance_available!) + " in your Geeni Wallet"
+                    self.balanceLabel.text = "You have $" + String(describing: user.balance_available!/100) + " in your Geeni Wallet"
                     self.userNameLabel.text = user.username
                     
                     if let imageURL = user.photo_gs {
                         
-                        storageRef = storage.reference(forURL: imageURL)
-                        
-                        storageRef.downloadURL { (url, error) in
-                            self.userImageView.kf.setImage(with: url)
+                        if imageURL.first == "g"{
+                            storageRef = storage.reference(forURL: imageURL)
+                            storageRef.downloadURL { (url, error) in
+                                self.userImageView.kf.setImage(with: url)
+                            }
+                        } else {
+                            self.userImageView.kf.setImage(with: URL(string : imageURL))
                         }
                     }
                     self.tableView.reloadData()

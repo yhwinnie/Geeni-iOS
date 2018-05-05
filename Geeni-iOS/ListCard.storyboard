@@ -85,7 +85,21 @@
                     <view key="view" contentMode="scaleToFill" id="zZ8-Po-jYV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d65-YK-9pK">
+                                <rect key="frame" x="172.5" y="319" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="VBR-av-6ox"/>
+                                    <constraint firstAttribute="height" constant="30" id="ciq-HU-9TJ"/>
+                                </constraints>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d65-YK-9pK" firstAttribute="centerX" secondItem="zZ8-Po-jYV" secondAttribute="centerX" id="1B7-Hm-BP2"/>
+                            <constraint firstItem="d65-YK-9pK" firstAttribute="centerY" secondItem="zZ8-Po-jYV" secondAttribute="centerY" id="t8z-89-oGW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VN2-F0-9NJ">
                         <barButtonItem key="leftBarButtonItem" image="back" id="4mR-YB-PGj">
@@ -94,6 +108,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityView" destination="d65-YK-9pK" id="gUn-oq-pkh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AwO-GB-A4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

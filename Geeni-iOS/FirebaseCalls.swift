@@ -19,7 +19,7 @@ class FirebaseCalls {
              "balance_available": 0 as AnyObject,
              "balance_pending": 0 as AnyObject,
              "email": Auth.auth().currentUser?.email as AnyObject,
-             "limit": 0 as AnyObject,
+             "limit": 3 as AnyObject,
              "major": majors as AnyObject,
              "nor_student": 0 as AnyObject,
              "overall_ratings_student": 0 as AnyObject,
@@ -33,7 +33,7 @@ class FirebaseCalls {
         //registering user to stripe
         //todo
         
-        ref.child("users").childByAutoId().setValue(userDict)
+        ref.child("users").child((Auth.auth().currentUser?.uid)!).setValue(userDict)
         completionHandler(true)
     }
     

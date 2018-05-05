@@ -94,7 +94,7 @@ class MessagesListTableViewController: UITableViewController {
             if let snapshotValue = snapshot.value as? [String: AnyObject] {
                 let session = Session(dictionary: snapshotValue)
                 cell.descriptionLabel.text = session.desc
-                let timeStamp = session.timestamp! / 1000
+                let timeStamp = session.start_time! / 1000
                 let time = Date(timeIntervalSince1970: timeStamp)
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy h:mm a Z"

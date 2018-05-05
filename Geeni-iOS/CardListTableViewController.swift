@@ -20,11 +20,14 @@ class CardListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         revealSideMenu(menuButton)
-        getCards()
         tableView.tableFooterView = UIView()
         setupNavigationBar(title: "Cards")
         
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getCards()
     }
     
     func getCards() {
@@ -44,6 +47,7 @@ class CardListTableViewController: UITableViewController {
         //        }, withCancel: nil)
         
         ref.child("cards").observe(.value, with: { (snapshot) in
+            self.cards = []
             let cardArray = snapshot.children.allObjects as NSArray
             for card in cardArray {
                 let cardSnapshot = card as! DataSnapshot
@@ -54,15 +58,13 @@ class CardListTableViewController: UITableViewController {
                     self.cards.append(cardObject)
                 }
             }
-            self.tableView.reloadData()
+            if self.cards.count > 0 {
+                self.tableView.reloadData()
+            }
         })
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cards.count
@@ -70,7 +72,7 @@ class CardListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if newPostBool! != nil {
+        if newPostBool != nil {
             if newPostBool! {
                 UserDetails.selectedCard = cards[indexPath.item]
                 self.navigationController?.popViewController(animated: true)

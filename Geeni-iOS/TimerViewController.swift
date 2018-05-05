@@ -23,6 +23,7 @@ class TimerViewController: UIViewController {
     var sessionDuration : Double = 0
     var isTutor : Bool = false
     var currentTime : Int = 0
+    var stopButtonPressed : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +57,12 @@ class TimerViewController: UIViewController {
         
         if UserDetails.user?.tutor_bool == false {
             cancelButton.isEnabled = true
-            stopButton.isEnabled = false
+            stopButton.isHidden = false
             retryButton.isEnabled = true
             stopButton.alpha = 0.5
         } else {
             stopButton.isEnabled = true
-            retryButton.isEnabled = false
+            retryButton.isHidden = true
             cancelButton.isEnabled = false
             cancelButton.alpha = 0.5
         }
@@ -75,15 +76,15 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func stopTimer(_ sender: Any) {
+        stopButtonPressed = true
         timer.stopTimer()
-        timer.resetTimer()
         ServerCalls().endSession(currentSession!,currentTime ) { (message) in
             if message == 1 {
                 self.dismiss(animated: true, completion: nil)
             } else {
-                let alertController = UIAlertController(title: "Geeni", message: "Payment Failed", preferredStyle: .alert)
-                
+                self.showAlert("Payment Failed")
             }
+            self.stopButtonPressed = false
         }
     }
 
@@ -112,7 +113,6 @@ extension TimerViewController : cltimerDelegate {
     
     func timerDidUpdate(time: Int) {
         
-        
         currentTime  = time
         let minute = time / 60
         if time < Int(sessionDuration * 60) {
@@ -138,10 +138,15 @@ extension TimerViewController : cltimerDelegate {
     }
     
     func timerDidStop(time: Int) {
-        
-        self.showAlert("Session Ended")
-        self.dismiss(animated: true, completion: nil)
-        
+        if !stopButtonPressed {
+            ServerCalls().endSession(currentSession!, currentTime) { (message) in
+                if message == 1 {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    self.showAlert("Payment Failed")
+                }
+            }
+        }
     }
 }
 

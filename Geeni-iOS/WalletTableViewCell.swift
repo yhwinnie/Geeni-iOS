@@ -23,7 +23,7 @@ class WalletTableViewCell: UITableViewCell {
             guard let receipt = receipt else { return }
             
             if receipt.to == uid {
-                receiptLabel.text = receipt.from_username! + " paid You $" + "\(receipt.amount ?? 0.0)"
+                receiptLabel.text = receipt.from_username! + " paid You $" + "\((receipt.amount ?? 0.0)/100)"
                 if let imageURL = receipt.from_photo_gs {
                     
                     if imageURL.first == "g" {
@@ -38,7 +38,7 @@ class WalletTableViewCell: UITableViewCell {
             }
                 
             else {
-                receiptLabel.text = "You paid $" + receipt.to_username!  + " \(receipt.amount ?? 0.0)"
+                receiptLabel.text = "You paid $" + receipt.to_username!  + " \((receipt.amount ?? 0.0)/100)"
                 if let imageURL = receipt.to_photo_gs {
                     
                     if imageURL.first == "g" {
