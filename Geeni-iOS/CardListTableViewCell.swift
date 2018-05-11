@@ -18,7 +18,7 @@ class CardListTableViewCell: UITableViewCell {
         didSet {
             guard let card = card else { return }
             
-            cardNumber.text = card.last_four
+            cardNumber.text = "*" + card.last_four!
             
             // Set Images
             

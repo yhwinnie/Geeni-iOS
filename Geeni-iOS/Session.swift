@@ -27,6 +27,7 @@ class Session: NSObject {
     var user_id: String?
     var user_photo_gs: String?
     var username: String?
+    var stripeid_customer : String?
     
         init(dictionary: [String: Any]) {
         self._id = dictionary["_id"] as? String ?? ""
@@ -46,5 +47,6 @@ class Session: NSObject {
         self.user_id = dictionary["user_id"] as? String ?? ""
         self.user_photo_gs = dictionary["user_photo_gs"] as? String ?? ""
         self.username = dictionary["username"] as? String ?? ""
+        self.stripeid_customer = dictionary["stripeid_customer"] as? String ?? ""
     }
 }

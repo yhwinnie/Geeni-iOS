@@ -23,32 +23,43 @@ class WalletTableViewCell: UITableViewCell {
             guard let receipt = receipt else { return }
             
             if receipt.to == uid {
-                receiptLabel.text = receipt.from! + " paid You " + "\(String(describing: receipt.amount))"
-                
+                receiptLabel.text = receipt.from_username! + " paid You $" + "\((receipt.amount ?? 0.0)/100)"
+                if let imageURL = receipt.from_photo_gs {
+                    
+                    if imageURL.first == "g" {
+                        storageRef = storage.reference(forURL: imageURL)
+                        storageRef.downloadURL { (urL, error) in
+                            self.userImageView.kf.setImage(with: urL)
+                        }
+                    } else {
+                        self.userImageView.kf.setImage(with: URL(string : imageURL))
+                    }
+                }
             }
                 
             else {
-                receiptLabel.text = "You paid " + receipt.to!  + " \(String(describing: receipt.amount))"
-            }
-            
-            timestamp.text = String(describing: receipt.timestamp)
-            
-            // Set Images
-            
-            if let imageURL = receipt.from_photo_gs {
-                
-                storageRef = storage.reference(forURL: imageURL)
-                storageRef.downloadURL { (url, error) in
-                    self.userImageView.kf.setImage(with: url)
+                receiptLabel.text = "You paid $" + receipt.to_username!  + " \((receipt.amount ?? 0.0)/100)"
+                if let imageURL = receipt.to_photo_gs {
+                    
+                    if imageURL.first == "g" {
+                        storageRef = storage.reference(forURL: imageURL)
+                        storageRef.downloadURL { (urL, error) in
+                            self.userImageView.kf.setImage(with: urL)
+                        }
+                    } else {
+                        self.userImageView.kf.setImage(with: URL(string : imageURL))
+                    }
                 }
                 
             }
+            
+            let timestamp = receipt.timestamp
+            let timestampDate = Date(timeIntervalSince1970: timestamp!/1000)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMMM dd"
+            let dateString = dateFormatter.string(from: timestampDate)
+            self.timestamp.text = dateString
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 }
 

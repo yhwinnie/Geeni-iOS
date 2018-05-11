@@ -11,6 +11,8 @@ import Stripe
 
 class AddCardViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var activityView : UIActivityIndicatorView!
+    
     var scrollView: UIScrollView!
     var containerView = UIView()
     var cardNumberLabel: UILabel!
@@ -36,6 +38,7 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         setupNavigationBar(title: "New Card")
         setup()
         setupTextFields()
+        activityView.isHidden = true
     }
     
     func setupTextFields(){
@@ -193,17 +196,16 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         defaultButton.setImage(defaultImage.image, for: .normal)
         defaultButton.isUserInteractionEnabled = true
         
-        scrollView.addSubview(defaultButton)
-        
+//      scrollView.addSubview(defaultButton)
         
         paymentDefaultLabel = UILabel(frame: CGRect(x: defaultButton.frame.width + 30, y: yPosition, width: self.view.frame.width - 20, height: 20))
         paymentDefaultLabel.text = "DEFAULT PAYMENT OPTION"
         
         paymentDefaultLabel.textColor = UIColor.darkGray
-        scrollView.addSubview(paymentDefaultLabel)
+//        scrollView.addSubview(paymentDefaultLabel)
         
         // default button
-        yPosition += defaultButton.frame.height + 40
+//        yPosition += defaultButton.frame.height + 40
         submitButton = UIButton(frame: CGRect(x: self.view.frame.width/2 - 100, y: yPosition, width: 200, height: 50))
         
         //submit button
@@ -217,10 +219,20 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
         scrollView.contentSize.height = yPosition + 60.0
     }
     
-    func saveCardButtonPressed(){
+    func saveCardButtonPressed(sender : UIButton){
+        
+        sender.isEnabled = false
+        activityView.isHidden = false
+        activityView.startAnimating()
+        
+        
+        
         
         if cardNumberTextField.text == "" || cvvTextField.text == "" || dateTextField.text == "" || zipCodeTextField.text == "" {
             showAlert("Text Fields cannot be empty")
+            activityView.isHidden = true
+            activityView.stopAnimating()
+            sender.isEnabled = true
         } else {
             let cardNumber = cardNumberTextField.text
             let cvv = cvvTextField.text
@@ -254,15 +266,27 @@ class AddCardViewController: UIViewController, UIScrollViewDelegate {
                                 self.cvvTextField.text = ""
                                 self.dateTextField.text = ""
                                 self.zipCodeTextField.text = ""
+                                self.activityView.isHidden = true
+                                self.activityView.stopAnimating()
+                                sender.isEnabled = true
                             })
                             alertController.addAction(dismissAction)
                             self.present(alertController, animated: true, completion: nil)
+                            self.activityView.isHidden = true
+                            self.activityView.stopAnimating()
+                            sender.isEnabled = true
                         } else {
                             self.showAlert(errorMessage!)
+                            self.activityView.isHidden = true
+                            self.activityView.stopAnimating()
+                            sender.isEnabled = true
                         }
                     })
                 } else {
                     self.showAlert((error?.localizedDescription)!)
+                    self.activityView.isHidden = true
+                    self.activityView.stopAnimating()
+                    sender.isEnabled = true
                 }
             })
         }

@@ -13,6 +13,7 @@ class EachPostViewController : UIViewController {
     
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView : UIActivityIndicatorView!
     
     let statusBarHeight = UIApplication.shared.statusBarFrame.height
     var descriptionTableViewCellHeight : CGFloat = 0.0
@@ -26,11 +27,13 @@ class EachPostViewController : UIViewController {
         setupTableView()
         setupProfileImageView()
         addTutorButton(addTutor)
+        activityIndicatorView.isHidden = true
     }
     
     func setupTableView(){
         tableView.allowsSelection = false
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     func setupProfileImageView(){
@@ -59,6 +62,7 @@ class EachPostViewController : UIViewController {
         
         profileImageView?.userNameLabel.text = currentPost?.username!
         profileImageView?.subjectNameLabel.text = currentPost?.subject!
+        profileImageView?.majorLabel.text = "@" + (currentPost?.username!)!
         profileView.frame.origin.y = -statusBarHeight
         profileView.frame = (profileImageView?.frame)!
         if !addTutor {
@@ -103,14 +107,30 @@ class EachPostViewController : UIViewController {
     
     func tutorButtonPressed() {
         // create chat room and unhide message button if chatroom is already not present
-        profileImageXibArray.first?.hideMessageButton(false)
-        FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
-            if bool {
-                // chat room created
-            } else {
-                self.showAlert("Unexpected error occurred!")
-            }
-        }
+//        profileImageXibArray.first?.hideMessageButton(false)
+//        FirebaseCalls().createNewChatroom(student: currentPost?.user_id) { (chatroom, bool) in
+//            if bool {
+//                // chat room created
+//                let alertController = UIAlertController(title: "Geeni", message: "New Chatroom created", preferredStyle: .alert)
+//                let alertAction = UIAlertAction(title: "Dismiss", style: .default, handler: { (action) in
+//                    self.dismiss(animated: true, completion: nil)
+//                })
+//                alertController.addAction(alertAction)
+//                self.present(alertController, animated: true, completion: nil)
+//            } else {
+//                self.showAlert("Unexpected error occurred!")
+//            }
+//        }
+        
+        activityIndicatorView.isHidden = false
+        activityIndicatorView.startAnimating()
+        
+        ServerCalls().acceptTutor(studentId: (currentPost?.user_id)!, postId: (currentPost?._id)!, completionHandler: {(message) in
+            self.showAlert(message)
+            self.navigationController?.popViewController(animated: true)
+            self.activityIndicatorView.isHidden = true
+            self.activityIndicatorView.stopAnimating()
+        })
     }
     
     func setupResponses(){
@@ -121,7 +141,7 @@ class EachPostViewController : UIViewController {
     }
 }
 
-extension EachPostViewController : UITableViewDataSource {
+extension EachPostViewController : UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -197,7 +217,7 @@ extension EachPostViewController : UITableViewDataSource {
                 return descriptionTableViewCellHeight + 10.0
             } else {
                 if currentPost?.problem_photo_gs != "" {
-                    return 260.0
+                    return 400
                 } else {
                     return 0.0
                 }

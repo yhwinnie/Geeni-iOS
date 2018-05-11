@@ -8,6 +8,7 @@
 
 import UIKit
 import SWRevealViewController
+import Firebase
 
 class MessagesListTableViewController: UITableViewController {
     
@@ -41,9 +42,10 @@ class MessagesListTableViewController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let chatroom = Chatroom(dictionary: dictionary)
                 self.chatrooms.append(chatroom)
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
+                
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }, withCancel: nil)
         
@@ -52,10 +54,9 @@ class MessagesListTableViewController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let chatroom = Chatroom(dictionary: dictionary)
                 self.chatrooms.append(chatroom)
-                
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadData()
-                })
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }, withCancel: nil)
         
@@ -64,6 +65,7 @@ class MessagesListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ChatroomViewController
         destination.chatroom = selectedChatroom
+       
         if selectedChatroom?.student == uid {
             destination.receiverId = selectedChatroom?.tutor
         } else {
@@ -86,6 +88,23 @@ class MessagesListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ChatroomTableViewCell
         let chatroom = self.chatrooms[indexPath.row]
+        let id = chatroom._id
+        
+        ref.child("sessions").child(id!).observe(.value, with: { (snapshot) in
+            if let snapshotValue = snapshot.value as? [String: AnyObject] {
+                let session = Session(dictionary: snapshotValue)
+                cell.descriptionLabel.text = session.desc
+                let timeStamp = session.start_time! / 1000
+                let time = Date(timeIntervalSince1970: timeStamp)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy h:mm a Z"
+                let timeString = dateFormatter.string(from: time)
+                cell.dateLabel.text = timeString
+            }
+        })
+        
+      
+        
         if uid == chatroom.student {
             // getting tutor details
             FirebaseCalls().getUserDetails(idString: chatroom.tutor, completionHandler: { (user, bool) in
@@ -107,6 +126,7 @@ class MessagesListTableViewController: UITableViewController {
                 }
             })
         }
+        
         return cell
     }
     

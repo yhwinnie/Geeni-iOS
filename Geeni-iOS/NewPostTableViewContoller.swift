@@ -22,11 +22,15 @@ class NewPostTableViewContoller: UITableViewController {
     @IBOutlet weak var postImageFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var durationTextField : UITextField!
     
+    @IBOutlet weak var cardLabel : UILabel!
+    @IBOutlet weak var cardImageView : UIImageView!
+    
     var selectedImages : [UIImage] = []
     let imagePickerController = UIImagePickerController()
     let datePicker = UIDatePicker()
     var courseDict : [String : AnyObject] = [:]
-    
+    var selectedCard : Card? = nil
+    var selectedDate : Date = Date()
     
     let activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
@@ -37,7 +41,7 @@ class NewPostTableViewContoller: UITableViewController {
         setupSubmitButton()
         tableView.tableFooterView = UIView()
         setupTextFields()
-        tableView.allowsSelection = false
+        tableView.allowsSelection = true
         imagePickerController.delegate = self
         setupDatePicker()
         setupPostImageColelctionView()
@@ -47,6 +51,20 @@ class NewPostTableViewContoller: UITableViewController {
     func setupSubmitButton() {
         submitPostButton.createSubmitButton()
         submitPostButton.center.x = self.view.center.x
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if UserDetails.selectedCard != nil {
+            self.selectedCard = UserDetails.selectedCard!
+            self.cardLabel.text = "*" + (selectedCard?.last_four!)!
+            if selectedCard?.provider == "Visa" || selectedCard?.provider == "MasterCard" ||  selectedCard?.provider == "Discover" || selectedCard?.provider == "American Express"{
+            self.cardImageView.image = UIImage(named : (selectedCard?.provider!)!)
+            } else {
+                self.cardImageView.image = UIImage(named : "credit")
+            }
+            UserDetails.selectedCard = nil
+        }
     }
     
     func setupActivityIndicatorView(){
@@ -78,6 +96,15 @@ class NewPostTableViewContoller: UITableViewController {
         descriptionTextView.addDoneButton()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item == 11 || indexPath.item == 12 {
+            let cardListViewController = UIStoryboard(name: "ListCard", bundle: nil).instantiateViewController(withIdentifier: "CardListTableViewController") as! CardListTableViewController
+            cardListViewController.newPostBool = true
+            self.navigationController?.pushViewController(cardListViewController, animated: true)
+        }
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 10 || indexPath.row == 11 {
             return 60.0
@@ -93,6 +120,7 @@ class NewPostTableViewContoller: UITableViewController {
         datePicker.datePickerMode = .dateAndTime
         dateTextField.inputView = datePicker
         datePicker.addTarget(self, action: #selector(datePickerChanged), for: UIControlEvents.valueChanged)
+        datePicker.timeZone = NSTimeZone.local
         let toolbar = UIToolbar()
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneDatePickerPressed))
         toolbar.items = [doneButton]
@@ -106,6 +134,8 @@ class NewPostTableViewContoller: UITableViewController {
         let dateString = dateFormatter.string(from: datePicker.date)
         dateTextField.text = dateString
         dateTextField.resignFirstResponder()
+        selectedDate = datePicker.date
+        
     }
     
     func datePickerChanged(){
@@ -113,6 +143,8 @@ class NewPostTableViewContoller: UITableViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
         let dateString = dateFormatter.string(from: datePicker.date)
         dateTextField.text = dateString
+        selectedDate = datePicker.date
+
     }
     
     
@@ -137,33 +169,35 @@ class NewPostTableViewContoller: UITableViewController {
         if courseTextField.text == "" || locationTextField.text == "" || dateTextField.text == "" || descriptionTextView.text == "" || durationTextField.text == "" {
             showAlert("Text Fields cannot be empty!")
         } else {
-            guard let uid = uid else {return}
-            if UserDetails.user == nil {
-                FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
-                    if bool {
-                        UserDetails.user = user
-                        self.createNewPost()
-                    } else {
-                        DispatchQueue.main.async {
-                            self.showAlert("Unexpected error occured!")
-                        }
-                    }
-                })
+            
+            if selectedCard == nil {
+                self.showAlert("Please select a card to be billed for this post")
             } else {
-                createNewPost()
+                guard let uid = uid else {return}
+                if UserDetails.user != nil {
+                    FirebaseCalls().getUserDetails(idString : uid, completionHandler: { (user, bool) in
+                        if bool {
+                            UserDetails.user = user
+                            self.createNewPost()
+                        } else {
+                            DispatchQueue.main.async {
+                                self.showAlert("Unexpected error occured!")
+                            }
+                        }
+                    })
+                } else {
+                    createNewPost()
+                }
             }
         }
     }
     
     func createNewPost() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy H:mm:ss a"
         let timeStamp = [".sv": "timestamp"]
-        let timeStampString = FIRServerValue.timestamp()[".sv"] as! String
+        let timeStampString = ServerValue.timestamp()[".sv"] as! String
         
         let courseName = self.courseTextField.text
         let courseLocation = self.locationTextField.text
-        let courseDate = self.dateTextField.text
         let courseDescription = self.descriptionTextView.text
         let courseDuration = self.durationTextField.text
         self.courseDict["major"] = UserDetails.user?.major as AnyObject
@@ -171,13 +205,14 @@ class NewPostTableViewContoller: UITableViewController {
         self.courseDict["user_id"] = UserDetails.user?._id as AnyObject
         self.courseDict["desc"] = courseDescription as AnyObject
         self.courseDict["location"] = courseLocation as AnyObject
-        self.courseDict["start_time"] =  (dateFormatter.date(from: courseDate!)?.timeIntervalSince1970)! * 1000 as AnyObject
+        self.courseDict["start_time"] =  selectedDate.timeIntervalSince1970 * 1000 as AnyObject
         self.courseDict["duration"] = (courseDuration! as NSString).floatValue * 60 * 60 * 1000 as AnyObject
         self.courseDict["timestamp"] = timeStamp as AnyObject
         self.courseDict["username"] = UserDetails.user?.username as AnyObject
         self.courseDict["user_photo_gs"] = UserDetails.user?.photo_gs as AnyObject
         self.courseDict["subject"] = courseName as AnyObject
         self.courseDict["private_sort_tag"] =  (UserDetails.user?._id)! + " " +  timeStampString as AnyObject
+        self.courseDict["stripeid_customer"] = selectedCard?.card_token as AnyObject
         
         if self.selectedImages.count == 0 {
             self.submitPost()
@@ -301,6 +336,7 @@ extension NewPostTableViewContoller : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "postImage", for: indexPath) as! PostImageCollectionViewCell
         cell.postImageView.image = selectedImages[indexPath.item]
+        cell.postImageView.contentMode = .scaleAspectFit
         return cell
     }
 }

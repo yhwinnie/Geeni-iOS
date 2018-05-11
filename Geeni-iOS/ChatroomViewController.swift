@@ -11,6 +11,8 @@ import JSQMessagesViewController
 
 class ChatroomViewController: JSQMessagesViewController {
     
+    @IBOutlet weak var cancelButton : UIBarButtonItem!
+    
     lazy var outgoingBubbleImageView = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView = self.setupIncomingBubble()
     
@@ -19,6 +21,7 @@ class ChatroomViewController: JSQMessagesViewController {
     var receiverId : String?
     var receiverUsername : String?
     var messages = [JSQMessage]()
+    var session : Session?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,19 @@ class ChatroomViewController: JSQMessagesViewController {
         self.senderDisplayName = ""
         observeMessages()
         
+        if chatroom?.tutor == uid {
+            self.navigationItem.rightBarButtonItems = []
+        }
+    }
+    
+    @IBAction func cancelButtonPressed(){
+        ServerCalls().cancelSession(sessionId: (chatroom?._id)!) { (message) in
+            self.showAlert(message)
+        }
+    }
+    
+    override func didPressAccessoryButton(_ sender: UIButton!) {
+        //do nothing
     }
     
     private func addMessage(message : Message) {

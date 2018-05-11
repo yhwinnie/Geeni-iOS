@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4D5835BBEEFD16D3C102B26FFE20710A'
+               BlueprintIdentifier = 'D66A16147F84B6F6F1FF89ACA04870B4'
                BlueprintName = 'TKRadarChart'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TKRadarChart.framework'>

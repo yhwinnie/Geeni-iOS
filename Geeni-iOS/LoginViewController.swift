@@ -27,19 +27,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         activityView.isHidden = false
         activityView.startAnimating()
         //check if the user has logged in
-        if FIRAuth.auth()?.currentUser != nil {
-            let ref = FIRDatabase.database().reference()
-            ref.child("users").observe(FIRDataEventType.value, with: {
+        if Auth.auth().currentUser != nil {
+            let ref = Database.database().reference()
+            ref.child("users").observe(DataEventType.value, with: {
                 (snapshot) in
                 for u in snapshot.children {
-                    let fireDict = (u as! FIRDataSnapshot).value as? [String: AnyObject] ?? [:]
-                    if FIRAuth.auth()?.currentUser?.uid == fireDict["_id"] as! String? {
+                    let fireDict = (u as! DataSnapshot).value as? [String: AnyObject] ?? [:]
+                    if Auth.auth().currentUser?.uid == fireDict["_id"] as! String? {
                         self.firstLogin = false
                         self.activityView.stopAnimating()
                         self.activityView.isHidden = true
                         break;
                     }
                 }
+                uid = Auth.auth().currentUser?.uid
                 DispatchQueue.main.async {
                     if self.firstLogin {
                         self.presentSignUpView()

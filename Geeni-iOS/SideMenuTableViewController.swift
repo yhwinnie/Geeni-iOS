@@ -11,6 +11,7 @@ import SWRevealViewController
 import Firebase
 import FirebaseStorage
 import Kingfisher
+import GoogleSignIn
 
 class SideMenuTableViewController: UITableViewController {
     
@@ -18,7 +19,7 @@ class SideMenuTableViewController: UITableViewController {
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR", "LOGOUT"]
+    let sections: [String] = ["NEWS FEED", "NEW POST", "SCHEDULE", "MESSAGES", "WALLET", "PAYMENT OPTIONS", "BECOME A TUTOR","SHARE","LOGOUT"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,20 @@ class SideMenuTableViewController: UITableViewController {
             FirebaseCalls().getUserDetails(idString : uid) { (user , bool) in
                 if bool {
                     UserDetails.user = user
+                    
+                    let userDetails = UserDetails.user
+                    self.majorLabel.text = userDetails?.major
+                    self.nameLabel.text = userDetails?.username
+                    let imageURL = URL(string: (userDetails?.photo_gs!)!)
+                    if user?.photo_gs?.first == "g"{
+                        storageRef = storage.reference(forURL: (userDetails?.photo_gs!)!)
+                        storageRef.downloadURL { (url, error) in
+                            self.profileImageView.kf.setImage(with: url)
+                        }
+                    } else {
+                        self.profileImageView.kf.setImage(with: imageURL)
+                    } 
+                    
                 } else {
                     DispatchQueue.main.async {
                         
@@ -90,9 +105,13 @@ class SideMenuTableViewController: UITableViewController {
                 DispatchQueue.main.async(execute: {
                     self.majorLabel.text = user.major
                     self.nameLabel.text = user.username
-                    storageRef = storage.reference(forURL: user.photo_gs!)
-                    storageRef.downloadURL { (url, error) in
-                        self.profileImageView.kf.setImage(with: url)
+                    if user.photo_gs?.first == "g"{
+                        storageRef = storage.reference(forURL: (user.photo_gs!))
+                        storageRef.downloadURL { (url, error) in
+                            self.profileImageView.kf.setImage(with: url)
+                        }
+                    } else {
+                        self.profileImageView.kf.setImage(with: URL(string : user.photo_gs!))
                     }
                     self.tableView.reloadData()
                 })
@@ -108,7 +127,7 @@ class SideMenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 9
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -152,9 +171,14 @@ class SideMenuTableViewController: UITableViewController {
             self.revealViewController().setFront(becomeTutor, animated: true)
             
         case 7:
-            let firebaseAuth = FIRAuth.auth()
+            let shareLink : String = "Checkout Geeni Mobile App on Apple App Store and Google Play Store"
+            let activityViewController = UIActivityViewController(activityItems: [shareLink], applicationActivities: [])
+            self.present(activityViewController, animated: true, completion: nil)
+        case 8:
+
             do {
-                try firebaseAuth?.signOut()
+                try Auth.auth().signOut()
+                GIDSignIn.sharedInstance().signOut()
                 let appDelegate = UIApplication.shared.delegate! as! AppDelegate
                 let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
